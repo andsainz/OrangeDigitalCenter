@@ -5,13 +5,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const usersRoutes_1 = __importDefault(require("../routes/usersRoutes"));
+const activitiesRoutes_1 = __importDefault(require("../routes/activitiesRoutes"));
+const adminsRoutes_1 = __importDefault(require("../routes/adminsRoutes"));
 const cors_1 = __importDefault(require("cors"));
 class Server {
     constructor() {
         this.apiPaths = {
-            users: '/api/users'
+            users: '/api/users',
+            activities: '/api/activities',
+            admins: '/api/admins'
         };
         this.userRoutes = usersRoutes_1.default;
+        this.activityRoutes = activitiesRoutes_1.default;
+        this.adminRoutes = adminsRoutes_1.default;
         this.app = (0, express_1.default)();
         this.port = process.env.PORT || '8000';
         this.middlewares();
@@ -23,6 +29,8 @@ class Server {
     }
     routes() {
         this.app.use(this.apiPaths.users, this.userRoutes);
+        this.app.use(this.apiPaths.activities, this.activityRoutes);
+        this.app.use(this.apiPaths.admins, this.adminRoutes);
     }
     listen() {
         this.app.listen(this.port, () => {
