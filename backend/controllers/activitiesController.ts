@@ -34,26 +34,16 @@ export const getActivity = async(req: Request, res: Response): Promise<void> => 
     }
 }
 
-export const createActivity = async(req: Request, res: Response): Promise<void> => {
+export const createActivity = async (req: Request, res: Response): Promise<void> => {
     try {
-        const activityData: ActivityModelAttributes = req.body;
-        if (!activityData.activity_image || !activityData.title || !activityData.subtitle || !activityData.activity_date  || !activityData.available_places) {
-            res.status(400).json({
-                message: "Required data is missing to create an activity.",
-            });
-            return;
-        }
-
-        const existingActivity = await ActivityModel.findOne({
-            where: { activity_id: activityData.activity_id },
-        });
-
-        if (existingActivity) {
-            res.status(409).json({
-                message: "This activity already exists",
-            });
-            return;
-        }
+        const activityData: ActivityModelAttributes = {
+            activity_image: req.body.activity_image,
+            title: req.body.title,
+            subtitle: req.body.subtitle,
+            activity_date: req.body.activity_date,
+            available_places: req.body.available_places,
+            activity_id: 0
+        };
 
         const newActivity = await ActivityModel.create(activityData);
 
@@ -61,20 +51,35 @@ export const createActivity = async(req: Request, res: Response): Promise<void> 
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }
+};
+
+export const updateActivity = async(req: Request, res: Response): Promise<void> => {
+    try {
+        const { id } = req.params;
+        const { body } = req;
+        const activity = await ActivityModel.findByPk(id);
+        if (!activity) {
+            res.status(404).json({ message: "Activity not found." });
+            return;
+        }
+        await activity.update(body);
+        res.json(activity);
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
+    }
 }
 
-export const updateActivity = (req: Request, res: Response): void => {
-    const { id } = req.params;
-    const { body } = req;
-    res.json({
-        id,
-        body
-    });
-}
-
-export const deleteActivity = (req: Request, res: Response): void => {
-    const { id } = req.params;
-    res.json({
-        id
-    });
+export const deleteActivity = async(req: Request, res: Response): Promise<void> => {
+    try {
+        const { id } = req.params;
+        const activity = await ActivityModel.findByPk(id);
+        if (!activity) {
+            res.status(404).json({ message: "Activity not found." });
+            return;
+        }
+        await activity.destroy();
+        res.json({ message: "Activity deleted successfully." });
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
+    }
 }

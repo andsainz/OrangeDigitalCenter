@@ -17,6 +17,8 @@ class ActivityModel extends Model<ActivityModelAttributes>{
     public subtitle!: string;
     public activity_date!: string;
     public available_places!: number;
+    category_id: any;
+    category_name: any;
 }
 
 ActivityModel.init(
