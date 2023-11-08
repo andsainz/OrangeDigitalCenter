@@ -1,37 +1,93 @@
 import { Request, Response } from 'express';
+import AdminModel, {AdminModelAttributes} from '../models/adminsModel';
 
-export const getAdmins = (req: Request, res: Response): void => {
-    res.json({
-        msg: 'Hola'
-    });
+export const getAdmins = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const admins = await AdminModel.findAll();
+        const adminsWithUUID: AdminModelAttributes[] = admins.map((admin) => {
+            return {
+                id: admin.id,
+                fullName: admin.fullName,
+                email: admin.email,
+                admin_password: admin.admin_password,
+            };
+        });
+        res.json(adminsWithUUID);
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
+    }
 }
 
-export const getAdmin = (req: Request, res: Response): void => {
-    const { id } = req.params;
-    res.json({
-        id
-    });
+export const getAdmin = async (req: Request, res: Response): Promise<void>  => {
+    try {
+        const { id } = req.params;
+        const admin = await AdminModel.findByPk(id);
+        if (!admin) {
+            res.status(404).json({ message: "Admin not found." });
+            return;
+        }
+        res.json(admin);
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+export const createAdmin = async(req: Request, res: Response): Promise<void> => {
+    try {
+        const adminData: AdminModelAttributes = req.body;
+        if (!adminData.fullName || !adminData.email || !adminData.admin_password) {
+            res.status(400).json({
+                message: "Required data is missing to create an admin.",
+            });
+            return;
+        }
+
+        const existingAdmin = await AdminModel.findOne({
+            where: { email: adminData.email },
+        });
+
+        if (existingAdmin) {
+            res.status(409).json({
+                message: "Password or email does not match.",
+            });
+            return;
+        }
+
+        const newAdmin = await AdminModel.create(adminData);
+
+        res.status(201).json(newAdmin);
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
+    }
 }
 
-export const createAdmin = (req: Request, res: Response): void => {
-    const { body } = req;
-    res.json({
-        body
-    });
+export const updateAdmin = async(req: Request, res: Response): Promise<void> => {
+    try {
+        const { id } = req.params;
+        const { body } = req;
+        const admin = await AdminModel.findByPk(id);
+        if (!admin) {
+            res.status(404).json({ message: "Admin not found." });
+            return;
+        }
+        await admin.update(body);
+        res.json(admin);
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
+    }
 }
 
-export const updateAdmin = (req: Request, res: Response): void => {
-    const { id } = req.params;
-    const { body } = req;
-    res.json({
-        id,
-        body
-    });
-}
-
-export const deleteAdmin = (req: Request, res: Response): void => {
-    const { id } = req.params;
-    res.json({
-        id
-    });
+export const deleteAdmin = async(req: Request, res: Response): Promise<void> => {
+    try {
+        const { id } = req.params;
+        const admin = await AdminModel.findByPk(id);
+        if (!admin) {
+            res.status(404).json({ message: "Admin not found." });
+            return;
+        }
+        await admin.destroy();
+        res.json({ message: "Admin deleted successfully." });
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
+    }
 }

@@ -26,7 +26,7 @@ CREATE TABLE activities (
     title VARCHAR(50) NOT NULL,
     subtitle VARCHAR(100) NOT NULL,
     activity_date varchar(50),
-    places INT,
+    available_places INT,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     user_id VARCHAR(36),

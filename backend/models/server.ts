@@ -2,6 +2,8 @@ import express, { Application } from 'express'
 import userRoutes from '../routes/usersRoutes'
 import activityRoutes from '../routes/activitiesRoutes'
 import adminRoutes from '../routes/adminsRoutes'
+import registerRoutes from '../routes/registerRoutes'
+import loginRoutes from '../routes/loginRoutes'
 import cors from 'cors'
 
 class Server {
@@ -10,11 +12,15 @@ class Server {
     private apiPaths = {
         users: '/api/users',
         activities: '/api/activities',
-        admins: '/api/admins'
+        admins: '/api/admins',
+        register: '/api/registration',
+        login: '/api/login'
     }
     private userRoutes = userRoutes;
     private activityRoutes=activityRoutes;
     private adminRoutes=adminRoutes;
+    private registerRoutes=registerRoutes;
+    private loginRoutes=loginRoutes;
 
     constructor () {
         this.app = express()
@@ -32,6 +38,8 @@ class Server {
         this.app.use(this.apiPaths.users, this.userRoutes)
         this.app.use(this.apiPaths.activities, this.activityRoutes)
         this.app.use(this.apiPaths.admins, this.adminRoutes)
+        this.app.use(this.apiPaths.register, this.registerRoutes)
+        this.app.use(this.apiPaths.login, this.loginRoutes)
     }
 
     listen() {
