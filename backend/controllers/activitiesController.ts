@@ -7,6 +7,7 @@ export const getActivities = async (req: Request, res: Response): Promise<void> 
         const activitiesArray: ActivityModelAttributes[] = activities.map((activity) => {
             return {
                 activity_id: activity.activity_id,
+                category_id: activity.category_id,
                 activity_image: activity.activity_image,
                 title: activity.title,
                 subtitle: activity.subtitle,
@@ -20,10 +21,11 @@ export const getActivities = async (req: Request, res: Response): Promise<void> 
     }
 }
 
-export const getActivity = async(req: Request, res: Response): Promise<void> => {
+export const getActivityById = async(req: Request, res: Response): Promise<void> => {
     try {
         const { id } = req.params;
         const activity = await ActivityModel.findByPk(id);
+        
         if (!activity) {
             res.status(404).json({ message: "Activity not found." });
             return;
@@ -34,16 +36,28 @@ export const getActivity = async(req: Request, res: Response): Promise<void> => 
     }
 }
 
+export const getActivitiesByCategory = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { category_id } = req.params;
+
+        const activities = await ActivityModel.findAll({
+            where: { category_id },
+            attributes: { exclude: ['id'] },
+        });
+
+        if (!activities) {
+            res.status(404).json({ message: "Category not found." });
+        } else {
+            res.json(activities);
+        }
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
 export const createActivity = async (req: Request, res: Response): Promise<void> => {
     try {
-        const activityData: ActivityModelAttributes = {
-            activity_image: req.body.activity_image,
-            title: req.body.title,
-            subtitle: req.body.subtitle,
-            activity_date: req.body.activity_date,
-            available_places: req.body.available_places,
-            activity_id: 0
-        };
+        const { activity_id, ...activityData } = req.body;
 
         const newActivity = await ActivityModel.create(activityData);
 

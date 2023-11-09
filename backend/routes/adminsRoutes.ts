@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { getAdmins, getAdmin,createAdmin, updateAdmin, deleteAdmin} from "../controllers/adminsController"
+import { getAdmins, getAdminById, createAdmin, updateAdmin, deleteAdmin} from "../controllers/adminsController"
 
 const router = Router()
 
 router.get('/', getAdmins)
-router.get('/:id', getAdmin)
+router.get('/:id', getAdminById)
 router.post('/', createAdmin)
 router.put('/:id', updateAdmin)
 router.delete('/:id', deleteAdmin)

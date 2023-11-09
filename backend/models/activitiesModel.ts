@@ -6,6 +6,7 @@ import CategoryModel from "./categoriesModel";
 
 export interface ActivityModelAttributes {
     activity_id: number;
+    category_id: number;
     activity_image: string;
     title: string;
     subtitle: string;
@@ -15,13 +16,12 @@ export interface ActivityModelAttributes {
 
 class ActivityModel extends Model<ActivityModelAttributes>{
     public activity_id!: number;
+    public category_id!: number;
     public activity_image!: string;
     public title!: string;
     public subtitle!: string;
     public activity_date!: string;
     public available_places!: number;
-    category_id: any;
-    category_name: any;
 }
 
 ActivityModel.init(
@@ -32,6 +32,11 @@ ActivityModel.init(
             primaryKey: true,
             allowNull: false,
             autoIncrement: true,
+        },
+        category_id: {
+            type: DataTypes.INTEGER,
+            defaultValue: DataTypes.INTEGER,
+            allowNull: false
         },
         activity_image: {
             type: DataTypes.STRING,

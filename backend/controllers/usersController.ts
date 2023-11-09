@@ -4,7 +4,7 @@ import UserModel, { UserModelAttributes } from "../models/usersModel";
 export const getUsers = async (req: Request, res: Response): Promise<void> => {
     try {
         const users = await UserModel.findAll();
-        const usersWithUUID: UserModelAttributes[] = users.map((user) => {
+        const usersArray: UserModelAttributes[] = users.map((user) => {
             return {
                 id: user.id,
                 fullName: user.fullName,
@@ -12,7 +12,7 @@ export const getUsers = async (req: Request, res: Response): Promise<void> => {
                 user_password: user.user_password,
             };
         });
-        res.json(usersWithUUID);
+        res.json(usersArray);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }

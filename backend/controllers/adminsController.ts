@@ -4,7 +4,7 @@ import AdminModel, {AdminModelAttributes} from '../models/adminsModel';
 export const getAdmins = async (req: Request, res: Response): Promise<void> => {
     try {
         const admins = await AdminModel.findAll();
-        const adminsWithUUID: AdminModelAttributes[] = admins.map((admin) => {
+        const adminsArray: AdminModelAttributes[] = admins.map((admin) => {
             return {
                 id: admin.id,
                 fullName: admin.fullName,
@@ -12,13 +12,13 @@ export const getAdmins = async (req: Request, res: Response): Promise<void> => {
                 admin_password: admin.admin_password,
             };
         });
-        res.json(adminsWithUUID);
+        res.json(adminsArray);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }
 }
 
-export const getAdmin = async (req: Request, res: Response): Promise<void>  => {
+export const getAdminById = async (req: Request, res: Response): Promise<void>  => {
     try {
         const { id } = req.params;
         const admin = await AdminModel.findByPk(id);
