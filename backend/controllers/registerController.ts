@@ -12,19 +12,20 @@ export const postRegistration = async (req: Request, res: Response): Promise<voi
                 .json({ message: "User with this email already exists." });
             return;
         }
-        const hashedPassword = await bcrypt.hash(user_password, 10);
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(user_password, saltRounds);
         const newUser = await UserModel.create({
             fullName,
             email,
             user_password: hashedPassword,
-        } as UserModelAttributes); // Añadí la conversión de tipo aquí
+        } as UserModelAttributes); 
         if (!newUser) {
             console.log("Error: Unable to create user");
             res.status(500).json({ error: "Cannot register user at the moment!" });
         }
         res.json({ message: "Thanks for registering" });
     } catch (error: any) {
-        // Maneja errores de manera adecuada
+    
         res.status(500).json({ message: error.message });
     }
 };
