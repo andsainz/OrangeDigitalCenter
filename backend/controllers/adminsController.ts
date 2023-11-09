@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import AdminModel, {AdminModelAttributes} from '../models/adminsModel';
+import bcrypt from "bcrypt";
 
 export const getAdmins = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -52,6 +53,11 @@ export const createAdmin = async(req: Request, res: Response): Promise<void> => 
             });
             return;
         }
+
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(adminData.admin_password, saltRounds);
+
+        adminData.admin_password = hashedPassword;
 
         const newAdmin = await AdminModel.create(adminData);
 
