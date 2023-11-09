@@ -6,6 +6,7 @@ export interface AdminModelAttributes {
     fullName: string;
     email: string;
     admin_password: string;
+    role: string
 }
 
 class AdminModel extends Model<AdminModelAttributes> {
@@ -13,6 +14,7 @@ class AdminModel extends Model<AdminModelAttributes> {
     public fullName!: string;
     public email!: string;
     public admin_password!: string;
+    public role!: string
 }
 
 AdminModel.init(
@@ -37,6 +39,11 @@ AdminModel.init(
         admin_password: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        role: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "admin"
         },
     },
     {

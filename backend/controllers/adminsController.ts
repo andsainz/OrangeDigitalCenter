@@ -11,6 +11,7 @@ export const getAdmins = async (req: Request, res: Response): Promise<void> => {
                 fullName: admin.fullName,
                 email: admin.email,
                 admin_password: admin.admin_password,
+                role: "admin"
             };
         });
         res.json(adminsArray);

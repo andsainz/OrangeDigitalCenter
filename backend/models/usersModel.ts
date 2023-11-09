@@ -1,4 +1,4 @@
-import { DataTypes, Sequelize, Model } from "sequelize";
+import { DataTypes, Model } from "sequelize";
 import db from "../database/db";
 
 export interface UserModelAttributes {
@@ -6,6 +6,7 @@ export interface UserModelAttributes {
     fullName: string;
     email: string;
     user_password: string;
+    role: string;
 }
 
 class UserModel extends Model<UserModelAttributes> {
@@ -13,6 +14,7 @@ class UserModel extends Model<UserModelAttributes> {
     public fullName!: string;
     public email!: string;
     public user_password!: string;
+    public role!: string;
 }
 
 UserModel.init(
@@ -31,17 +33,22 @@ UserModel.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                isEmail: true
-            }
+                isEmail: true,
+            },
         },
         user_password: {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        role: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "user",
+        },
     },
     {
-        sequelize: db, 
-        tableName: "users", 
+        sequelize: db,
+        tableName: "users",
         timestamps: false,
     }
 );
