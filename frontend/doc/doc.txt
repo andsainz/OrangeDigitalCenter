@@ -1,3 +1,0 @@
-Instalación bootsted
-
-https://boosted.orange.com/docs/5.3/getting-started/vite/
