@@ -28,14 +28,12 @@ ActivityModel.init(
     {
         activity_id: {
             type: DataTypes.INTEGER,
-            defaultValue: DataTypes.INTEGER,
             primaryKey: true,
             allowNull: false,
             autoIncrement: true,
         },
         category_id: {
             type: DataTypes.INTEGER,
-            defaultValue: DataTypes.INTEGER,
             allowNull: false
         },
         activity_image: {
