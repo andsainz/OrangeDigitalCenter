@@ -11,7 +11,7 @@ export const getUsers = async (req: Request, res: Response): Promise<void> => {
                 fullName: user.fullName,
                 email: user.email,
                 user_password: user.user_password,
-                role: "user"
+                isAdmin: user.isAdmin,
             };
         });
         res.json(usersArray);

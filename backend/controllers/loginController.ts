@@ -6,31 +6,28 @@ import jwt from "jsonwebtoken";
 export const postLogin = async (req: Request, res: Response): Promise<void> => {
     try {
         const { email, user_password } = req.body;
-        const userWithEmail = await UserModel.findOne({ where: { email } }).catch(
+        const user = await UserModel.findOne({ where: { email } }).catch(
             (err: Error) => {
                 console.log("Error: ", err);
             }
         );
 
-        if (!userWithEmail) {
+        if (!user) {
             res.json({ message: "Email or password does not match!" });
-            return
+            return;
         }
 
-        const match = await bcrypt.compare(
-            user_password,
-            userWithEmail.user_password
-        );
+        const match = await bcrypt.compare(user_password, user.user_password);
 
         if (!match) {
-            res
-                .status(401)
-                .json({ message: "Email or password does not match!" });
-            return
+            res.status(401).json({ message: "Email or password does not match!" });
+            return;
         }
 
+        const role = user.isAdmin ? "admin" : "user";
+
         const jwtToken = jwt.sign(
-            { id: userWithEmail.id, email: userWithEmail.email },
+            { id: user.id, email: user.email, role },
             process.env.JWT_SECRET as string
         );
 

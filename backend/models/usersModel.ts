@@ -6,7 +6,7 @@ export interface UserModelAttributes {
     fullName: string;
     email: string;
     user_password: string;
-    role: string;
+    isAdmin: boolean;
 }
 
 class UserModel extends Model<UserModelAttributes> {
@@ -14,7 +14,7 @@ class UserModel extends Model<UserModelAttributes> {
     public fullName!: string;
     public email!: string;
     public user_password!: string;
-    public role!: string;
+    public isAdmin!: boolean;
 }
 
 UserModel.init(
@@ -40,10 +40,10 @@ UserModel.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        role: {
-            type: DataTypes.STRING,
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
             allowNull: false,
-            defaultValue: "user",
+            defaultValue: false,
         },
     },
     {

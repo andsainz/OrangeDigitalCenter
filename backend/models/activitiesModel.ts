@@ -28,7 +28,6 @@ ActivityModel.init(
     {
         activity_id: {
             type: DataTypes.INTEGER,
-            defaultValue: DataTypes.INTEGER,
             primaryKey: true,
             allowNull: false,
             autoIncrement: true,
