@@ -1,14 +1,29 @@
 import express, { Application } from 'express'
-import userRoutes from '../routes/usersRoutes'
 import cors from 'cors'
+import adminRoutes from '../routes/adminsRoutes'
+import userRoutes from '../routes/usersRoutes'
+import activityRoutes from '../routes/activitiesRoutes'
+import categoryRoutes from '../routes/categoriesRoutes'
+import registerRoutes from '../routes/registerRoutes'
+import loginRoutes from '../routes/loginRoutes'
 
 class Server {
     private app: Application;
     private port: string | number;
     private apiPaths = {
-        users: '/api/users'
+        admins: '/admins',
+        users: '/users',
+        activities: '/activities',
+        categories: '/categories',
+        register: '/registration',
+        login: '/login'
     }
-    private userRoutes = userRoutes; 
+    private adminRoutes=adminRoutes;
+    private userRoutes = userRoutes;
+    private activityRoutes=activityRoutes;
+    private categoryRoutes=categoryRoutes;
+    private registerRoutes=registerRoutes;
+    private loginRoutes=loginRoutes;
 
     constructor () {
         this.app = express()
@@ -23,7 +38,12 @@ class Server {
     }
 
     routes() {
+        this.app.use(this.apiPaths.admins, this.adminRoutes)
         this.app.use(this.apiPaths.users, this.userRoutes)
+        this.app.use(this.apiPaths.activities, this.activityRoutes)
+        this.app.use(this.apiPaths.categories, this.categoryRoutes)
+        this.app.use(this.apiPaths.register, this.registerRoutes)
+        this.app.use(this.apiPaths.login, this.loginRoutes)
     }
 
     listen() {
@@ -32,5 +52,6 @@ class Server {
         })
     }
 }
+
 
 export default Server

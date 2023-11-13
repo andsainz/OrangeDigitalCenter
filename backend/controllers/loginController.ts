@@ -1,0 +1,42 @@
+import { Request, Response } from "express";
+import UserModel from "../models/usersModel";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+
+export const postLogin = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { email, user_password } = req.body;
+        const userWithEmail = await UserModel.findOne({ where: { email } }).catch(
+            (err: Error) => {
+                console.log("Error: ", err);
+            }
+        );
+
+        if (!userWithEmail) {
+            res.json({ message: "Email or password does not match!" });
+            return
+        }
+
+        const match = await bcrypt.compare(
+            user_password,
+            userWithEmail.user_password
+        );
+
+        if (!match) {
+            res
+                .status(401)
+                .json({ message: "Email or password does not match!" });
+            return
+        }
+
+        const jwtToken = jwt.sign(
+            { id: userWithEmail.id, email: userWithEmail.email },
+            process.env.JWT_SECRET as string
+        );
+
+        res.json({ message: "Welcome back!", token: jwtToken });
+    } catch (error: any) {
+        console.log("Error: ", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
