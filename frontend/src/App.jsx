@@ -1,14 +1,14 @@
 import Navbar from "./Components/Navbar/Navbar.jsx";
+import Home from './Components/home/Home.jsx';
 import Footer from "./Components/Footer/Footer.jsx";
-import LoginForm from "./pages/Login/Login.jsx";
-import React from "react";
+import './assets/fonts/fonts.css';
 
 function App() {
 
   return (
     <>
     <Navbar />
-    <LoginForm />
+    <Home />
     <Footer />
     </>
   );
