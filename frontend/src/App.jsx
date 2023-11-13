@@ -1,3 +1,4 @@
+import './assets/fonts/fonts.css';
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import Footer from "./Components/Footer/Footer.jsx";
 import LoginForm from "./pages/Login/Login.jsx";
