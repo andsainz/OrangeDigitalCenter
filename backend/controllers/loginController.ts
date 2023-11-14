@@ -30,7 +30,7 @@ export const postLogin = async (req: Request, res: Response): Promise<void> => {
             { id: user.id, email: user.email, role },
             process.env.JWT_SECRET as string
         );
-
+        res.cookie('jwtToken', jwtToken, {httpOnly: true})
         res.json({ message: "Welcome back!", token: jwtToken });
     } catch (error: any) {
         console.log("Error: ", error);

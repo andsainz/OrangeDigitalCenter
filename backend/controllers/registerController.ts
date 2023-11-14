@@ -24,7 +24,7 @@ export const postRegistration = async (req: Request, res: Response): Promise<voi
             fullName,
             email,
             user_password: hashedPassword,
-            isAdmin: false // Siempre establece isAdmin en false
+            isAdmin: false
         } as UserModelAttributes); 
         if (!newUser) {
             console.log("Error: Unable to create user");
