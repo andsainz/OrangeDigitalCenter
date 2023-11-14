@@ -1,4 +1,3 @@
-import React from 'react';
 import './Odc.css';
 import Odc1 from '../../assets/imagesOdc/odc1.png';
 import Odc2 from '../../assets/imagesOdc/odc2.png';

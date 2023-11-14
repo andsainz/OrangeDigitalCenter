@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import Cards from "./Cards";
+import Cards from "../../Components/Cards/Cards.jsx";
 import CardWrapper from '../../Components/cardWrapper/CardWrapper';
 import './Home.css';
 
@@ -10,7 +10,7 @@ function Home() {
     useEffect(() => {
         const data = [
             {
-                activity_image: "",
+                activity_image: "1",
                 activity_title: "Charla motivacional",
                 activity_date: "13-11-2023",
                 start_time: "10:00",
@@ -19,7 +19,7 @@ function Home() {
                 link: "activity url",
             },
             {
-                activity_image: "",
+                activity_image: "2",
                 activity_title: "Charla motivacional",
                 activity_date: "13-11-2023",
                 start_time: "10:00",
@@ -28,7 +28,7 @@ function Home() {
                 link: "activity url",
             },
             {
-                activity_image: "",
+                activity_image: "3",
                 activity_title: "Charla motivacional",
                 activity_date: "13-11-2023",
                 start_time: "10:00",
@@ -36,7 +36,6 @@ function Home() {
                 act_description: "Los alumnos del bootcamp de ODC y Factoria F5 reciben una charla sobre como manejar la frustación en un entorno de desarrollo...",
                 link: "activity url",
             },
-           
         ];
 
         setCardsData(data);
