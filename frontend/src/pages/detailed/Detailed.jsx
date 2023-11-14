@@ -45,7 +45,6 @@ function DetailedMain() {
     available_places,
   } = activityDetails;
 
-
   return (
     <main className="detailed_main">
       <h2 className="detailed_category orange">Categoría: {category_id}</h2>
