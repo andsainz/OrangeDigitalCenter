@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import CardWrapper from "./CardWrapper";
-import Cards from "../Cards/Cards";
+import { Row, Col } from 'react-bootstrap';
+import Cards from "./Cards";
+import CardWrapper from '../../Components/cardWrapper/CardWrapper';
 import './Home.css';
 
 function Home() {
     const [cardsData, setCardsData] = useState([]);
 
     useEffect(() => {
-      
         const data = [
             {
                 activity_image: "",
@@ -36,17 +36,22 @@ function Home() {
                 act_description: "Los alumnos del bootcamp de ODC y Factoria F5 reciben una charla sobre como manejar la frustación en un entorno de desarrollo...",
                 link: "activity url",
             },
+           
         ];
 
         setCardsData(data);
     }, []);
 
     return (
-        <CardWrapper cardsData={cardsData}>
+        <Row xs={1} sm={2} md={3} lg={4} className="g-4">
             {cardsData.map((card, index) => (
-                <Cards key={index} {...card} />
+                <Col key={index}>
+                    <CardWrapper>
+                        <Cards {...card} />
+                    </CardWrapper>
+                </Col>
             ))}
-        </CardWrapper>
+        </Row>
     );
 }
 

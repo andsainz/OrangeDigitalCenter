@@ -1,9 +1,9 @@
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from "./Components/Navbar/Navbar.jsx";
-import Home from './Components/home/Home.jsx';
+import Home from './pages/home/Home.jsx';
 import Footer from "./Components/Footer/Footer.jsx";
-import './assets/fonts/fonts.css';
 import Discover from "./pages/Odc/Odc.jsx";
-import React from "react";
+import './assets/fonts/fonts.css';
 
 function App() {
 
