@@ -15,7 +15,7 @@ const Navbar = () => {
         <h1 className="title" style={{ color: 'white' }}></h1>
       </div>
       <div className="icon-container" >
-        <a href="/home" className="nav-link">
+        <a href="/" className="nav-link">
           <img src={HomeIcon} width="30" height="30" alt="Home" />
         </a>
         <a href="/login" className="nav-link" >
