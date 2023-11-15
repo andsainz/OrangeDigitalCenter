@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
 import "./Cards.css";
 
-function Cards({ activity_image, act_description, activity_date, start_time, end_time, activity_title, link }) {
+import { useNavigate } from 'react-router-dom';
+
+function Cards({ activity_image, act_description, activity_date, start_time, end_time, activity_title, link, activity_id }) {
+    const navigate = useNavigate();
+
     const handleClickBtn = () => {
-        window.location.href = link;
+        navigate(`/activities/${activity_id}`);
     };
 
     return (

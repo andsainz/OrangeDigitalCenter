@@ -1,0 +1,37 @@
+.banner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100vw;
+    height: 40vw;
+    background-image: url('../../../assets/imagesOdc/odc4.png');
+    background-size: cover;
+    background-position: center;
+    padding-right: 2vw;
+}
+
+.banner-title {
+    color: #FF7900;
+}
+
+.content-container {
+    display: flex;
+    width: 28vw;
+    height: 15vh;
+    padding: 2vw 2vw;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+
+.learn-more-btn {
+    width: 214px;
+    height: 42px;
+    border: 3px solid #000;
+    background-color: rgba(0, 0, 0, 0.0);
+    color: black;
+    cursor: pointer;
+    margin-top: 2vh;
+}

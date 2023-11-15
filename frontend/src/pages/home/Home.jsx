@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import CardWrapper from '../../Components/cardWrapper/CardWrapper';
+import CardWrapper from '../../Components/home/cardWrapper/CardWrapper';
+import WelcomeBanner from '../../Components/home/banners/welcomeBanner.jsx';
 import './Home.css';
 
 function Home() {
@@ -41,11 +42,12 @@ function Home() {
     }, []);
 
     return (
-        <Row xs={1} sm={2} md={3} lg={4} className="g-4">
-            <Col>
+        <>
+            <WelcomeBanner />
+            <Row xs={1} sm={2} md={3} lg={4} className="g-4">
                 <CardWrapper cardsData={cardsData} />
-            </Col>
-        </Row>
+            </Row>
+        </>
     );
 }
 
