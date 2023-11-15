@@ -9,7 +9,7 @@ import loginRoutes from '../routes/loginRoutes'
 import cookieParser from 'cookie-parser'
 
 class Server {
-    private app: Application;
+    public app: Application;
     private port: string | number;
     private apiPaths = {
         admins: '/admins',
