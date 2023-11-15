@@ -10,12 +10,15 @@ interface AuthenticatedRequest extends Request {
 
 export const authenticateUser = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
-        const token = req.headers.authorization?.split(' ')[1];
+        const token = req.headers.authorization?.split(' ')[1] || req.cookies.token ;
+
 
         if (!token) {
             res.status(401).json({ message: "Missing authorization token" });
             return;
         }
+
+        console.log(token)
 
         const jwtSecret = process.env.JWT_SECRET;
 
@@ -25,6 +28,8 @@ export const authenticateUser = async (req: AuthenticatedRequest, res: Response,
         }
 
         const decodedToken: any = jwt.verify(token, jwtSecret);
+        
+        console.log(decodedToken)
 
         const user = await UserModel.findByPk(decodedToken.id);
 
@@ -43,8 +48,7 @@ export const authenticateUser = async (req: AuthenticatedRequest, res: Response,
 
 export const authenticateAdmin = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
-        const token = req.headers.authorization?.split(' ')[1];
-
+        const token = req.headers.authorization?.split(' ')[1] || req.cookies.token;
         if (!token) {
             res.status(401).json({ message: "Missing authorization token" });
             return;

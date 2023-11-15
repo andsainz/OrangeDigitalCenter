@@ -6,6 +6,7 @@ import activityRoutes from '../routes/activitiesRoutes'
 import categoryRoutes from '../routes/categoriesRoutes'
 import registerRoutes from '../routes/registerRoutes'
 import loginRoutes from '../routes/loginRoutes'
+import cookieParser from 'cookie-parser'
 
 class Server {
     private app: Application;
@@ -34,6 +35,7 @@ class Server {
 
     middlewares() {
         this.app.use(cors())
+        this.app.use(cookieParser())
         this.app.use(express.json())
     }
 
