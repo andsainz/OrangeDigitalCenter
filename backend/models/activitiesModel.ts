@@ -34,7 +34,6 @@ ActivityModel.init(
         },
         category_id: {
             type: DataTypes.INTEGER,
-            defaultValue: DataTypes.INTEGER,
             allowNull: false
         },
         activity_image: {
