@@ -22,7 +22,7 @@ function CardWrapper({ cardsData }) {
 }
 
 CardWrapper.propTypes = {
-        cardsData: PropTypes.arrayOf(PropTypes.shape({
+    cardsData: PropTypes.arrayOf(PropTypes.shape({
         activity_image: PropTypes.string.isRequired,
         act_description: PropTypes.string.isRequired,
         activity_date: PropTypes.string.isRequired,
