@@ -1,13 +1,15 @@
 import { Router } from "express";
-import { getActivities, getActivityById, getActivitiesByCategory, createActivity, updateActivity, deleteActivity} from "../controllers/activitiesController";
+import { getActivities, getActivityById, getActivitiesByCategory, createActivity, updateActivity, deleteActivity } from "../controllers/activitiesController";
+import { authenticateUser, authenticateAdmin } from "../middlewares/authMiddleware";
 
-const router = Router()
+const router = Router();
 
-router.get('/', getActivities)
-router.get('/:id', getActivityById)
-router.get('/categories/:category_id', getActivitiesByCategory)
-router.post('/', createActivity)
-router.put('/:id', updateActivity)
-router.delete('/:id', deleteActivity)
+router.get('/', getActivities);
+router.get('/:id', getActivityById);
+router.get('/categories/:category_id', getActivitiesByCategory);
 
-export default router
+router.post('/', authenticateUser, authenticateAdmin, createActivity);
+router.put('/:id', authenticateUser, authenticateAdmin, updateActivity);
+router.delete('/:id', authenticateUser, authenticateAdmin, deleteActivity);
+
+export default router;
