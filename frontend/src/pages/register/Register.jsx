@@ -69,7 +69,7 @@ const Register = () => {
 </div>
 
 
-      <button type="submit">Reecibir newsletter</button>
+      <button type="submit">Recibir newsletter</button>
 
       <div>
         {showSuccessAlert && (
