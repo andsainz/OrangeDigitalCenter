@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./Detailed.css";
 import QRCode from "react-qr-code";
-import Btn_inscription from '../../Components/detailed/btn_inscription/Btn_inscription'
+import Btn_inscription from '../../components/detailed/btn_inscription/Btn_inscription'
 
 import imgTEMPT from '../../assets/images/eventoODC.jpg'
 

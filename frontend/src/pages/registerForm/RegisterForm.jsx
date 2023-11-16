@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form"
+import './RegisterForm.css'
 
 const RegisterForm = () => {
 
@@ -7,18 +8,21 @@ const RegisterForm = () => {
         }
     })
     const hasDonePreviousActivity = watch('hasDonePreviousActivity');
-    const isSubscribed = watch('isSubscribed');
 
     const onSubmit = (data) => {
         console.log(data)
     }
     return <>
+    <div className="form-container">
+        <div className="form-content">
+        <div className="field-container">
         <h2>Registro de interesados en programas en el <span className="orange-color">Orange</span> Digital Center 2023-2024</h2>
         <p>Para más información, escríbenos a odc@larueca.info</p>
+        </div>
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
+            <div className="field-container">
                 <label>¿Has hecho una actividad anteriormente en el ODC?</label>
-                <div>
+                <div className="second-col-field">
                     <input type="radio" id="yes" value="yes" {...register('hasDonePreviousActivity', { required: true })} />
                     <label htmlFor="yes">Sí</label>
 
@@ -28,9 +32,9 @@ const RegisterForm = () => {
                 {errors.hasDonePreviousActivity?.type === 'required' && <p>Este campo es obligatorio</p>}
             </div>
 
-            <div>
+            <div className="field-container">
                 <label>¿Estás suscrito a nuestra newsletter?</label>
-                <div>
+                <div className="second-col-field">
                     <input type="radio" id="subscribed-yes" value="yes" {...register('isSubscribed', { required: true })} />
                     <label htmlFor="subscribed-yes">Sí</label>
 
@@ -39,7 +43,7 @@ const RegisterForm = () => {
                 </div>
                 {errors.isSubscribed?.type === 'required' && <p>Este campo es obligatorio</p>}
             </div>
-            <div>
+            <div className="field-container">
                 <label>Email</label>
                 <input type="text" {...register('email', {
                     pattern: /\S+@\S+\.\S+/
@@ -49,7 +53,7 @@ const RegisterForm = () => {
             </div>
             {hasDonePreviousActivity === 'no' && (
                 <div>
-                    <div>
+                    <div className="field-container">
                         <label>Nombre y apellidos</label>
                         <input type="text" {...register('fullName', {
                             required: true,
@@ -58,7 +62,7 @@ const RegisterForm = () => {
                         {errors.fullName?.type === 'required' && <p>El nombre y los apellidos son obligatorios</p>}
                         {errors.fullName?.type === 'maxLength' && <p>El nombre y los apellidos deben tener menos de 100 caracteres</p>}
                     </div>
-                    <div>
+                    <div className="field-container">
                         <label>Género</label>
                         <select {...register('genre')}>
                             <option value="woman">Mujer</option>
@@ -68,7 +72,7 @@ const RegisterForm = () => {
                         </select>
                         {errors.genre?.type === 'required' && <p>Este campo es obligatorio</p>}
                     </div>
-                    <div>
+                    <div className="field-container">
                         <label>Edad</label>
                         <select {...register('age')}>
                             <option value="0/15y">0-15 años</option>
@@ -78,11 +82,11 @@ const RegisterForm = () => {
                         </select>
                         {errors.age?.type === 'required' && <p>Este campo es obligatorio</p>}
                     </div>
-                    <div>
+                    <div className="field-container">
                         <label>Código postal o lugar de residencia</label>
                         <input type="text" {...register('residencePlace')}></input>
                     </div>
-                    <div>
+                    <div className="field-container">
                         <label>Quiero recibir la newsletter e información sobre otros cursos y actividades del Orange Digital Center</label>
                         <div>
                             <input type="radio" id="suscribe-yes" value="yes" {...register('suscriptionDesire', { required: true })} />
@@ -94,7 +98,7 @@ const RegisterForm = () => {
                         {errors.suscriptionDesire?.type === 'required' && <p>Este campo es obligatorio</p>}
                     </div>
 
-                    <div>
+                    <div className="field-container">
                         <label>Intereses</label>
                         <div>
                             <input type="checkbox" id="entrepreneurship" value="entrepreneurship" {...register('interests')} />
@@ -121,7 +125,7 @@ const RegisterForm = () => {
                         {errors.interests?.type === 'required' && <p>Selecciona al menos un interés</p>}
                     </div>
 
-                    <div>
+                    <div className="field-container" >
                         <label>Disponibilidad horaria</label>
                         <div>
                             <input type="radio" id="morning" value="mornings" {...register('availableTime', { required: true })} />
@@ -143,6 +147,8 @@ const RegisterForm = () => {
 
             <input type="submit" value="Enviar"></input>
         </form>
+        </div>
+        </div>
     </>
 }
 

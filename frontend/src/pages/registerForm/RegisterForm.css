@@ -1,0 +1,25 @@
+.form-container {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+}
+
+.form-content {
+    width: 60vw;
+    height: 100vh;
+}
+
+.field-container {
+    display: flex;
+    background-color: #fff;
+    border-radius: 0.9rem;
+    border-top: 5px solid #FF7900;
+    height: 10vh;
+    text-align: left;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 1rem;
+}

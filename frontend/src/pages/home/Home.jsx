@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import CardWrapper from '../../Components/home/cardWrapper/CardWrapper';
-import WelcomeBanner from '../../Components/home/banners/WelcomeBanner.jsx';
-import MenuCategories from '../../Components/home/menuCategories/MenuCategories.jsx'
+import CardWrapper from '../../components/home/cardWrapper/CardWrapper';
+import WelcomeBanner from '../../components/home/banners/WelcomeBanner.jsx';
+import MenuCategories from '../../components/home/menuCategories/MenuCategories.jsx'
 import './Home.css';
 
 function Home() {
