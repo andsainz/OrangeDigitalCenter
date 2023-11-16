@@ -6,10 +6,12 @@ export interface RegisteredModelAttributes {
     email: string;
     fullName: string;
     gender: string;
-    age: number;
+    age: string;
     residencePlace: string;
     interests: string;
-    availabilityTime: string;
+    hasDonePreviousActivity: boolean;
+    isSubscribed: boolean;
+    subscriptionDesire: boolean;
 }
 
 class RegisteredModel extends Model<RegisteredModelAttributes> {
@@ -17,10 +19,12 @@ class RegisteredModel extends Model<RegisteredModelAttributes> {
     public email!: string;
     public fullName!: string;
     public gender!: string;
-    public age!: number;
+    public age!: string;
     public residencePlace!: string;
     public interests!: string;
-    public availabilityTime!: string;
+    public hasDonePreviousActivity!: boolean;
+    public isSubscribed!: boolean;
+    public subscriptionDesire!: boolean;
 }
 
 RegisteredModel.init(
@@ -55,8 +59,16 @@ RegisteredModel.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        availabilityTime: {
-            type: DataTypes.STRING,
+        hasDonePreviousActivity: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+        isSubscribed: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+        subscriptionDesire: {
+            type: DataTypes.BOOLEAN,
             allowNull: false,
         }
     },
@@ -67,4 +79,4 @@ RegisteredModel.init(
     }
 )
 
-export default RegisteredModel
+export default RegisteredModel;

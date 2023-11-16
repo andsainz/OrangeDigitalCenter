@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form"
 import './RegisterForm.css'
+import { FormService } from "../../services/FormService"
 
 const RegisterForm = () => {
 
@@ -8,28 +9,15 @@ const RegisterForm = () => {
         }
     })
     const hasDonePreviousActivity = watch('hasDonePreviousActivity');
-
     const onSubmit = async (data) => {
         try {
-            const response = await fetch('http://localhost:3000/form', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
-    
-            if (response.ok) {
-                console.log('Registro exitoso');
-            } else {
-                console.error('Error al registrar:', response.statusText);
-            }
+            await FormService.postForm(data);
+            console.log('Formulario enviado con éxito');
         } catch (error) {
-            console.error('Error en la solicitud:', error.message);
+            console.error('Error al enviar el formulario:', error);
         }
     };
-    
-    
+
     return <>
         <div className="form-container">
             <div className="form-content">
@@ -82,13 +70,13 @@ const RegisterForm = () => {
                             </div>
                             <div className="field-container">
                                 <label>Género</label>
-                                <select className="second-row-field" {...register('genre')}>
+                                <select className="second-row-field" {...register('gender')}>
                                     <option value="woman">Mujer</option>
                                     <option value="men">Hombre</option>
                                     <option value="nonBinary">No binario</option>
                                     <option value="noResponse">No contesta</option>
                                 </select>
-                                {errors.genre?.type === 'required' && <p>Este campo es obligatorio</p>}
+                                {errors.gender?.type === 'required' && <p>Este campo es obligatorio</p>}
                             </div>
                             <div className="field-container">
                                 <label>Edad</label>
@@ -107,13 +95,13 @@ const RegisterForm = () => {
                             <div className="field-container">
                                 <label>Quiero recibir la newsletter e información sobre otros cursos y actividades del Orange Digital Center</label>
                                 <div className="second-row-field">
-                                    <input type="radio" id="yes" value="yes" {...register('suscriptionDesire', { required: true })} />
+                                    <input type="radio" id="yes" value="yes" {...register('subscriptionDesire', { required: true })} />
                                     <label htmlFor="yes">Sí</label>
 
-                                    <input type="radio" id="no" value="no" {...register('suscriptionDesire', { required: true })} />
+                                    <input type="radio" id="no" value="no" {...register('subscriptionDesire', { required: true })} />
                                     <label htmlFor="no">No</label>
                                 </div>
-                                {errors.suscriptionDesire?.type === 'required' && <p>Este campo es obligatorio</p>}
+                                {errors.subscriptionDesire?.type === 'required' && <p>Este campo es obligatorio</p>}
                             </div>
 
                             <div className="field-container">

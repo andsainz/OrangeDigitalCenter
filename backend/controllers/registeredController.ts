@@ -14,7 +14,9 @@ export const getRegistered = async (req: Request, res: Response): Promise<void> 
                 age: registered.age,
                 residencePlace: registered.residencePlace,
                 interests: registered.interests,
-                availabilityTime: registered.availabilityTime,
+                hasDonePreviousActivity: registered.hasDonePreviousActivity,
+                isSubscribed: registered.isSubscribed,
+                subscriptionDesire: registered.subscriptionDesire,
             };
         });
         res.json(registeredArray);
@@ -22,6 +24,7 @@ export const getRegistered = async (req: Request, res: Response): Promise<void> 
         res.status(500).json({ message: error.message });
     }
 }
+
 
 export const getregisteredById = async (req: Request, res: Response): Promise<void>  => {
     try {
@@ -37,12 +40,15 @@ export const getregisteredById = async (req: Request, res: Response): Promise<vo
     }
 };
 
-export const createRegistered = async(req: Request, res: Response): Promise<void> => {
+export const createRegistered = async (req: Request, res: Response): Promise<void> => {
     try {
         const registeredData: RegisteredModelAttributes = req.body;
+        console.log('Received data:', registeredData);
+
         if (!registeredData) {
+            console.log('Missing data to create a register.');
             res.status(400).json({
-                message: "Required data is missing to create an register.",
+                message: 'Required data is missing to create a register.',
             });
             return;
         }
@@ -52,19 +58,23 @@ export const createRegistered = async(req: Request, res: Response): Promise<void
         });
 
         if (existingRegistered) {
+            console.log('Register already exists.');
             res.status(409).json({
-                message: "The register already exists.",
+                message: 'The register already exists.',
             });
             return;
         }
 
         const newRegistered = await RegisteredModel.create(registeredData);
+        console.log('New register created:', newRegistered);
 
         res.status(201).json(newRegistered);
     } catch (error: any) {
+        console.error('Error creating register:', error);
         res.status(500).json({ message: error.message });
     }
-}
+};
+
 
 export const updateRegistered = async(req: Request, res: Response): Promise<void> => {
     try {
