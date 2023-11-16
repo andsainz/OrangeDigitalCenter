@@ -1,5 +1,5 @@
 .home {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    background-color: black;
+    color: white; 
+    min-height: 100vh; 
 }

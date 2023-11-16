@@ -1,0 +1,14 @@
+.subscription-banner {
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+.newsletter-link {
+    color: #F16E00;
+    text-decoration: none;
+}
+
+.subscription-banner p {
+    font-size: 1.2rem;
+}
