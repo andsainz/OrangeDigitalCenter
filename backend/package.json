@@ -20,7 +20,7 @@
   },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only ./app.ts",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll --no-cache --detectOpenHandles"
+    "test": "jest --watch"
   },
   "keywords": [],
   "author": "",
