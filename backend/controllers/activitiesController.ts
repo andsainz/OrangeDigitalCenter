@@ -9,10 +9,14 @@ export const getActivities = async (req: Request, res: Response): Promise<void> 
                 activity_id: activity.activity_id,
                 category_id: activity.category_id,
                 activity_image: activity.activity_image,
-                title: activity.title,
-                subtitle: activity.subtitle,
+                activity_title: activity.activity_title,
+                activity_description: activity.activity_description,
                 activity_date: activity.activity_date,
-                available_places: activity.available_places
+                start_time: activity.start_time,
+                end_time: activity.end_time,
+                activity_link: activity.activity_link,
+                activity_content: activity.activity_content,
+                activity_logos: activity.activity_logos
             };
         });
         res.json(activitiesArray);
