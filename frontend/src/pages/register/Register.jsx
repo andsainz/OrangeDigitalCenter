@@ -60,18 +60,6 @@ const Register = () => {
           required
         />
       </label>
-
-      <label>
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-
-
 <div className="privacy-policy">
   <label htmlFor="privacyPolicy" className="checkbox-label">
     <input type="checkbox" id="privacyPolicy" required />
