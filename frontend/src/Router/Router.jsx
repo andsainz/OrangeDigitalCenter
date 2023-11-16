@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Root from './Root'
+import Root from './Root.jsx'
 import Home from '../pages/home/Home.jsx'
-import Login from '../pages/Login/Login'
-import Detailed from '../pages/detailed/Detailed'
-import Discover from '../pages/Odc/Odc'
+import Login from '../pages/Login/Login.jsx'
+import Detailed from '../pages/detailed/Detailed.jsx'
+import Discover from '../pages/Odc/Odc.jsx'
+import RegisterForm from '../pages/RegisterForm/RegisterForm.jsx';
 
 const Router = (
   <BrowserRouter>
@@ -13,6 +14,7 @@ const Router = (
         <Route path="activities/:activity_id" element={<Detailed />} />
         <Route path="login/*" element={<Login />} />
         <Route path="odc/*" element={<Discover />} />
+        <Route path="registerform" element={<RegisterForm />} />
       </Route>
     </Routes>
   </BrowserRouter>
