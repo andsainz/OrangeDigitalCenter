@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import CardWrapper from '../../Components/home/cardWrapper/CardWrapper';
-import WelcomeBanner from '../../Components/home/banners/welcomeBanner.jsx';
+import WelcomeBanner from '../../Components/home/banners/WelcomeBanner.jsx';
 import MenuCategories from '../../Components/home/menuCategories/MenuCategories.jsx'
 import './Home.css';
 

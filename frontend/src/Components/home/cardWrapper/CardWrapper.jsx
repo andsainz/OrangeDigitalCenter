@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Cards from "../Cards/Cards";
+import Cards from "../cards/Cards";
 import './CardWrapper.css';
 
 function CardWrapper({ cardsData }) {
