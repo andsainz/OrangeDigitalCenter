@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Cards from '../../Components/home/Cards/Cards.jsx';
 import WelcomeBanner from '../../Components/home/banners/WelcomeBanner.jsx';
@@ -55,38 +55,25 @@ function Home() {
 
     return (
         <div className="home-container">
-        <header>
             <WelcomeBanner />
-        </header>
-        <main>
-            <section className="menu-categories">
-                <MenuCategories />
-            </section>
-            <section className="cards-container">
-                <Container>
-                    <Row xs={1} sm={2} md={3} lg={4} className="g-4">
-                        {cardsData.map((card, index) => (
-                            <Col key={index} xs={12} sm={6} md={4} lg={3}>
-                                <Cards
-                                    activity_image={card.activity_image}
-                                    activity_description={card.activity_description}
-                                    activity_date={card.activity_date}
-                                    start_time={card.start_time}
-                                    end_time={card.end_time}
-                                    activity_title={card.activity_title}
-                                    link={card.link}
-                                />
-                            </Col>
-                        ))}
-                    </Row>
-                </Container>
-            </section>
-        </main>
-        <footer>
+            <MenuCategories />
+            <Row xs={1} sm={2} md={3} lg={4} className="g-4">
+                {cardsData.map((card, index) => (
+                    <Col key={index} xs={12} sm={6} md={4} lg={3}>
+                        <Cards
+                            activity_image={card.activity_image}
+                            activity_description={card.activity_description}
+                            activity_date={card.activity_date}
+                            start_time={card.start_time}
+                            end_time={card.end_time}
+                            activity_title={card.activity_title}
+                            link={card.link}
+                        />
+                    </Col>
+                ))}
+            </Row>
             <SubscriptionBanner />
-        </footer>
-    </div>
-);
+        </div>
+    );
 }
-    
     export default Home;
