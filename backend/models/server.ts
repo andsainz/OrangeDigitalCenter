@@ -2,7 +2,7 @@ import express, { Application } from 'express'
 import cors from 'cors'
 import adminRoutes from '../routes/adminsRoutes'
 import userRoutes from '../routes/usersRoutes'
-import registeredRoutes from '../routes/registeredRoutes'
+import registeredRoutes from '../routes/registerformRoutes'
 import activityRoutes from '../routes/activitiesRoutes'
 import categoryRoutes from '../routes/categoriesRoutes'
 import registerRoutes from '../routes/registerRoutes'
@@ -15,7 +15,7 @@ class Server {
     private apiPaths = {
         admins: '/admins',
         users: '/users',
-        registered: '/registered',
+        registered: '/registerform',
         activities: '/activities',
         categories: '/categories',
         register: '/registration',

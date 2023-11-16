@@ -12,6 +12,7 @@ export interface RegisteredModelAttributes {
     hasDonePreviousActivity: boolean;
     isSubscribed: boolean;
     subscriptionDesire: boolean;
+    availabilityTime: string;
 }
 
 class RegisteredModel extends Model<RegisteredModelAttributes> {
@@ -25,6 +26,7 @@ class RegisteredModel extends Model<RegisteredModelAttributes> {
     public hasDonePreviousActivity!: boolean;
     public isSubscribed!: boolean;
     public subscriptionDesire!: boolean;
+    public availabilityTime!: string;
 }
 
 RegisteredModel.init(
@@ -70,7 +72,11 @@ RegisteredModel.init(
         subscriptionDesire: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
-        }
+        },
+        availabilityTime: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
     },
     {
         sequelize: db,

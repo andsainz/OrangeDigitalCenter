@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import RegisteredModel, {RegisteredModelAttributes} from '../models/registeredModel';
+import RegisteredModel, {RegisteredModelAttributes} from '../models/registerformModel';
 import bcrypt from "bcrypt";
 
 export const getRegistered = async (req: Request, res: Response): Promise<void> => {
@@ -17,6 +17,7 @@ export const getRegistered = async (req: Request, res: Response): Promise<void> 
                 hasDonePreviousActivity: registered.hasDonePreviousActivity,
                 isSubscribed: registered.isSubscribed,
                 subscriptionDesire: registered.subscriptionDesire,
+                availabilityTime: registered.availabilityTime
             };
         });
         res.json(registeredArray);
