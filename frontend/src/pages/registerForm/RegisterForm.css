@@ -1,25 +1,74 @@
 .form-container {
     background-color: #000;
     display: flex;
+    overflow-y: auto;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     width: 100vw;
-}
-
-.form-content {
-    width: 60vw;
     height: 100vh;
 }
 
+.orange-color{
+    color: #FF7900;
+}
+.form-content {
+    width: 60vw;
+}
 .field-container {
     display: flex;
     background-color: #fff;
-    border-radius: 0.9rem;
+    border-radius: 0.6rem;
     border-top: 5px solid #FF7900;
-    height: 10vh;
     text-align: left;
     justify-content: center;
     flex-direction: column;
     margin-top: 1rem;
+    padding: 1rem;
+}
+.second-row-field{
+    margin-top: 0.5rem;
+}
+.second-row-field label {
+    margin-left: 0.2rem;
+}
+#no, .availableTime{
+    margin-left: 1rem
+}
+.interest-input{
+    display: flex;
+    align-items: center;
+    padding: 0.2rem;
+    margin-left: 0.2rem;
+}
+#interests-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.send-btn-form{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    width: 7.5rem;
+    height: 2.5rem;
+    background: #FF7900;
+    border: 3px solid black;
+    align-self: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.input-styles{
+    border: none;
+    border-bottom: 1px solid rgba(89, 89, 89, 0.60);
+}
+
+@media (min-width: 768px) {
+    .form-content {
+        width: 40vw;
+    }
 }

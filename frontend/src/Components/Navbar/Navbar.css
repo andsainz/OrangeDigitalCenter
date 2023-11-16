@@ -3,7 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+.navbar{
+  position: sticky;
+  width: 100vw;
+}
 .navbar-container {
   display: flex;
   justify-content: space-between;
