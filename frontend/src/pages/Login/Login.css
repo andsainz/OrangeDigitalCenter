@@ -51,7 +51,8 @@
   transition: background-color 0.3s;
 }
 
-.login-container button:hover {
+.login-container button:hover,
+.styled-button:hover {
   background-color: #f58026;
 }
 
@@ -68,5 +69,12 @@
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
-  color:#000
+  color: #000;
 }
+
+.btn-start {
+  width: 60%;
+  margin-left: 3rem;
+  
+}
+

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Login.css';
 
 const LoginForm = () => {
@@ -67,7 +68,7 @@ const LoginForm = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Iniciar sesión</button>
+        <button className='btn-start' type="submit">Iniciar sesión</button>
       </form>
       {showErrorAlert && (
         <div className="error-alert">Email or password does not match</div>
@@ -76,7 +77,9 @@ const LoginForm = () => {
         <div className="error-alert">Incorrect password</div>
       )}
       <p>¿Aún no tienes cuenta?</p>
-      <button className="button-register">Regístrate</button>
+      <Link to="/register" className="button-register">
+        <button className="styled-button">Regístrate</button>
+      </Link>
     </div>
   );
 };
