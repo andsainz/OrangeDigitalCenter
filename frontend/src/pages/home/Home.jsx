@@ -28,7 +28,7 @@ function Home() {
             <WelcomeBanner />
             <div className="container-father">
                 <div className="cards-container">
-                    <Row xs={1} md={2} lg={3}>
+                    <Row xs={1} md={2} lg={4}>
                         {activities.map((activity, index) => (
                             <Col key={index} className="mt-4">
                                 <Cards
