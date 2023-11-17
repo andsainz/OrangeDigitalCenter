@@ -2,6 +2,7 @@ import express, { Application } from 'express'
 import cors from 'cors'
 import adminRoutes from '../routes/adminsRoutes'
 import userRoutes from '../routes/usersRoutes'
+import subscribedRoutes from '../routes/subscribedRoutes'
 import registeredRoutes from '../routes/registerformRoutes'
 import activityRoutes from '../routes/activitiesRoutes'
 import categoryRoutes from '../routes/categoriesRoutes'
@@ -15,6 +16,7 @@ class Server {
     private apiPaths = {
         admins: '/admins',
         users: '/users',
+        subscribed: '/newsletter',
         registered: '/registerform',
         activities: '/activities',
         categories: '/categories',
@@ -23,6 +25,7 @@ class Server {
     }
     private adminRoutes=adminRoutes;
     private userRoutes=userRoutes;
+    private subscribedRoutes=subscribedRoutes;
     private registeredRoutes=registeredRoutes;
     private activityRoutes=activityRoutes;
     private categoryRoutes=categoryRoutes;
@@ -37,10 +40,7 @@ class Server {
     }
 
     middlewares() {
-        this.app.use(cors({
-            origin: 'http://localhost:5173',
-            credentials: true,
-        }));
+        this.app.use(cors());
         this.app.use(cookieParser())
         this.app.use(express.json())
     }
@@ -48,6 +48,7 @@ class Server {
     routes() {
         this.app.use(this.apiPaths.admins, this.adminRoutes)
         this.app.use(this.apiPaths.users, this.userRoutes)
+        this.app.use(this.apiPaths.subscribed, this.subscribedRoutes)
         this.app.use(this.apiPaths.registered, this.registeredRoutes)
         this.app.use(this.apiPaths.activities, this.activityRoutes)
         this.app.use(this.apiPaths.categories, this.categoryRoutes)
