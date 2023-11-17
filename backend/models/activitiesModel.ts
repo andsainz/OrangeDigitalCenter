@@ -8,20 +8,28 @@ export interface ActivityModelAttributes {
     activity_id: number;
     category_id: number;
     activity_image: string;
-    title: string;
-    subtitle: string;
+    activity_title: string;
+    activity_description: string;
     activity_date: string;
-    available_places: number;
+    start_time: string;
+    end_time: string,
+    activity_link: string,
+    activity_content: string,
+    activity_logos: string
 }
 
 class ActivityModel extends Model<ActivityModelAttributes>{
     public activity_id!: number;
     public category_id!: number;
     public activity_image!: string;
-    public title!: string;
-    public subtitle!: string;
+    public activity_title!: string;
+    public activity_description!: string;
     public activity_date!: string;
-    public available_places!: number;
+    public start_time!: string;
+    public end_time!: string;
+    public activity_link!: string;
+    public activity_content!: string;
+    public activity_logos!: string
 }
 
 ActivityModel.init(
@@ -40,11 +48,11 @@ ActivityModel.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        title: {
+        activity_title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        subtitle: {
+        activity_description: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -52,8 +60,24 @@ ActivityModel.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        available_places: {
-            type: DataTypes.INTEGER,
+        start_time: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        end_time: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        activity_link: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        activity_content: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        activity_logos: {
+            type: DataTypes.STRING,
             allowNull: false,
         }
     },

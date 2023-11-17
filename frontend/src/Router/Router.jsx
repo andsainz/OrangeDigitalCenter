@@ -1,5 +1,4 @@
-// Router.jsx
-import React from 'react';
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Root from './Root';
 import Home from '../pages/home/Home.jsx';

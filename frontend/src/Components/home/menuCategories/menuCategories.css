@@ -1,0 +1,30 @@
+.menu-container {
+    width: 100vw;
+    height: 5vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-categories-navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav {
+    display: flex;
+}
+
+.menu-categories-nav-link {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5rem; 
+}
+
+.menu-categories-nav-link:hover,
+.menu-categories-nav-link:focus {
+    color: #FF7900;
+}

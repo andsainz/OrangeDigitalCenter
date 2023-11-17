@@ -1,23 +1,19 @@
 import { DataTypes, Model } from "sequelize";
 import db from "../database/db";
 
-export interface AdminModelAttributes {
+export interface SubscribedModelAttributes {
     id: string;
     fullName: string;
     email: string;
-    user_password: string;
-    isAdmin: boolean;
 }
 
-class AdminModel extends Model<AdminModelAttributes> {
+class SubscribedModel extends Model<SubscribedModelAttributes> {
     public id!: string;
     public fullName!: string;
     public email!: string;
-    public user_password!: string;
-    public isAdmin!: boolean;
 }
 
-AdminModel.init(
+SubscribedModel.init(
     {
         id: {
             type: DataTypes.UUID,
@@ -36,21 +32,12 @@ AdminModel.init(
                 isEmail: true,
             },
         },
-        user_password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        isAdmin: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-            defaultValue: true,
-        },
     },
     {
-        sequelize: db, 
-        tableName: "admins", 
+        sequelize: db,
+        tableName: "subscribed",
         timestamps: false,
     }
 );
 
-export default AdminModel;
+export default SubscribedModel;

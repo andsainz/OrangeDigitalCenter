@@ -1,46 +1,38 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Register.css';
+import { subscribedService } from '../../service/SubscribedService';
 
 const Register = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false);
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:3000/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ fullName, email, password }),
-      });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Registro exitoso:', data);
-        setShowSuccessAlert(true);
-        setTimeout(() => {
-          setShowSuccessAlert(false);
-        }, 10000);
-      } else {
-        console.error('Error en el registro');
-        setShowErrorAlert(true);
-        setTimeout(() => {
-          setShowErrorAlert(false);
-        }, 10000);
-      }
+    try {
+      // Call the subscribedService to post the form data
+      await subscribedService.postSubscribed({ fullName, email });
+
+      // If successful, show success alert
+      setShowSuccessAlert(true);
+      setTimeout(() => {
+        setShowSuccessAlert(false);
+      }, 10000);
     } catch (error) {
-      console.error('Error en la solicitud:', error);
+      // If an error occurs, show error alert
+      console.error('Error en el registro:', error);
+      setShowErrorAlert(true);
+      setTimeout(() => {
+        setShowErrorAlert(false);
+      }, 10000);
     }
   };
 
   return (
     <form className="register-form" onSubmit={handleRegisterSubmit}>
-      <h1>Recibe nuestra<br></br>newsletter</h1>
+      <h1>Recibe nuestra<br />newsletter</h1>
       <label>
         <input
           type="text"
@@ -60,14 +52,13 @@ const Register = () => {
           required
         />
       </label>
-<div className="privacy-policy">
-  <label htmlFor="privacyPolicy" className="checkbox-label">
-    <input type="checkbox" id="privacyPolicy" required />
-    <span>He leído y acepto la política de privacidad. Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
-    Puedes consultar los detalles en este <a href="enlace a la política de privacidad" target="_blank" rel="noopener noreferrer">enlace</a>.</span>
-  </label>
-</div>
-
+      <div className="privacy-policy">
+        <label htmlFor="privacyPolicy" className="checkbox-label">
+          <input type="checkbox" id="privacyPolicy" required />
+          <span>He leído y acepto la política de privacidad. Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
+            Puedes consultar los detalles en este <a href="enlace a la política de privacidad" target="_blank" rel="noopener noreferrer">enlace</a>.</span>
+        </label>
+      </div>
 
       <button type="submit">Recibir newsletter</button>
 
