@@ -127,7 +127,6 @@ const RegisterForm = () => {
                                         <label htmlFor="digitalization">Digitalización</label></div>
                                     <div className="interest-input">
                                         <input type="radio" id="others" value="others" {...register('interests')} />
-                                        <input type="radio" id="others" value="others" {...register('interests')} />
                                         <label htmlFor="others">Otros</label></div>
                                 </div>
                                 {errors.interests?.type === 'required' && <p>Selecciona al menos un interés</p>}
