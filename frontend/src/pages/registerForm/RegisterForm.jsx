@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import './RegisterForm.css'
 import { FormService } from "../../services/FormService"
+import { Link } from 'react-router-dom';
 
 const RegisterForm = () => {
   const { register, formState: { errors }, watch, handleSubmit } = useForm({
@@ -151,7 +152,7 @@ const RegisterForm = () => {
                         </div>
                     )}
 
-                    <input type="submit" className="send-btn-form" value="Enviar"></input>
+                    <Link to="/" className="link-send-btn-form"><input type="submit" className="send-btn-form" value="Enviar"></input></Link>
                 </form>
             </div>
         </div>

@@ -57,6 +57,11 @@
     border: 3px solid black;
     align-self: center;
 }
+
+.link-send-btn-form {
+    text-decoration: none;
+}
+
 form {
     display: flex;
     flex-direction: column;
