@@ -25,6 +25,7 @@ function Home() {
     }, []);
     return (
         <div className="home-container">
+        <div className="home-container">
             <WelcomeBanner />
             <div className="container-father">
                 <div className="cards-container">
