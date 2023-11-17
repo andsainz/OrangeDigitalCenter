@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import './Home.css';
-import WelcomeBanner from '../../Components/home/banners/welcomeBanner'
-import Cards from '../../Components/home/Cards/Cards'
 import { activitiesService } from '../../services/ActivitiesService';
+import Cards from '../../Components/home/Cards/Cards'
+import WelcomeBanner from '../../Components/home/banners/welcomeBanner';
+import MenuCategories from '../../Components/home/menuCategories/menuCategories';
+import SubscriptionBanner from '../../Components/home/banners/subscriptionBanner';
+import './Home.css';
 
 function Home() {
     const [activities, setActivities] = useState([]);
@@ -26,9 +28,10 @@ function Home() {
     return (
         <div className="home-container">
             <WelcomeBanner />
+            <MenuCategories />
             <div className="container-father">
                 <div className="cards-container">
-                    <Row xs={1} md={2} lg={4}>
+                    <Row xs={1} md={2} lg={3}>
                         {activities.map((activity, index) => (
                             <Col key={index} className="mt-4">
                                 <Cards
@@ -47,6 +50,7 @@ function Home() {
                     </Row>
                 </div>
             </div>
+            <SubscriptionBanner />
         </div>
     );
 }
