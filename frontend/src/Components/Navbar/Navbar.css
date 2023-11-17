@@ -26,6 +26,11 @@
   font-size: 1.2rem;
 }
 
+.logo-img {
+  max-width: 100%;
+  height: auto;
+}
+
 .icon-container {
   display: flex;
   align-items: center;
@@ -39,6 +44,10 @@
   font-size: 1rem;
 }
 
+.icon-container img {
+  max-width: 30px; 
+  height: auto;
+}
 
 @media (max-width: 768px) {
   .title {
@@ -48,5 +57,22 @@
   .nav-link {
     margin: 0 5px; 
     font-size: 0.8rem; 
+  }
+
+  .logo-img {
+    max-width: 60%; 
+    height: auto;
+  }
+
+  .icon-container img {
+    max-width: 30px; 
+    height: auto;
+  }
+}
+
+@media (min-width: 769px) {
+  .logo-img {
+    max-width: 230px; 
+    height: auto;
   }
 }

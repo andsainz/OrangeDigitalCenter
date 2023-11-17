@@ -29,6 +29,7 @@
 .footer-left img {
   width: 100%;
   height: auto;
+  max-width: 100%; 
 }
 
 .footer-icons {
@@ -42,6 +43,7 @@
 .footer-icons img {
   width: 40%;
   height: auto;
+  max-width: 100%; 
 }
 
 .footer-text {
@@ -49,12 +51,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  font-size: 0.8rem;
+  font-size: 1vw; 
   width: auto;
   margin-top: 2.5rem;
-  margin-right: 9%;
+  margin-right: 6%;
+  flex-wrap: nowrap; 
 }
-
 
 @media (max-width: 768px) {
   .footer-left {
@@ -66,7 +68,15 @@
   }
 
   .footer-text {
-    font-size: 0.7rem;
+    font-size: 2vw; 
     margin-right: 5%;
+    margin-left: 5%;
+    max-width: 100%; 
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+
+  .footer-text p {
+    margin-bottom: 10px; 
   }
 }
