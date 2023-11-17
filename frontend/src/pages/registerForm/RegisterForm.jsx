@@ -3,20 +3,20 @@ import './RegisterForm.css'
 import { FormService } from "../../services/FormService"
 
 const RegisterForm = () => {
+  const { register, formState: { errors }, watch, handleSubmit } = useForm({
+    defaultValues: {}
+  });
+  const hasDonePreviousActivity = watch('hasDonePreviousActivity');
 
-    const { register, formState: { errors }, watch, handleSubmit } = useForm({
-        defaultValues: {
-        }
-    })
-    const hasDonePreviousActivity = watch('hasDonePreviousActivity');
-    const onSubmit = async (data) => {
-        try {
-            await FormService.postForm(data);
-            console.log('Formulario enviado con éxito');
-        } catch (error) {
-            console.error('Error al enviar el formulario:', error);
-        }
-    };
+  const onSubmit = async (data) => {
+    try {
+      await FormService.postForm(data);
+      console.log('Formulario enviado con éxito');
+      
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+    }
+  };
 
     return <>
         <div className="form-container">
@@ -43,7 +43,6 @@ const RegisterForm = () => {
                         <div className="second-row-field">
                             <input type="radio" id="yes" value="yes" {...register('isSubscribed', { required: true })} />
                             <label htmlFor="yes">Sí</label>
-
                             <input type="radio" id="no" value="no" {...register('isSubscribed', { required: true })} />
                             <label htmlFor="no">No</label>
                         </div>

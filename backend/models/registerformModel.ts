@@ -9,9 +9,9 @@ export interface RegisteredModelAttributes {
     age: string;
     residencePlace: string;
     interests: string;
-    hasDonePreviousActivity: number;
-    isSubscribed: number;
-    subscriptionDesire: number;
+    hasDonePreviousActivity: string;
+    isSubscribed: string;
+    subscriptionDesire: string;
     availableTime: string;
 }
 
@@ -23,9 +23,9 @@ class RegisteredModel extends Model<RegisteredModelAttributes> {
     public age!: string;
     public residencePlace!: string;
     public interests!: string;
-    public hasDonePreviousActivity!: number;
-    public isSubscribed!: number;
-    public subscriptionDesire!: number;
+    public hasDonePreviousActivity!: string;
+    public isSubscribed!: string;
+    public subscriptionDesire!: string;
     public availableTime!: string;
 }
 
@@ -65,15 +65,15 @@ RegisteredModel.init(
             allowNull: false,
         },
         hasDonePreviousActivity: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         isSubscribed: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         subscriptionDesire: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         availableTime: {

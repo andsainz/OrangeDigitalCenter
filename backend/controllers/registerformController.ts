@@ -46,10 +46,6 @@ export const createRegistered = async (req: Request, res: Response): Promise<voi
         const registeredData: RegisteredModelAttributes = req.body;
         console.log('Received data:', registeredData);
 
-        const hasDonePreviousActivityValue = registeredData.hasDonePreviousActivity === 1 ? 1 : 0;
-        const isSubscribedValue = registeredData.isSubscribed === 1 ? 1 : 0;
-        const subscriptionDesireValue = registeredData.subscriptionDesire === 1 ? 1 : 0;
-
         if (!registeredData.email || !registeredData.fullName || !registeredData.gender || !registeredData.age || !registeredData.residencePlace || !registeredData.interests || !registeredData.hasDonePreviousActivity || !registeredData.isSubscribed || !registeredData.residencePlace || !registeredData.interests || !registeredData.hasDonePreviousActivity || !registeredData.isSubscribed || !registeredData.subscriptionDesire) {
             console.log('Missing data to create a register.');
             res.status(400).json({
@@ -72,9 +68,6 @@ export const createRegistered = async (req: Request, res: Response): Promise<voi
 
         const newRegistered = await RegisteredModel.create({
             ...registeredData,
-            hasDonePreviousActivity: hasDonePreviousActivityValue,
-            isSubscribed: isSubscribedValue,
-            subscriptionDesire: subscriptionDesireValue,
         });
 
         console.log('New register created:', newRegistered);
