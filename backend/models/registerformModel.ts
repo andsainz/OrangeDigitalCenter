@@ -12,7 +12,7 @@ export interface RegisteredModelAttributes {
     hasDonePreviousActivity: boolean;
     isSubscribed: boolean;
     subscriptionDesire: boolean;
-    availabilityTime: string;
+    availableTime: string;
 }
 
 class RegisteredModel extends Model<RegisteredModelAttributes> {
@@ -26,7 +26,7 @@ class RegisteredModel extends Model<RegisteredModelAttributes> {
     public hasDonePreviousActivity!: boolean;
     public isSubscribed!: boolean;
     public subscriptionDesire!: boolean;
-    public availabilityTime!: string;
+    public availableTime!: string;
 }
 
 RegisteredModel.init(
@@ -73,7 +73,7 @@ RegisteredModel.init(
             type: DataTypes.BOOLEAN,
             allowNull: false,
         },
-        availabilityTime: {
+        availableTime: {
             type: DataTypes.STRING,
             allowNull: false,
         },

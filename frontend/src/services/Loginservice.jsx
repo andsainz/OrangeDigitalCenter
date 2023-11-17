@@ -1,17 +1,25 @@
-const baseURL = "http://localhost:3000";
+const baseURL = "http://localhost:3000"; // Update with your server URL
 
-export const loginService = {
-    async postLogin({ email, user_password }) {
+export const FormService = {
+    async postForm(data) {
         try {
-            await fetch(`${baseURL}/login`, {
+            const response = await fetch(`${baseURL}/registerform`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email, user_password }),
+                body: JSON.stringify(data),
             });
+
+            if (!response.ok) {
+                const errorData = await response.json();  // Intenta obtener más detalles del error
+                console.error(`Failed to post form data. Server responded with ${response.status}`, errorData);
+                throw new Error(`Failed to post form data. Server responded with ${response.status}`);
+            }
+
+            console.log('Formulario enviado con éxito');
         } catch (error) {
-            console.error("Email or password does not match!:", error);
+            console.error("Error al enviar el formulario:", error);
             throw error;
         }
     },

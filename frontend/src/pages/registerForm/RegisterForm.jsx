@@ -108,25 +108,26 @@ const RegisterForm = () => {
                                 <label>Intereses</label>
                                 <div className="second-row-field" id="interests-container">
                                     <div className="interest-input">
-                                        <input type="checkbox" id="entrepreneurship" value="entrepreneurship" {...register('interests')} />
+                                        <input type="radio" id="entrepreneurship" value="entrepreneurship" {...register('interests')} />
                                         <label htmlFor="entrepreneurship">Emprendimiento</label></div>
                                     <div className="interest-input">
-                                        <input type="checkbox" id="digitalFactory" value="digitalFactory" {...register('interests')} />
+                                        <input type="radio" id="digitalFactory" value="digitalFactory" {...register('interests')} />
                                         <label htmlFor="digitalFactory">Fabricación digital</label></div>
                                     <div className="interest-input">
-                                        <input type="checkbox" id="autism" value="autism" {...register('interests')} />
+                                        <input type="radio" id="autism" value="autism" {...register('interests')} />
                                         <label htmlFor="autism">Autismo</label></div>
                                     <div className="interest-input">
-                                        <input type="checkbox" id="programming" value="programming" {...register('interests')} />
+                                        <input type="radio" id="programming" value="programming" {...register('interests')} />
                                         <label htmlFor="programming">Programación</label></div>
                                     <div className="interest-input">
-                                        <input type="checkbox" id="sustainability" value="sustainability" {...register('interests')} />
+                                        <input type="radio" id="sustainability" value="sustainability" {...register('interests')} />
                                         <label htmlFor="sustainability">Sostenibilidad</label></div>
                                     <div className="interest-input">
-                                        <input type="checkbox" id="digitalization" value="digitalization" {...register('interests')} />
+                                        <input type="radio" id="digitalization" value="digitalization" {...register('interests')} />
                                         <label htmlFor="digitalization">Digitalización</label></div>
                                     <div className="interest-input">
-                                        <input type="checkbox" id="others" value="others" {...register('interests')} />
+                                        <input type="radio" id="others" value="others" {...register('interests')} />
+                                        <input type="radio" id="others" value="others" {...register('interests')} />
                                         <label htmlFor="others">Otros</label></div>
                                 </div>
                                 {errors.interests?.type === 'required' && <p>Selecciona al menos un interés</p>}
