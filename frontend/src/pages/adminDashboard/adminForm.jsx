@@ -31,10 +31,9 @@ function AdminForm() {
                 activity_image: imageData,
                 activity_title: data.activity_title,
                 activity_description: data.activity_description,
-                activity_date: data.activity_date,
+                activity_date: new Date(data.activity_date),
                 start_time: data.start_time,
-                end_time: data.end_time ? data.end_time : null,
-                activity_link: data.activity_link ? data.activity_link : null,
+                end_time: data.end_time,
                 activity_content: data.activity_content,
                 available_places: data.available_places
             }
@@ -42,11 +41,16 @@ function AdminForm() {
             await activitiesService.createActivity(formData);
             console.log('Formulario enviado con éxito');
         } catch (error) {
-            console.error('Error al enviar el formulario:', error)
+            console.error('Error al enviar el formulario:', error);
+            // Imprimir la respuesta del servidor
+            console.log('Server response:', error.response);
+            if (error.response && error.response.json) {
+                const jsonResponse = await error.response.json();
+                console.log('Server JSON response:', jsonResponse);
+            }
         }
     }
     
-
     return (
         <div>
             <h1>Publica una nueva actividad</h1>
@@ -99,7 +103,7 @@ function AdminForm() {
                 </Form.Group>
                 <Form.Group className='formGroup'>
                     <Form.Label id="admin-form-end-time-input">Hora de finalización</Form.Label>
-                    <Form.Control type="text" {...register('start_time', {
+                    <Form.Control type="text" {...register('end_time', {
                         required: true,
                     })}></Form.Control>
                 </Form.Group>
