@@ -9,8 +9,8 @@
     height: 100vh;
 }
 
-.orange-color{
-    color: #FF7900;
+.orange-color {
+    color: #ff7900;
 }
 .form-content {
     width: 60vw;
@@ -19,33 +19,34 @@
     display: flex;
     background-color: #fff;
     border-radius: 0.6rem;
-    border-top: 5px solid #FF7900;
+    border-top: 5px solid #ff7900;
     text-align: left;
     justify-content: center;
     flex-direction: column;
     margin-top: 1rem;
     padding: 1rem;
 }
-.second-row-field{
+.second-row-field {
     margin-top: 0.5rem;
 }
 .second-row-field label {
     margin-left: 0.2rem;
 }
-#no, .availableTime{
-    margin-left: 1rem
+#no,
+.availableTime {
+    margin-left: 1rem;
 }
-.interest-input{
+.interest-input {
     display: flex;
     align-items: center;
     padding: 0.2rem;
     margin-left: 0.2rem;
 }
-#interests-container{
+#interests-container {
     display: flex;
     flex-wrap: wrap;
 }
-.send-btn-form{
+.send-btn-form {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
@@ -53,7 +54,7 @@
     font-weight: bold;
     width: 7.5rem;
     height: 2.5rem;
-    background: #FF7900;
+    background: #ff7900;
     border: 3px solid black;
     align-self: center;
 }
@@ -67,9 +68,21 @@ form {
     flex-direction: column;
     justify-content: center;
 }
-.input-styles{
+.input-styles {
     border: none;
-    border-bottom: 1px solid rgba(89, 89, 89, 0.60);
+    border-bottom: 1px solid rgba(89, 89, 89, 0.6);
+}
+
+.success-message {
+    text-align: center;
+    color: green;
+    border-color: green;
+}
+
+.error-message {
+    text-align: center;
+    color: red;
+    border-color: red;
 }
 
 @media (min-width: 768px) {
