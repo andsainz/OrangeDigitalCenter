@@ -9,9 +9,10 @@ export interface RegisteredModelAttributes {
     age: string;
     residencePlace: string;
     interests: string;
-    hasDonePreviousActivity: boolean;
-    isSubscribed: boolean;
-    subscriptionDesire: boolean;
+    hasDonePreviousActivity: string;
+    isSubscribed: string;
+    subscriptionDesire: string;
+    availableTime: string;
 }
 
 class RegisteredModel extends Model<RegisteredModelAttributes> {
@@ -22,9 +23,10 @@ class RegisteredModel extends Model<RegisteredModelAttributes> {
     public age!: string;
     public residencePlace!: string;
     public interests!: string;
-    public hasDonePreviousActivity!: boolean;
-    public isSubscribed!: boolean;
-    public subscriptionDesire!: boolean;
+    public hasDonePreviousActivity!: string;
+    public isSubscribed!: string;
+    public subscriptionDesire!: string;
+    public availableTime!: string;
 }
 
 RegisteredModel.init(
@@ -38,6 +40,9 @@ RegisteredModel.init(
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                isEmail: true,
+            },
         },
         fullName: {
             type: DataTypes.STRING,
@@ -60,17 +65,21 @@ RegisteredModel.init(
             allowNull: false,
         },
         hasDonePreviousActivity: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         isSubscribed: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         subscriptionDesire: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.STRING,
             allowNull: false,
-        }
+        },
+        availableTime: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
     },
     {
         sequelize: db,

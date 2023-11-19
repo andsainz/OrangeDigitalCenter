@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getRegistered, getregisteredById, createRegistered, updateRegistered, deleteRegistered, } from "../controllers/registeredController";
+import { getRegistered, getregisteredById, createRegistered, updateRegistered, deleteRegistered, } from "../controllers/registerformController";
 
 const router = Router()
 

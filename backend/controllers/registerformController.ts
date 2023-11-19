@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import RegisteredModel, {RegisteredModelAttributes} from '../models/registeredModel';
+import RegisteredModel, {RegisteredModelAttributes} from '../models/registerformModel';
 import bcrypt from "bcrypt";
 
 export const getRegistered = async (req: Request, res: Response): Promise<void> => {
@@ -17,6 +17,7 @@ export const getRegistered = async (req: Request, res: Response): Promise<void> 
                 hasDonePreviousActivity: registered.hasDonePreviousActivity,
                 isSubscribed: registered.isSubscribed,
                 subscriptionDesire: registered.subscriptionDesire,
+                availableTime: registered.availableTime
             };
         });
         res.json(registeredArray);
@@ -45,7 +46,7 @@ export const createRegistered = async (req: Request, res: Response): Promise<voi
         const registeredData: RegisteredModelAttributes = req.body;
         console.log('Received data:', registeredData);
 
-        if (!registeredData) {
+        if (!registeredData.email || !registeredData.fullName || !registeredData.gender || !registeredData.age || !registeredData.residencePlace || !registeredData.interests || !registeredData.hasDonePreviousActivity || !registeredData.isSubscribed || !registeredData.residencePlace || !registeredData.interests || !registeredData.hasDonePreviousActivity || !registeredData.isSubscribed || !registeredData.subscriptionDesire) {
             console.log('Missing data to create a register.');
             res.status(400).json({
                 message: 'Required data is missing to create a register.',
@@ -65,7 +66,10 @@ export const createRegistered = async (req: Request, res: Response): Promise<voi
             return;
         }
 
-        const newRegistered = await RegisteredModel.create(registeredData);
+        const newRegistered = await RegisteredModel.create({
+            ...registeredData,
+        });
+
         console.log('New register created:', newRegistered);
 
         res.status(201).json(newRegistered);
@@ -74,7 +78,6 @@ export const createRegistered = async (req: Request, res: Response): Promise<voi
         res.status(500).json({ message: error.message });
     }
 };
-
 
 export const updateRegistered = async(req: Request, res: Response): Promise<void> => {
     try {
