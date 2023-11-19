@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import "./Cards.css";
 
-function Cards({ activity_image, activity_title, activity_description, activity_date, start_time, end_time, activity_link }) {
+function Cards({ activity_image, activity_title, activity_description, activity_date, start_time, end_time }) {
 
     return (
         <Card className="card-section" aria-label="Card">
@@ -16,7 +16,6 @@ function Cards({ activity_image, activity_title, activity_description, activity_
                     <Card.Text>{activity_title}</Card.Text>
                 </h5>
                 <Card.Text>{activity_description}</Card.Text>
-                <Card.Text>{activity_link}</Card.Text>
                 <button className="read-more-btn">LEER MÁS</button>
             </Card.Body>
         </Card>
@@ -28,7 +27,6 @@ Cards.propTypes = {
     activity_description: PropTypes.string.isRequired,
     activity_date: PropTypes.string.isRequired,
     start_time: PropTypes.string.isRequired,
-    end_time: PropTypes.string.isRequired,
-    activity_link: PropTypes.string.isRequired
+    end_time: PropTypes.string.isRequired
 };
 export default Cards;

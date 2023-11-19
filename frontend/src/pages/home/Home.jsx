@@ -42,7 +42,6 @@ function Home() {
                                     activity_date={activity.activity_date}
                                     start_time={activity.start_time}
                                     end_time={activity.end_time}
-                                    activity_link={activity.activity_link}
                                     link={activitiesLinks[index]}
                                 />
                             </Col>

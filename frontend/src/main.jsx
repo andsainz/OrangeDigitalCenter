@@ -1,9 +1,10 @@
-// main.jsx
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import Router from './Router/Router';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ReactDOM from "react-dom/client";
+import Router from "./Router/Router";
+import { RouterProvider } from "react-router-dom";
 
-const root = createRoot(document.getElementById('root'));
-root.render(<Router />);
-
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <>
+    <RouterProvider router={Router} />
+  </>
+);

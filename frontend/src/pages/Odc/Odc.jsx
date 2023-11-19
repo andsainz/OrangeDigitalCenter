@@ -6,7 +6,7 @@ import Odc4 from '../../assets/imagesOdc/odc4.png';
 import Odc5 from '../../assets/imagesOdc/odc5.png';
 import Odc6 from '../../assets/imagesOdc/odc6.png';
 
-const Discover = () => {
+const DiscoverODC = () => {
   return (
     <div className="discover-container">
       <h1>Descubre<span><br></br>Orange</span> Digital Center</h1>
@@ -37,5 +37,5 @@ const Discover = () => {
   );
 };
 
-export default Discover;
+export default DiscoverODC;
 

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import './Register.css';
+import './NewsletterSubs.css';
 import { subscribedService } from '../../services/SubscribedService';
 
-const Register = () => {
+const NewsletterSubs = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
@@ -75,4 +75,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default NewsletterSubs;
