@@ -8,8 +8,8 @@ router.get('/', getActivities);
 router.get('/:id', getActivityById);
 router.get('/categories/:category_id', getActivitiesByCategory);
 
-router.post('/', authenticateAdmin, createActivity);
-router.put('/:id', authenticateAdmin, updateActivity);
-router.delete('/:id', authenticateAdmin, deleteActivity);
+router.post('/', createActivity);
+router.put('/:id', authenticateUser, authenticateAdmin, updateActivity);
+router.delete('/:id', authenticateUser, authenticateAdmin, deleteActivity);
 
 export default router;

@@ -1,44 +1,25 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Root from './Root.jsx'
+import Home from '../pages/home/Home.jsx'
+import Login from '../pages/Login/Login.jsx'
+import Detailed from '../pages/detailed/Detailed.jsx'
+import Discover from '../pages/Odc/Odc.jsx'
+import RegisterForm from '../pages/RegisterForm/RegisterForm.jsx';
+import AdminForm from '../pages/adminDashboard/adminForm.jsx';
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Root from './Root';
-import Home from '../pages/home/Home.jsx';
-import Login from '../pages/Login/Login';
-import Detailed from '../pages/detailed/Detailed';
-import Discover from '../pages/Odc/Odc.jsx';
-import Register from '../pages/register/Register.jsx';
-
-const AppRouter = () => (
-  <Router>
+const Router = (
+  <BrowserRouter>
     <Routes>
-      <Route
-        path="/"
-        element={<Root />}
-      >
-        <Route
-          index
-          element={<Home />}
-        />
-        <Route
-          path="activities/:activity_id"
-          element={<Detailed />}
-        />
-        <Route
-          path="login/*"
-          element={<Login />}
-        />
-        <Route
-          path="odc/*"
-          element={<Discover />}
-        />
-        <Route
-          path="register"
-          element={<Register />}
-        />
+      <Route path="/" element={<Root />}>
+        <Route index element={<Home />} />
+        <Route path="activities/:activity_id" element={<Detailed />} />
+        <Route path="login/*" element={<Login />} />
+        <Route path="odc/*" element={<Discover />} />
+        <Route path="registerform" element={<RegisterForm />} />
+        <Route path="admin/activitypost" element={<AdminForm />} />
       </Route>
     </Routes>
-  </Router>
+  </BrowserRouter>
 );
 
-export default AppRouter;
-
-
+export default Router;

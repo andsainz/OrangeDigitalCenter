@@ -7,13 +7,12 @@ import CategoryModel from "./categoriesModel";
 export interface ActivityModelAttributes {
     activity_id: number;
     category_id: number;
-    activity_image: string;
+    activity_image: Buffer;
     activity_title: string;
     activity_description: string;
-    activity_date: string;
+    activity_date: Date;
     start_time: string;
     end_time: string,
-    activity_link: string,
     activity_content: string,
     available_places: number;
 }
@@ -21,13 +20,12 @@ export interface ActivityModelAttributes {
 class ActivityModel extends Model<ActivityModelAttributes>{
     public activity_id!: number;
     public category_id!: number;
-    public activity_image!: string;
+    public activity_image!: Buffer;
     public activity_title!: string;
     public activity_description!: string;
-    public activity_date!: string;
+    public activity_date!: Date;
     public start_time!: string;
     public end_time!: string;
-    public activity_link!: string;
     public activity_content!: string;
     public available_places!: number;
 }
@@ -45,7 +43,7 @@ ActivityModel.init(
             allowNull: false
         },
         activity_image: {
-            type: DataTypes.STRING,
+            type: DataTypes.BLOB('long'),
             allowNull: false,
         },
         activity_title: {
@@ -57,19 +55,15 @@ ActivityModel.init(
             allowNull: false,
         },
         activity_date: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATE,
             allowNull: false,
         },
         start_time: {
-            type: DataTypes.STRING,
+            type: DataTypes.TIME,
             allowNull: false,
         },
         end_time: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        activity_link: {
-            type: DataTypes.STRING,
+            type: DataTypes.TIME,
             allowNull: false,
         },
         activity_content: {
