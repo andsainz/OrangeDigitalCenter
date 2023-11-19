@@ -14,7 +14,6 @@ export const getActivities = async (req: Request, res: Response): Promise<void> 
                 activity_date: activity.activity_date,
                 start_time: activity.start_time,
                 end_time: activity.end_time,
-                activity_link: activity.activity_link,
                 activity_content: activity.activity_content,
                 available_places: activity.available_places,
             };
