@@ -1,30 +1,21 @@
-.menu-container {
-    width: 100vw;
-    height: 5vh;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu-categories-navbar {
+.menu-categories-navbar.navbar {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.nav {
-    display: flex;
-}
-
-.menu-categories-nav-link {
-    color: white;
+a.menu-categories-nav-link {
     text-decoration: none;
-    text-transform: uppercase;
-    font-size: 1.5rem; 
+    font-size: 1.8rem;
+    color: white;
 }
 
-.menu-categories-nav-link:hover,
-.menu-categories-nav-link:focus {
+a.menu-categories-nav-link:hover {
     color: #FF7900;
+}
+
+@media (max-width: 988px) {
+    a.menu-categories-nav-link{
+        align-self: center;
+    }
 }

@@ -16,6 +16,7 @@ export interface ActivityModelAttributes {
     activity_link: string,
     activity_content: string,
     activity_logos: string
+    available_places: number;
 }
 
 class ActivityModel extends Model<ActivityModelAttributes>{
@@ -29,7 +30,8 @@ class ActivityModel extends Model<ActivityModelAttributes>{
     public end_time!: string;
     public activity_link!: string;
     public activity_content!: string;
-    public activity_logos!: string
+    public activity_logos!: string;
+    public available_places!: number;
 }
 
 ActivityModel.init(
@@ -79,6 +81,10 @@ ActivityModel.init(
         activity_logos: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        available_places: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     },
     {
