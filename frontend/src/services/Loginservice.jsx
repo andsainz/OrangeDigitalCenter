@@ -1,23 +1,29 @@
-const baseURL = "http://localhost:3000"; // Update with your server URL
+const baseURL = "http://localhost:3000";
 
-export const FormService = {
-    async postForm(data) {
+export const LoginService = {
+    async postLogin({ email, user_password }) {
         try {
-            const response = await fetch(`${baseURL}/registerform`, {
+            const response = await fetch(`${baseURL}/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify({ email, user_password }),
             });
 
             if (!response.ok) {
-                const errorData = await response.json();  // Intenta obtener más detalles del error
-                console.error(`Failed to post form data. Server responded with ${response.status}`, errorData);
-                throw new Error(`Failed to post form data. Server responded with ${response.status}`);
+                const errorData = await response.json();
+                console.error(
+                    `Fallo al enviar los datos del formulario. El servidor respondió con ${response.status}`,
+                    errorData
+                );
+                throw new Error(
+                    `Fallo al enviar los datos del formulario. El servidor respondió con ${response.status}`
+                );
             }
 
-            console.log('Formulario enviado con éxito');
+            console.log("Formulario enviado con éxito");
+            return response; 
         } catch (error) {
             console.error("Error al enviar el formulario:", error);
             throw error;
