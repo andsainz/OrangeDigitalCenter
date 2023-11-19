@@ -16,7 +16,7 @@ export const getActivities = async (req: Request, res: Response): Promise<void> 
                 end_time: activity.end_time,
                 activity_link: activity.activity_link,
                 activity_content: activity.activity_content,
-                activity_logos: activity.activity_logos
+                available_places: activity.available_places,
             };
         });
         res.json(activitiesArray);
