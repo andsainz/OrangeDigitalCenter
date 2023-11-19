@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '../../assets/images/Logo2.png';
 import HomeIcon from '../../assets/images/Home.png'; 
@@ -10,16 +9,16 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-container">
       <div className="navbar-brand">
         <a className="navbar-brand" href="/">
-          <img src={Logo} width="230" height="50" alt="Back to Home" loading="lazy" />
+          <img src={Logo} alt="Back to Home" loading="lazy" className="logo-img" />
         </a>
         <h1 className="title" style={{ color: 'white' }}></h1>
       </div>
       <div className="icon-container" >
         <a href="/" className="nav-link">
-          <img src={HomeIcon} width="30" height="30" alt="Home" />
+          <img src={HomeIcon} alt="Home" className="nav-icon" />
         </a>
         <a href="/login" className="nav-link" >
-          <img src={LoginIcon} width="30" height="30" alt="Login" />
+          <img src={LoginIcon} alt="Login" className="nav-icon" />
         </a>
       </div>
     </nav>

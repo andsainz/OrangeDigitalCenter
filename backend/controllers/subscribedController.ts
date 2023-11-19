@@ -1,17 +1,24 @@
 import { Request, Response } from "express";
-import SubscribedModel, { SubscribedModelAttributes } from "../models/subscribedModel";
+import SubscribedModel, {
+    SubscribedModelAttributes,
+} from "../models/subscribedModel";
 import bcrypt from "bcrypt";
 
-export const getSubscribed = async (req: Request, res: Response): Promise<void> => {
+export const getSubscribed = async (
+    req: Request,
+    res: Response
+): Promise<void> => {
     try {
         const subscribed = await SubscribedModel.findAll();
-        const subscribedArray: SubscribedModelAttributes[] = subscribed.map((subscribed) => {
-            return {
-                id: subscribed.id,
-                fullName: subscribed.fullName,
-                email: subscribed.email,
-            };
-        });
+        const subscribedArray: SubscribedModelAttributes[] = subscribed.map(
+            (subscribed) => {
+                return {
+                    id: subscribed.id,
+                    fullName: subscribed.fullName,
+                    email: subscribed.email,
+                };
+            }
+        );
         res.json(subscribedArray);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
@@ -41,6 +48,7 @@ export const createSubscribed = async (
 ): Promise<void> => {
     try {
         const subscribedData: SubscribedModelAttributes = req.body;
+        console.log('Received data:', subscribedData); 
         if (!subscribedData.fullName || !subscribedData.email) {
             res.status(400).json({
                 message: "Required data is missing to subscribe to the newsletter.",
@@ -63,6 +71,7 @@ export const createSubscribed = async (
 
         res.status(201).json(newSubscribed);
     } catch (error: any) {
+        console.error('Error en el backend:', error);
         res.status(500).json({ message: error.message });
     }
 };

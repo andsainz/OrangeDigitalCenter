@@ -6,7 +6,7 @@ const router = Router()
 
 router.get('/', authenticateAdmin, getSubscribed)
 router.get('/:id', authenticateAdmin, getSubscribedById)
-router.post('/', authenticateAdmin, createSubscribed)
+router.post('/', createSubscribed)
 router.put('/:id', authenticateAdmin, updateSubscribed)
 router.delete('/:id', authenticateAdmin, deleteSubscribed)
 

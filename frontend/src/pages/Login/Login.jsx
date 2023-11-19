@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Login.css';
+import { LoginService } from '../../services/Loginservice';
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -10,38 +12,32 @@ const LoginForm = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, user_password }),
-      });
-
-      if (response.ok) {
+      const response = await LoginService.postLogin({ email, user_password });
+  
+      if (response.status === 200) { 
         const data = await response.json();
-        console.log("Login status:", data);
-
+        console.log("Estado de inicio de sesión:", data);
+  
         if (data.message === "Welcome back!") {
           window.location.href = "/";
         } else {
-          console.error('Email or password does not match');
+          console.error('El correo electrónico o la contraseña no coinciden');
           setShowErrorAlert(true);
-
+  
           setTimeout(() => {
             setShowErrorAlert(false);
           }, 10000);
         }
       } else if (response.status === 401) {
-        // Manejar el caso específico de contraseña incorrecta
+  
         setShowPasswordError(true);
-
+  
         setTimeout(() => {
           setShowPasswordError(false);
         }, 10000);
       }
     } catch (error) {
-      console.error("Failed request:", error);
+      console.error("Error en la solicitud:", error);
     }
   };
 
@@ -53,7 +49,7 @@ const LoginForm = () => {
           <input
             type="text"
             id="email"
-            placeholder="Email"
+            placeholder="Correo electrónico"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -62,21 +58,23 @@ const LoginForm = () => {
           <input
             type="password"
             id="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             value={user_password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Iniciar sesión</button>
+        <button className='btn-start' type="submit">Iniciar sesión</button>
       </form>
       {showErrorAlert && (
-        <div className="error-alert">Email or password does not match</div>
+        <div className="error-alert">El correo electrónico o la contraseña no coinciden</div>
       )}
       {showPasswordError && (
-        <div className="error-alert">Incorrect password</div>
+        <div className="error-alert">Contraseña incorrecta</div>
       )}
       <p>¿Aún no tienes cuenta?</p>
-      <button className="button-register">Regístrate</button>
+      <Link to="/register" className="button-register">
+        <button className="styled-button">Regístrate</button>
+      </Link>
     </div>
   );
 };

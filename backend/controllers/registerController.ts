@@ -12,19 +12,14 @@ export const postRegistration = async (req: Request, res: Response): Promise<voi
                 .json({ message: "User with this email already exists." });
             return;
         }
-        if (isAdmin) {
-            res
-                .status(400)
-                .json({ message: "Cannot set isAdmin to true" });
-            return;
-        }
+        
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(user_password, saltRounds);
         const newUser = await UserModel.create({
             fullName,
             email,
             user_password: hashedPassword,
-            isAdmin: false
+            isAdmin
         } as UserModelAttributes); 
         if (!newUser) {
             console.log("Error: Unable to create user");
