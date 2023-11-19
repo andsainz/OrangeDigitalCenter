@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Register.css';
-import { subscribedService } from '../../service/SubscribedService';
+import { subscribedService } from '../../services/SubscribedService';
 
 const Register = () => {
   const [fullName, setFullName] = useState('');
@@ -12,16 +12,13 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      // Call the subscribedService to post the form data
       await subscribedService.postSubscribed({ fullName, email });
 
-      // If successful, show success alert
       setShowSuccessAlert(true);
       setTimeout(() => {
         setShowSuccessAlert(false);
       }, 10000);
     } catch (error) {
-      // If an error occurs, show error alert
       console.error('Error en el registro:', error);
       setShowErrorAlert(true);
       setTimeout(() => {
