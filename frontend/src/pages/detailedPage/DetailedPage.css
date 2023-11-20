@@ -6,9 +6,10 @@
     align-items: center;
     font-size: 1.2rem;
 }
+
 .detailed-container img {
-    width: 100vw;
-    height: 40vh;
+    width: 30vw;
+    height: 30vh;
 }
 .detailed-card{
     width: 80vw;

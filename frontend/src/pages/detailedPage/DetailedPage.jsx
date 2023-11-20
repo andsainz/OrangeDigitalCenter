@@ -30,10 +30,10 @@ function DetailedPage() {
 
     return (
         <div className="detailed-container">
-            <img src={activity.activity_image} alt="Activity image" />
             <div className="detailed-card">
-                <p className="detailed-date-time-container"><span className="span-date">Fecha:</span> {activity.activity_date}   {activity.start_time} - {activity.end_time}</p>
-                <h1 className="detailed-title">Title: {activity.activity_title}</h1>
+                <p className="detailed-date-time-container"><span className="span-date"></span> {activity.activity_date}   {activity.start_time} - {activity.end_time}</p>
+                <h1 className="detailed-title">{activity.activity_title}</h1>
+                <img src={activity.activity_image} alt="Activity image" />
                 <p>{activity.activity_description}</p>
 
                 <div className="detailed-second-row-container">
