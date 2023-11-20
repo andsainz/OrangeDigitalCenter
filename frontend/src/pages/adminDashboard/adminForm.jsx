@@ -31,7 +31,7 @@ function AdminForm() {
                 activity_image: imageData,
                 activity_title: data.activity_title,
                 activity_description: data.activity_description,
-                activity_date: new Date(data.activity_date),
+                activity_date: data.activity_date,
                 start_time: data.start_time,
                 end_time: data.end_time,
                 activity_content: data.activity_content,
@@ -42,7 +42,7 @@ function AdminForm() {
             console.log('Formulario enviado con éxito');
         } catch (error) {
             console.error('Error al enviar el formulario:', error);
-            // Imprimir la respuesta del servidor
+            
             console.log('Server response:', error.response);
             if (error.response && error.response.json) {
                 const jsonResponse = await error.response.json();

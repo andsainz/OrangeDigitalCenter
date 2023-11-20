@@ -9,7 +9,7 @@ export interface ActivityModelAttributes {
     activity_image: any;
     activity_title: string;
     activity_description: string;
-    activity_date: Date;
+    activity_date: string;
     start_time: string;
     end_time: string,
     activity_content: string,
@@ -22,7 +22,7 @@ class ActivityModel extends Model<ActivityModelAttributes>{
     public activity_image!: any;
     public activity_title!: string;
     public activity_description!: string;
-    public activity_date!: Date;
+    public activity_date!: string;
     public start_time!: string;
     public end_time!: string;
     public activity_content!: string;
@@ -54,15 +54,15 @@ ActivityModel.init(
             allowNull: false,
         },
         activity_date: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         start_time: {
-            type: DataTypes.TIME,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         end_time: {
-            type: DataTypes.TIME,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         activity_content: {
