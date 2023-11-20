@@ -33,7 +33,7 @@ const RegisterForm = () => {
 
     return (
         <>
-            <div className="form-container">
+            <div className="form-container" aria-label="register-form">
                 <div className="form-content">
                     <div className="field-container">
                         <h2>
@@ -103,8 +103,9 @@ const RegisterForm = () => {
                             )}
                         </div>
                         <div className="field-container">
-                            <label>Email</label>
+                            <label htmlFor="email">Email</label>
                             <input
+                            id="email"
                                 className="second-row-field input-styles"
                                 type="text"
                                 {...register("email", {
@@ -120,8 +121,9 @@ const RegisterForm = () => {
                         {hasDonePreviousActivity === "no" && (
                             <div>
                                 <div className="field-container">
-                                    <label>Nombre y apellidos</label>
+                                    <label htmlFor="fullName">Nombre y apellidos</label>
                                     <input
+                                        id="fullName"
                                         className="second-row-field input-styles"
                                         type="text"
                                         {...register("fullName", {
@@ -142,8 +144,9 @@ const RegisterForm = () => {
                                     )}
                                 </div>
                                 <div className="field-container">
-                                    <label>Género</label>
+                                    <label htmlFor="gender">Género</label>
                                     <select
+                                        id="gender"
                                         className="second-row-field"
                                         {...register("gender")}>
                                         <option value="woman">Mujer</option>
@@ -160,8 +163,9 @@ const RegisterForm = () => {
                                     )}
                                 </div>
                                 <div className="field-container">
-                                    <label>Edad</label>
+                                    <label htmlFor="age">Edad</label>
                                     <select
+                                        id="age"
                                         className="second-row-field"
                                         {...register("age")}>
                                         <option value="0/15y">0-15 años</option>

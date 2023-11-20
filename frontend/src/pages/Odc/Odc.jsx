@@ -8,8 +8,8 @@ import Odc6 from '../../assets/imagesOdc/odc6.png';
 
 const DiscoverODC = () => {
   return (
-    <div className="discover-container">
-      <h1>Descubre<span><br></br>Orange</span> Digital Center</h1>
+    <div className="discover-container" aria-label="ODC">
+      <h1 aria-label="title">Descubre<span><br></br>Orange</span> Digital Center</h1>
       <div className="image-text">
         <h3>
           No te pierdas <span>todos</span> los eventos, talleres, cursos, etc. que hemos preparado para ti.<br></br>
@@ -17,12 +17,12 @@ const DiscoverODC = () => {
         </h3>
       </div>
       <div className="image-grid">
-        <img src={Odc1} alt="Descripción de la imagen" />
-        <img src={Odc2} alt="Descripción de la imagen" />
-        <img src={Odc3} alt="Descripción de la imagen" />
-        <img src={Odc4} alt="Descripción de la imagen" />
-        <img src={Odc5} alt="Descripción de la imagen" />
-        <img src={Odc6} alt="Descripción de la imagen" />
+        <img src={Odc1} alt="Descripción de la imagen" aria-label="imageODC-1" />
+        <img src={Odc2} alt="Descripción de la imagen" aria-label="imageODC-2" />
+        <img src={Odc3} alt="Descripción de la imagen" aria-label="imageODC-3" />
+        <img src={Odc4} alt="Descripción de la imagen" aria-label="imageODC-4" />
+        <img src={Odc5} alt="Descripción de la imagen" aria-label="imageODC-5" />
+        <img src={Odc6} alt="Descripción de la imagen" aria-label="imageODC-6" />
       </div>
       <div className='txt-container'>
       <h3><span>Orange</span> Digital Center es Tu Espacio</h3>

@@ -54,13 +54,13 @@ function AdminForm() {
     }
 
     return (
-        <div className='admin-activity-post-container'>
+        <div className='admin-activity-post-container' aria-label="admin-form">
             <div className='admin-form-container'>
                 <h1 className='title-post-activity'>Publica una nueva <span className='span-post-activity'>actividad</span></h1>
                 <Form className='activity-post-form-container' onSubmit={handleSubmit(onSubmit)} id="admin-form-container">
                     <Form.Group className='formGroup'>
-                        <Form.Label>Título</Form.Label>
-                        <Form.Control className="admin-form-input" type="text" {...register('activity_title', {
+                        <Form.Label htmlFor="activity_title">Título</Form.Label>
+                        <Form.Control id="activity_title" className="admin-form-input" type="text" {...register('activity_title', {
                             required: true,
                             minLength: 3,
                         })}>
@@ -69,50 +69,50 @@ function AdminForm() {
                         {errors.activity_title?.type === 'minLength' && <p>El título debe tener más de 3 caracteres</p>}
                     </Form.Group>
                     <Form.Group className='formGroup'>
-                        <Form.Label>Categoría</Form.Label>
-                        <Form.Control className="admin-form-input" type="number" {...register('category_id', {
+                        <Form.Label htmlFor="activity_category">Categoría</Form.Label>
+                        <Form.Control id="activity_category" className="admin-form-input" type="number" {...register('category_id', {
                             required: true
                         })}>
                         </Form.Control>
                         {errors.category_id?.type === 'required' && <p>La categoría es obligatoria</p>}
                     </Form.Group>
                     <Form.Group className='formGroup'>
-                        <Form.Label>Descripción</Form.Label>
-                        <Form.Control className="admin-form-input" type="text" {...register('activity_description', {
+                        <Form.Label htmlFor="activity_description">Descripción</Form.Label>
+                        <Form.Control id="activity_description" className="admin-form-input" type="text" {...register('activity_description', {
                             required: true,
                         })}></Form.Control>
                         {errors.activity_description?.type === 'required' && <p>La descripción es obligatoria</p>}
                     </Form.Group>
                     <Form.Group className='formGroup'>
-                        <Form.Label>Contenidos</Form.Label>
-                        <Form.Control className="admin-form-input" type="text" {...register('activity_content', {
+                        <Form.Label htmlFor="activity_content">Contenidos</Form.Label>
+                        <Form.Control id="activity_content" className="admin-form-input" type="text" {...register('activity_content', {
                             required: true,
                         })}></Form.Control>
                         {errors.activity_content?.type === 'required' && <p>Los contenidos son obligatorios</p>}
                     </Form.Group>
                     <Form.Group className='formGroup'>
-                        <Form.Label>Fecha</Form.Label>
-                        <Form.Control className="admin-form-input" type="text" {...register('activity_date', {
+                        <Form.Label htmlFor="activity_date">Fecha</Form.Label>
+                        <Form.Control id="activity_date" className="admin-form-input" type="text" {...register('activity_date', {
                             required: true,
                         })}></Form.Control>
                         {errors.activity_date?.type === 'required' && <p>La fecha es obligatoria</p>}
                     </Form.Group>
                     <Form.Group className='formGroup'>
-                        <Form.Label>Hora de inicio</Form.Label>
-                        <Form.Control className="admin-form-input" type="text" {...register('start_time', {
+                        <Form.Label htmlFor="activity_start">Hora de inicio</Form.Label>
+                        <Form.Control id="activity_start" className="admin-form-input" type="text" {...register('start_time', {
                             required: true,
                         })}></Form.Control>
                         {errors.start_time?.type === 'required' && <p>La hora de inicio es obligatoria</p>}
                     </Form.Group>
                     <Form.Group className='formGroup'>
-                        <Form.Label>Hora de finalización</Form.Label>
-                        <Form.Control className="admin-form-input" type="text" {...register('end_time', {
+                        <Form.Label htmlFor="activity_end">Hora de finalización</Form.Label>
+                        <Form.Control id="activity_end" className="admin-form-input" type="text" {...register('end_time', {
                             required: true,
                         })}></Form.Control>
                     </Form.Group>
                     <Form.Group className='formGroup'>
-                        <Form.Label>Plazas disponibles</Form.Label>
-                        <Form.Control className="admin-form-input" type="text" {...register('available_places', {
+                        <Form.Label htmlFor="activity_places">Plazas disponibles</Form.Label>
+                        <Form.Control id="activity_places" className="admin-form-input" type="text" {...register('available_places', {
                             min: 3,
                             max: 30,
                         })}></Form.Control>
@@ -120,9 +120,9 @@ function AdminForm() {
                         {errors.available_places?.type === 'max' && <p>Máximo 30 plazas disponibles</p>}
                     </Form.Group>
                     <Form.Group className='formGroup'>
-                        <Form.Label>Sube una imagen</Form.Label>
+                        <Form.Label htmlFor="activity_image">Sube una imagen</Form.Label>
                         <div className='form-group-btn-container'>
-                        <Form.Control className="admin-form-input"
+                        <Form.Control id="activity_image" className="admin-form-input"
                             type="file"
                             accept="image/*"
                             onChange={handleImageChange}>

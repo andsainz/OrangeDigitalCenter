@@ -42,7 +42,7 @@ const LoginForm = () => {
   };
 
   return (
-  <div className="general-container">
+  <div className="general-container" aria-label="Login">
     <div className="login-container">
       <h1>Inicia sesión</h1>
       <form onSubmit={handleLoginSubmit}>

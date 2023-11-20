@@ -28,7 +28,7 @@ const NewsletterSubs = () => {
   };
 
   return (
-    <form className="register-form" onSubmit={handleRegisterSubmit}>
+    <form className="register-form" aria-label="newsletter-form" onSubmit={handleRegisterSubmit}>
       <h1>Recibe nuestra<br />newsletter</h1>
       <label>
         <input
