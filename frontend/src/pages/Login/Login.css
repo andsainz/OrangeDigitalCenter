@@ -1,7 +1,3 @@
-html{
-  background-color: black;
-}
-
 .general-container{
   background-color: black;
   width: 100vw;
@@ -36,7 +32,6 @@ html{
   width: 100%;
   margin: 0;
   border: 0.1em solid #FF7900;
-  border-radius: 0.5em;
   margin-bottom: 1vw;
   color:white;
   background-color: black;
@@ -46,7 +41,7 @@ html{
   background-color: #FF7900;
   color: white;
   border: none;
-  border-radius: 0.5em;
+  border-radius: 0;
   cursor: pointer;
   margin-bottom: 1vw;
   transition: background-color 0.3s;

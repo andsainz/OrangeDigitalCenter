@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './adminRegister.css';
-
+import { Alert } from 'react-bootstrap';
 function AdminRegister() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -41,7 +41,6 @@ function AdminRegister() {
     <form onSubmit={handleRegisterSubmit} className="register">
       <div className="logo-container">
         <a href="/"> 
-          {/* Aquí puedes agregar tu logotipo si lo deseas */}
         </a>
       </div>
       <div className="form-field-container">
@@ -83,16 +82,16 @@ function AdminRegister() {
       </div>
       <div className="text-center">
         {showSuccessAlert && (
-          <div className="alert-success">
+          <Alert show={showSuccessAlert} variant="dark">
             Registro exitoso. ¡Bienvenido!
-          </div>
+          </Alert>
         )}
         {showErrorAlert && (
-          <div className="alert-danger">
-            Ha habido un error con su registro.
-          </div>
+          <Alert variant="dark">
+          Ha habido un error con su registro.
+          </Alert>
         )}
-        <p>¿Tienes una cuenta?</p>
+        <p className='txt-admin-register'>¿Tienes una cuenta?</p>
         <a className="login-link" href="/admin/register">
           Iniciar sesión
         </a>
