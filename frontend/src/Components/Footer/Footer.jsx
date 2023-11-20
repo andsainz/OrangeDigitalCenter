@@ -1,10 +1,9 @@
-import Logo from '../../assets/images/logo2.png';
+import Logo from '../../assets/images/Logo2.png';
 import Facebook from '../../assets//images/facebookicon.png';
 import Twitter from '../../assets/images/twittericon.png';
 import Linkedin from '../../assets/images/linkedinicon.png';
 import Instagram from '../../assets/images/instaicon.png';
 import './Footer.css';
-
 const Footer = () => {
   return (
     <footer className="footer">
@@ -26,5 +25,4 @@ const Footer = () => {
     </footer>
   );
 };
-
 export default Footer;

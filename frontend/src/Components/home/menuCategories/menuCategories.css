@@ -3,19 +3,17 @@
     display: flex;
     justify-content: center;
 }
-
 a.menu-categories-nav-link {
     text-decoration: none;
     font-size: 1.8rem;
     color: white;
 }
-
 a.menu-categories-nav-link:hover {
     color: #FF7900;
 }
-
 @media (max-width: 988px) {
     a.menu-categories-nav-link{
         align-self: center;
+        font-size: medium;
     }
 }

@@ -3,11 +3,10 @@ import db from "../database/db";
 import UserModel from "./usersModel";
 import AdminModel from "./adminsModel";
 import CategoryModel from "./categoriesModel";
-
 export interface ActivityModelAttributes {
     activity_id: number;
     category_id: number;
-    activity_image: Buffer;
+    activity_image: any;
     activity_title: string;
     activity_description: string;
     activity_date: Date;
@@ -20,7 +19,7 @@ export interface ActivityModelAttributes {
 class ActivityModel extends Model<ActivityModelAttributes>{
     public activity_id!: number;
     public category_id!: number;
-    public activity_image!: Buffer;
+    public activity_image!: any;
     public activity_title!: string;
     public activity_description!: string;
     public activity_date!: Date;
@@ -43,7 +42,7 @@ ActivityModel.init(
             allowNull: false
         },
         activity_image: {
-            type: DataTypes.BLOB('long'),
+            type: DataTypes.JSON,
             allowNull: false,
         },
         activity_title: {
