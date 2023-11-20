@@ -6,26 +6,26 @@
     align-items: center;
     font-size: 1.2rem;
 }
-
 .detailed-container img {
     width: 30vw;
     height: 30vh;
 }
 .detailed-card{
     width: 80vw;
+    margin-top: 3rem;
 }
 .detailed-date-time-container, .detailed-available-places{
     color: #F16E00;
     font-weight: bold;
     font-size: 1.2rem;
 }
-.span-date, .span-available-places{
+.span-available-places{
     color: black;
 }
-.detailed-title, .detailed-content-title{
+.detailed-title{
     color: #F16E00;
     font-weight: bolder;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    border-bottom: 3px solid #F16E00;
 }
 .sign-up-activity-btn{
     background-color: white;
@@ -37,15 +37,17 @@
     margin-top: 1rem;
 }
 .content-places-container{
-    width: 70%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
-.detailed-second-row-container{
+.detailed-img-description-container{
     display: flex;
-    justify-content: space-between;
-    
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 .qr-sign-up-container{
     width: 30%;
@@ -53,4 +55,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.detailed-card-body-container{
+    display: flex;
+    justify-content: space-around;
+}
+.qr-sign-up-btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
