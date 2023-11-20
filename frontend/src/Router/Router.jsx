@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         element: <NewsletterSubs/>,
       },
       {
-        path: "/discoverodc",
+        path: "/odc*",
         element: <DiscoverODC />,
       },
       {

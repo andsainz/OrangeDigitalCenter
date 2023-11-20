@@ -42,6 +42,7 @@ const LoginForm = () => {
   };
 
   return (
+  <div className="general-container">
     <div className="login-container">
       <h1>Inicia sesión</h1>
       <form onSubmit={handleLoginSubmit}>
@@ -72,10 +73,9 @@ const LoginForm = () => {
         <div className="error-alert">Contraseña incorrecta</div>
       )}
       <p>¿Aún no tienes cuenta?</p>
-      <Link to="/register" className="button-register">
-        <button className="styled-button">Regístrate</button>
-      </Link>
+        <button className="register-button">Regístrate</button>
     </div>
+  </div>
   );
 };
 

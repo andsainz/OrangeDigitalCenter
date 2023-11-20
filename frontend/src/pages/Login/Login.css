@@ -1,7 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+.general-container{
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
 }
 
 .login-container {
@@ -10,71 +11,64 @@
   align-items: center;
   justify-content: center;
   height: 70vh;
-  width: 80%;
+  width: 80vw;
   max-width: 400px;
-  margin: 0 auto;
-  border-radius: 5px;
-  padding: 5%;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10vh auto;
+  border-radius: 1.5vw;
+  padding: 5vw;
 }
-
 .login-container h1 {
-  margin-bottom: 5%;
+  margin-bottom: 15%;
   text-align: center;
+  color: #FF7900;
+  margin-top: 0vh;
 }
-
 .login-container form {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-
 .login-container input {
   padding: 2%;
   width: 100%;
   margin: 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border: 0.1em solid #FF7900;
+  border-radius: 0.5em;
+  margin-bottom: 1vw;
+  color:white;
+  background-color: black;
 }
-
 .login-container button {
   padding: 3% 5%;
-  background-color: #000;
-  color: #fff;
+  background-color: #FF7900;
+  color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.5em;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 1vw;
   transition: background-color 0.3s;
 }
-
-.login-container button:hover,
-.styled-button:hover {
-  background-color: #f58026;
+.styled-button{
+  width: 9rem;
+  margin-top: 0.5rem;
 }
-
 .error-alert {
-  background-color: #ff9999;
-  color: #cc0000;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  background-color: #FF9999;
+  color: #CC0000;
+  padding: 1vw;
+  border-radius: 0.5em;
+  margin-bottom: 1vw;
   text-align: center;
 }
-
 .login-container p {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0.5em;
+  margin-bottom: 1vw;
   text-align: center;
-  color: #000;
+  color: #F58026;
 }
-
-.btn-start {
-  width: 60%;
-  margin-left: 3rem;
-  
+@media (max-width: 768px) {
+  .login-container {
+    width: 90vw;
+    margin: 5vh auto;
+  }
 }
-
