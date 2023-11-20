@@ -6,6 +6,7 @@ import NewsletterSubs from "../pages/newsletterSubs/NewsletterSubs.jsx";
 import DiscoverODC from "../pages/Odc/Odc.jsx";
 import RegisterForm from '../pages/registerForm/RegisterForm.jsx'
 import AdminForm from "../pages/adminDashboard/adminForm.jsx";
+import DetailedPage from "../pages/detailedPage/DetailedPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,13 +30,17 @@ const router = createBrowserRouter([
         element: <RegisterForm />,
       },
       {
+        path: "/activities/:activity_id",
+        element: <DetailedPage />,
+      },
+      {
         path: "/admin/login",
         element: <LoginForm />,
       },
       {
         path: "/admin/activitypost",
         element: <AdminForm />,
-      }
+      },
     ],
   },
 ]);
