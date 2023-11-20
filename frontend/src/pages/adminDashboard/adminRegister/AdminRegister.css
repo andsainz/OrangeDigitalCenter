@@ -1,0 +1,76 @@
+/* Estilos para AdminRegister.jsx */
+html {
+  background-color: black;
+}
+
+.general-container {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  width: 100vw;
+  margin: 10vh auto;
+  border-radius: 1.5vw;
+  padding: 5vw;
+  background-color: black;
+}
+
+.register h5 {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #FF7900;
+  margin-top: 0;
+}
+
+.input-field {
+  padding: 2%;
+  width: 100%;
+  margin: 0;
+  border: 0.1em solid #FF7900;
+  border-radius: 0.5em;
+  margin-bottom: 1vw;
+  color: white;
+  background-color: black;
+}
+
+.Button1 {
+  padding: 3% 5%;
+  background-color: #FF7900;
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  margin-bottom: 1vw;
+  transition: background-color 0.3s;
+}
+
+.alert-success {
+  background-color: #00FF00;
+  color: #008000;
+  padding: 1vw;
+  border-radius: 0.5em;
+  margin-bottom: 1vw;
+  text-align: center;
+}
+
+.alert-danger {
+  background-color: #FF9999;
+  color: #CC0000;
+  padding: 1vw;
+  border-radius: 0.5em;
+  margin-bottom: 1vw;
+  text-align: center;
+}
+
+.login-link {
+  margin-top: 0.5em;
+  text-align: center;
+  color: #F58026;
+}

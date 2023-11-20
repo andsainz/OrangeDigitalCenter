@@ -8,6 +8,7 @@ import RegisterForm from '../pages/registerForm/RegisterForm.jsx'
 import AdminForm from "../pages/adminDashboard/adminForm.jsx";
 import DetailedPage from "../pages/detailedPage/DetailedPage.jsx";
 
+import AdminRegister from "../pages/adminDashboard/adminRegister/AdminRegister.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
         path: "/admin/activitypost",
         element: <AdminForm />,
       },
+      {
+        path: "/admin/register",
+        element:<AdminRegister />
+      }
     ],
   },
 ]);
