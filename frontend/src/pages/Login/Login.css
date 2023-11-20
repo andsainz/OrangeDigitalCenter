@@ -1,11 +1,11 @@
-html{
-  background-color: black;
-}
 
 .general-container{
   background-color: black;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-container {
@@ -16,7 +16,6 @@ html{
   height: 70vh;
   width: 80vw;
   max-width: 400px;
-  margin: 10vh auto;
   border-radius: 1.5vw;
   padding: 5vw;
 }
