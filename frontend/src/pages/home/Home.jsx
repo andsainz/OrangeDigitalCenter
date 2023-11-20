@@ -10,12 +10,6 @@ import CarouselComponent from '../../Components/carousel/Carousel';
 function Home() {
     const [activities, setActivities] = useState([]);
     const activitiesLinks = [
-        "http://localhost:5173/activities/1",
-        "http://localhost:5173/activities/2",
-        "http://localhost:5173/activities/3",
-        "http://localhost:5173/activities/4",
-        "http://localhost:5173/activities/5",
-        "http://localhost:5173/activities/6",
         "http://localhost:5173/activities/7",
         "http://localhost:5173/activities/8",
         "http://localhost:5173/activities/9",
