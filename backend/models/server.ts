@@ -20,7 +20,7 @@ class Server {
         registered: '/registerform',
         activities: '/activities',
         categories: '/categories',
-        register: '/registration',
+        register: '/admin/register',
         login: '/login'
     }
     private adminRoutes=adminRoutes;
