@@ -1,0 +1,45 @@
+.admin-activity-post-container{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+}
+.admin-form-container{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.title-post-activity{
+    color: white;
+}
+.admin-form-input{
+    border-radius: 0;
+    border: 1px solid black;
+}
+.post-activity-btn{
+    background-color: #ff7900;
+    border-radius: 0;
+    margin-top: 2rem;
+    width: 50%;
+    border: 2px solid white;
+    font-weight: 500;
+}
+.post-activity-btn:hover{
+    background-color: #ff7900;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black;
+}
+.formGroup{
+    font-weight:400;
+    font-size: 1.2rem;
+    margin-top: 0.3rem;
+}
+.span-post-activity{
+    color:#ff7900;
+}
+.form-group-btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
