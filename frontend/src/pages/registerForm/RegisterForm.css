@@ -18,7 +18,6 @@
 .field-container {
     display: flex;
     background-color: #fff;
-    border-radius: 0.6rem;
     border-top: 5px solid #ff7900;
     text-align: left;
     justify-content: center;
