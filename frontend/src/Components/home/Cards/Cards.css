@@ -1,5 +1,6 @@
 .card-section.card{
     border-radius: 0;
+    border: 3px solid white;
 }
 .date-time-container{
     display: flex;
