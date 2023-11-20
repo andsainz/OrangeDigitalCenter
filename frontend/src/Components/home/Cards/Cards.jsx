@@ -3,8 +3,19 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import "./Cards.css";
-import { activitiesService } from "../../../services/ActivitiesService"; 
-function Cards({ activity_image, activity_title, activity_description, activity_date, start_time, end_time }) {
+import { activitiesService } from "../../../services/ActivitiesService";
+function Cards({
+    activity_image,
+    activity_title,
+    activity_description,
+    activity_date,
+    start_time,
+    end_time,
+    link,
+}) {
+    const handleClickBtn = () => {
+        window.location.href = link;
+    };
     const [activities, setActivities] = useState([]);
 
     useEffect(() => {
@@ -25,13 +36,16 @@ function Cards({ activity_image, activity_title, activity_description, activity_
             <Card.Body className="card-body">
                 <div className="date-time-container">
                     <Card.Text>{activity_date}</Card.Text>
-                    <Card.Text>{start_time}</Card.Text> - <Card.Text>{end_time}</Card.Text>
+                    <Card.Text>{start_time}</Card.Text> -{" "}
+                    <Card.Text>{end_time}</Card.Text>
                 </div>
                 <h5>
                     <Card.Text>{activity_title}</Card.Text>
                 </h5>
                 <Card.Text>{activity_description}</Card.Text>
-                <button className="read-more-btn">LEER MÁS</button>
+                <button className="read-more-btn" onClick={handleClickBtn}>
+                    LEER MÁS
+                </button>
             </Card.Body>
         </Card>
     );
@@ -42,6 +56,7 @@ Cards.propTypes = {
     activity_description: PropTypes.string.isRequired,
     activity_date: PropTypes.string.isRequired,
     start_time: PropTypes.string.isRequired,
-    end_time: PropTypes.string.isRequired
+    end_time: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired
 };
 export default Cards;

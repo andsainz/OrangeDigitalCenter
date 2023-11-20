@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { activitiesService } from '../../services/ActivitiesService';
-import Cards from '../../Components/home/Cards/Cards'
-import WelcomeBanner from '../../Components/home/banners/welcomeBanner';
+import Cards from '../../Components/home/Cards/Cards';
 import MenuCategories from '../../Components/home/menuCategories/menuCategories';
 import SubscriptionBanner from '../../Components/home/banners/subscriptionBanner';
 import './Home.css';
@@ -11,10 +10,14 @@ import CarouselComponent from '../../Components/carousel/Carousel';
 function Home() {
     const [activities, setActivities] = useState([]);
     const activitiesLinks = [
-        "http://localhost:5173/tallerautismo",
-        "http://localhost:5173/cinetarantino",
-        "http://localhost:5173/eventoconcomida",
-        "http://localhost:5173/caferico"
+        "http://localhost:5173/activities/7",
+        "http://localhost:5173/activities/8",
+        "http://localhost:5173/activities/9",
+        "http://localhost:5173/activities/10",
+        "http://localhost:5173/activities/11",
+        "http://localhost:5173/activities/12",
+        "http://localhost:5173/activities/13",
+        "http://localhost:5173/activities/14"
     ];
     useEffect(() => {
         activitiesService
