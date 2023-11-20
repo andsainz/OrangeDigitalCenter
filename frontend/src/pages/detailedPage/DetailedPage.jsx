@@ -31,21 +31,23 @@ function DetailedPage() {
     return (
         <div className="detailed-container">
             <div className="detailed-card">
-                <p className="detailed-date-time-container"><span className="span-date"></span> {activity.activity_date}   {activity.start_time} - {activity.end_time}</p>
+                <p className="detailed-date-time-container">{activity.activity_date}   {activity.start_time} - {activity.end_time}</p>
                 <h1 className="detailed-title">{activity.activity_title}</h1>
-                <img src={activity.activity_image} alt="Activity image" />
-                <p>{activity.activity_description}</p>
 
-                <div className="detailed-second-row-container">
+                <div className="detailed-card-body-container">
+                    <div className="detailed-img-description-container">
+                        <img src={activity.activity_image} alt="Activity image" />
+                        <p>{activity.activity_description}</p>
+                    </div>
+
                     <div className="content-places-container">
                         <h2 className="detailed-content-title">Contenidos</h2>
                         <ul>{activityContentList}</ul>
                         <p className="detailed-available-places"><span className="span-available-places">Plazas disponibles:</span> {activity.available_places}</p>
-                    </div>
-
-                    <div className="qr-sign-up-container">
+                        <div className="qr-sign-up-btn-container">
                         <QRCode value={url} />
                         <button className="sign-up-activity-btn">Inscribirme en esta actividad</button>
+                        </div>
                     </div>
                 </div>
             </div>
