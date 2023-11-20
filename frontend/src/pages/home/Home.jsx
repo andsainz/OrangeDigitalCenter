@@ -6,6 +6,7 @@ import WelcomeBanner from '../../Components/home/banners/welcomeBanner';
 import MenuCategories from '../../Components/home/menuCategories/menuCategories';
 import SubscriptionBanner from '../../Components/home/banners/subscriptionBanner';
 import './Home.css';
+import CarouselComponent from '../../Components/carousel/Carousel';
 
 function Home() {
     const [activities, setActivities] = useState([]);
@@ -27,7 +28,7 @@ function Home() {
     }, []);
     return (
         <div className="home-container">
-            <WelcomeBanner />
+            <CarouselComponent/>
             <MenuCategories />
             <div className="container-father">
                 <div className="cards-container">
