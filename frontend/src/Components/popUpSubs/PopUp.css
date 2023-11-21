@@ -31,10 +31,10 @@
     margin-top: 0.3rem;
 }
 .pop-up-privacy-policy-link{
-    display: inline-block;
+    display: inline;
 }
 .privacy-policy-txt{
-    display: inline-block;
+    display: inline;
     margin: 0;
 }
 .privacy-policy-readed{

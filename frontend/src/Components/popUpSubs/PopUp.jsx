@@ -6,9 +6,14 @@ import { subscribedService } from '../../services/SubscribedService';
 const PopUp = () => {
   const [email, setEmail] = useState('');
   const [show, setShow] = useState(false);
+  const [acceptedPrivacyPolicy, setAcceptedPrivacyPolicy] = useState(false); 
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
+    if (!acceptedPrivacyPolicy) {
+      alert('Por favor, acepta la política de privacidad antes de enviar el formulario.');
+      return;
+    }
     try {
       await subscribedService.postSubscribed({ email });
     } catch (error) {
@@ -40,18 +45,18 @@ const PopUp = () => {
           />
 
           <div className="privacy-policy-container">
-            <input type="checkbox" className="privacy-policy-checkbox" required />
+            <input type="checkbox" className="privacy-policy-checkbox" required onChange={(e) => setAcceptedPrivacyPolicy(e.target.checked)} />
           
             <div className='privacy-policy-readed'>
             <p className='privacy-policy-txt' htmlFor="privacyPolicy">
-              He leído y acepto la </p><a className='pop-up-privacy-policy-link' href="enlace a la política de privacidad" target="_blank" rel="noopener noreferrer">política de privacidad</a><p className='privacy-policy-readed'>. Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
+              He leído y acepto la </p><a className='pop-up-privacy-policy-link' href="enlace a la política de privacidad" target="_blank" rel="noopener noreferrer">política de privacidad.</a><p className='privacy-policy-readed'>Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
             </p>
             </div>
 
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShow(false)}>Close</Button>
+          <Button variant="secondary" onClick={() => setShow(false)}>Cerrar</Button>
           <Button variant="primary" onClick={handleRegisterSubmit}>Recibir newsletter</Button>
         </Modal.Footer>
       </Modal>

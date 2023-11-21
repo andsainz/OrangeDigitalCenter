@@ -1,15 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "./RegisterForm.css";
 import { FormService } from "../../services/FormService";
 import { Alert } from "react-bootstrap";
+import PopUp from "../../Components/popUpSubs/PopUp";
 
 const RegisterForm = () => {
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [formError, setFormError] = useState(null);
     const [showErrorAlert, setShowErrorAlert] = useState(false);
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+    const [showPopUp, setShowPopUp] = useState(false); 
     const {
         register,
         formState: { errors },
@@ -19,6 +21,7 @@ const RegisterForm = () => {
         defaultValues: {},
     });
     const hasDonePreviousActivity = watch("hasDonePreviousActivity");
+    const isSubscribed = watch("isSubscribed");
 
     const onSubmit = async (data) => {
         try {
@@ -41,7 +44,13 @@ const RegisterForm = () => {
         }
     };
     
-    
+    useEffect(() => {
+        if (isSubscribed === "no") {
+            setShowPopUp(true); 
+        } else {
+            setShowPopUp(false); 
+        }
+    }, [isSubscribed]);
 
 
     return (
@@ -116,6 +125,8 @@ const RegisterForm = () => {
                                 <p>Este campo es obligatorio</p>
                             )}
                         </div>
+                        {showPopUp && <PopUp />}
+
                         <div className="field-container">
                             <label htmlFor="email">Email</label>
                             <input
