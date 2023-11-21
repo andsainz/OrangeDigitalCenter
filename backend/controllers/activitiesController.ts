@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
 import ActivityModel, { ActivityModelAttributes } from '../models/activitiesModel';
+import { Op } from 'sequelize';
+import CategoryModel from '../models/categoriesModel';
 
 export const getActivities = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -7,7 +9,7 @@ export const getActivities = async (req: Request, res: Response): Promise<void> 
         const activitiesArray: ActivityModelAttributes[] = activities.map((activity) => {
             return {
                 activity_id: activity.activity_id,
-                category_id: activity.category_id,
+                category_name: activity.category_name,
                 activity_image: activity.activity_image,
                 activity_title: activity.activity_title,
                 activity_description: activity.activity_description,
@@ -41,14 +43,19 @@ export const getActivityById = async(req: Request, res: Response): Promise<void>
 
 export const getActivitiesByCategory = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { category_id } = req.params;
+        const { category_name } = req.params;
+
+        if (!category_name || typeof category_name !== 'string') {
+            res.status(400).json({ message: "Invalid or missing category_name parameter." });
+            return;
+        }
 
         const activities = await ActivityModel.findAll({
-            where: { category_id },
+            where: { category_name: category_name },
             attributes: { exclude: ['id'] },
         });
 
-        if (!activities) {
+        if (activities.length === 0) {
             res.status(404).json({ message: "Category not found." });
         } else {
             res.json(activities);
@@ -56,7 +63,7 @@ export const getActivitiesByCategory = async (req: Request, res: Response): Prom
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }
-}
+};
 
 export const createActivity = async (req: Request, res: Response): Promise<void> => {
     try {

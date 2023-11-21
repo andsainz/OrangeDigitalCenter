@@ -29,7 +29,7 @@ function AdminForm() {
     const onSubmit = async (data) => {
         try {
             const formData = {
-                category_id: data.category_id,
+                category_name: data.category_name,
                 activity_image: imageData,
                 activity_title: data.activity_title,
                 activity_description: data.activity_description,
@@ -70,11 +70,11 @@ function AdminForm() {
                     </Form.Group>
                     <Form.Group className='formGroup'>
                         <Form.Label htmlFor="activity_category">Categoría</Form.Label>
-                        <Form.Control id="activity_category" className="admin-form-input" type="number" {...register('category_id', {
+                        <Form.Control id="activity_category" className="admin-form-input" type="string" {...register('category_name', {
                             required: true
                         })}>
                         </Form.Control>
-                        {errors.category_id?.type === 'required' && <p>La categoría es obligatoria</p>}
+                        {errors.category_name?.type === 'required' && <p>La categoría es obligatoria</p>}
                     </Form.Group>
                     <Form.Group className='formGroup'>
                         <Form.Label htmlFor="activity_description">Descripción</Form.Label>

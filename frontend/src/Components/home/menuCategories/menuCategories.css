@@ -11,6 +11,9 @@ a.menu-categories-nav-link {
 a.menu-categories-nav-link:hover {
     color: #FF7900;
 }
+.paragraph-menu-categories{
+    color: white;
+}
 @media (max-width: 988px) {
     a.menu-categories-nav-link{
         align-self: center;
