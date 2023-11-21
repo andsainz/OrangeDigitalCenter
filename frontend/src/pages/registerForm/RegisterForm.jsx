@@ -3,10 +3,14 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./RegisterForm.css";
 import { FormService } from "../../services/FormService";
+import { Alert } from "react-bootstrap";
 
 const RegisterForm = () => {
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [formError, setFormError] = useState(null);
+    const [showErrorAlert, setShowErrorAlert] = useState(false);
+    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+
     const {
         register,
         formState: { errors },
@@ -22,14 +26,17 @@ const RegisterForm = () => {
             await FormService.postForm(data);
             setFormSubmitted(true);
             setFormError(null);
+            setShowSuccessAlert(true);
         } catch (error) {
             setFormSubmitted(false);
             setFormError(
                 "Error al enviar el formulario. Por favor, inténtelo de nuevo."
             );
             console.error("Error al enviar el formulario:", error);
+            setShowErrorAlert(true);
         }
     };
+
 
     return (
         <>
@@ -106,7 +113,7 @@ const RegisterForm = () => {
                         <div className="field-container">
                             <label htmlFor="email">Email</label>
                             <input
-                            id="email"
+                                id="email"
                                 className="second-row-field input-styles"
                                 type="text"
                                 {...register("email", {
@@ -150,9 +157,7 @@ const RegisterForm = () => {
                                         className="second-row-field"
                                         id="gender-container">
                                         <input
-                                            className="gender-input"
                                             type="radio"
-                                            id="woman"
                                             value="woman"
                                             {...register("gender", {
                                                 required: true,
@@ -161,9 +166,7 @@ const RegisterForm = () => {
                                         <label htmlFor="woman">Mujer</label>
 
                                         <input
-                                            className="gender-input"
                                             type="radio"
-                                            id="men"
                                             value="men"
                                             {...register("gender", {
                                                 required: true,
@@ -172,9 +175,7 @@ const RegisterForm = () => {
                                         <label htmlFor="men">Hombre</label>
 
                                         <input
-                                            className="gender-input"
                                             type="radio"
-                                            id="nonBinary"
                                             value="nonBinary"
                                             {...register("gender", {
                                                 required: true,
@@ -185,9 +186,7 @@ const RegisterForm = () => {
                                         </label>
 
                                         <input
-                                            className="gender-input"
                                             type="radio"
-                                            id="noResponse"
                                             value="noResponse"
                                             {...register("gender", {
                                                 required: true,
@@ -404,24 +403,32 @@ const RegisterForm = () => {
                                     </div>
                                     {errors.availableTime?.type ===
                                         "required" && (
-                                        <p>Este campo es obligatorio</p>
-                                    )}
+                                            <p>Este campo es obligatorio</p>
+                                        )}
                                 </div>
                             </div>
+                        )}
+                        {showErrorAlert && (
+                            <Alert
+                                className="alert-form"
+                                variant="dark"
+                                onClose={() => setShowErrorAlert(false)}>
+                                Ha habido un error con el envío de su formulario
+                            </Alert>
+                        )}
+                        {showSuccessAlert && (
+                            <Alert
+                                className="alert-form"
+                                variant="dark"
+                                onClose={() => setShowSuccessAlert(false)}>
+                                Formulario enviado con éxito
+                            </Alert>
                         )}
 
                         <input
                             type="submit"
                             className="send-btn-form"
                             value="Enviar"></input>
-                        {formSubmitted && (
-                            <p className="success-message">
-                                ¡Formulario enviado!
-                            </p>
-                        )}
-                        {formError && (
-                            <p className="error-message">{formError}</p>
-                        )}
                     </form>
                 </div>
             </div>
