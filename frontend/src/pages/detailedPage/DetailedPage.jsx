@@ -7,8 +7,10 @@ import QRCode from 'qrcode.react';
 function DetailedPage() {
     const [activity, setActivity] = useState(null);
     const { activity_id } = useParams();
-    const url = 'https://http://localhost:5173/registerform';
-
+    const url = 'http://localhost:5173/registerform';
+    const handleClickBtn = () => {
+        window.location.href = url;
+    };
     useEffect(() => {
         const fetchActivity = async () => {
             try {
@@ -46,7 +48,7 @@ function DetailedPage() {
                         <p className="detailed-available-places"><span className="span-available-places">Plazas disponibles:</span> {activity.available_places}</p>
                         <div className="qr-sign-up-btn-container">
                         <QRCode value={url} />
-                        <button className="sign-up-activity-btn">Inscribirme en esta actividad</button>
+                        <button className="sign-up-activity-btn" onClick={handleClickBtn}>Inscribirme en esta actividad</button>
                         </div>
                     </div>
                 </div>

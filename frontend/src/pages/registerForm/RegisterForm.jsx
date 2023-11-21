@@ -10,7 +10,6 @@ const RegisterForm = () => {
     const [formError, setFormError] = useState(null);
     const [showErrorAlert, setShowErrorAlert] = useState(false);
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
-
     const {
         register,
         formState: { errors },
@@ -27,6 +26,11 @@ const RegisterForm = () => {
             setFormSubmitted(true);
             setFormError(null);
             setShowSuccessAlert(true);
+    
+            setTimeout(() => {
+                window.location.href = 'http://localhost:5173/';
+            }, 2000);
+    
         } catch (error) {
             setFormSubmitted(false);
             setFormError(
@@ -36,6 +40,8 @@ const RegisterForm = () => {
             setShowErrorAlert(true);
         }
     };
+    
+    
 
 
     return (
@@ -420,7 +426,9 @@ const RegisterForm = () => {
                             <Alert
                                 className="alert-form"
                                 variant="dark"
-                                onClose={() => setShowSuccessAlert(false)}>
+                                onClose={() => {
+                                    setShowSuccessAlert(false);
+                                }}>
                                 Formulario enviado con éxito
                             </Alert>
                         )}
@@ -429,6 +437,7 @@ const RegisterForm = () => {
                             type="submit"
                             className="send-btn-form"
                             value="Enviar"></input>
+
                     </form>
                 </div>
             </div>
