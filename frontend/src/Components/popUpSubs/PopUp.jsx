@@ -25,25 +25,29 @@ const PopUp = () => {
   }, []);
 
   return (
-    <div>
+    <div className='pop-up-container'>
       <Modal show={show} onHide={() => setShow(false)} centered>
         <Modal.Header closeButton>
-          <Modal.Title>¿Quieres saber sobre este curso y otros del ODC apuntándote a la newsletter?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        <Modal.Title>¿Quieres saber sobre este curso y otros del ODC apuntándote a la newsletter?</Modal.Title>
+          <p className='pop-up-email-p'>Introduce tu email</p>
           <input
-            type="email"
-            placeholder="tuemail@ejemplo.com"
+            className='pop-up-email-input' type="email" placeholder="tuemail@ejemplo.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <div className="privacy-policy">
-            <label htmlFor="privacyPolicy" className="checkbox-label">
-              <input type="checkbox" id="privacyPolicy" required />
-              <p>He leído y acepto la <a href="enlace a la política de privacidad" target="_blank" rel="noopener noreferrer">política de privacidad</a>. Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
-              </p>
-            </label>
+
+          <div className="privacy-policy-container">
+            <input type="checkbox" className="privacy-policy-checkbox" required />
+          
+            <div className='privacy-policy-readed'>
+            <p className='privacy-policy-txt' htmlFor="privacyPolicy">
+              He leído y acepto la </p><a className='pop-up-privacy-policy-link' href="enlace a la política de privacidad" target="_blank" rel="noopener noreferrer">política de privacidad</a><p className='privacy-policy-readed'>. Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
+            </p>
+            </div>
+
           </div>
         </Modal.Body>
         <Modal.Footer>
