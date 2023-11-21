@@ -42,7 +42,7 @@ const RegisterForm = () => {
                             Center 2023-2024
                         </h2>
                         <p>
-                            Para más información, escríbenos a odc@larueca.info
+                            Para más información, escríbenos a info@orangedigitalcenter.es
                         </p>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)}>
