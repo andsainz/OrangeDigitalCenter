@@ -1,113 +1,91 @@
-/* eslint-disable no-undef */
-import { useState } from "react";
+/* eslint-disable react/jsx-key */
+import { useState, useEffect } from "react";
 import { Navbar, Nav, Card } from "react-bootstrap";
-import { getActivitiesByCategory } from "../../../services/CategoryService";
 import "./MenuCategories.css";
+import "../../home/Cards/Cards.css"
+import { getActivitiesByCategory } from "../../../services/CategoryService";
 
 const MenuCategories = () => {
-    const [selectedCategory, setSelectedCategory] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState(null);
     const [activities, setActivities] = useState([]);
     const [error, setError] = useState(null);
 
-    const handleCategoryClick = async (category_name) => {
-        try {
-            setSelectedCategory(category_name);
-            setError(null);
-
-            if (category_name) {
-                const activitiesData = await getActivitiesByCategory(
-                    category_name
-                );
-                console.log("Activities from server:", activitiesData);
-                setActivities(activitiesData);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setError(null);
+    
+                if (selectedCategory === null) {
+                    // Si no se ha seleccionado una categoría, recuperar todas las actividades
+                    const allActivities = await getActivitiesByCategory(null);
+                    setActivities(allActivities);
+                } else {
+                    // Si se ha seleccionado una categoría, recuperar actividades por esa categoría
+                    const activitiesData = await getActivitiesByCategory(selectedCategory);
+                    console.log("Activities from server:", activitiesData);
+                    setActivities(activitiesData);
+                }
+            } catch (error) {
+                console.error("Error fetching activities:", error);
+                setActivities([]);
+                setError("Error al cargar las actividades.");
             }
-        } catch (error) {
-            console.error("No hay actividades asignadas a esta categoría.");
-            setActivities([]);
-            setError("No hay actividades asignadas a esta categoría.");
-        }
+        };
+    
+        fetchData();
+    }, [selectedCategory]);
+
+    const handleCategoryClick = (category_name) => {
+        setSelectedCategory(category_name);
     };
 
     return (
         <div>
             <Navbar className="menu-categories-navbar" expand="lg">
                 <Nav>
-                    <Nav.Link
-                        href="#emprendimiento"
-                        className={`menu-categories-nav-link ${
-                            selectedCategory === "emprendimiento" && "active"
-                        }`}
-                        onClick={() => handleCategoryClick("emprendimiento")}>
-                        Emprendimiento
-                    </Nav.Link>
-                    <Nav.Link
-                        href="#fabricaciondigital"
-                        className={`menu-categories-nav-link ${
-                            selectedCategory === "fabricaciondigital" &&
-                            "active"
-                        }`}
-                        onClick={() =>
-                            handleCategoryClick("fabricaciondigital")
-                        }>
-                        Fabricación digital
-                    </Nav.Link>
-                    <Nav.Link
-                        href="#programacion"
-                        className={`menu-categories-nav-link ${
-                            selectedCategory === "programacion" && "active"
-                        }`}
-                        onClick={() => handleCategoryClick("programacion")}>
-                        Programación
-                    </Nav.Link>
-                    <Nav.Link
-                        href="#digitalizacion"
-                        className={`menu-categories-nav-link ${
-                            selectedCategory === "digitalizacion" && "active"
-                        }`}
-                        onClick={() => handleCategoryClick("digitalizacion")}>
-                        Digitalización
-                    </Nav.Link>
-                    <Nav.Link
-                        href="#otros"
-                        className={`menu-categories-nav-link ${
-                            selectedCategory === "otros" && "active"
-                        }`}
-                        onClick={() => handleCategoryClick("otros")}>
-                        Otros
-                    </Nav.Link>
+                    {["emprendimiento", "fabricaciondigital", "programacion", "digitalizacion", "otros"].map(category => (
+                        <Nav.Link
+                            key={category}
+                            href={`#${category}`}
+                            className={`menu-categories-nav-link ${selectedCategory === category && "active"}`}
+                            onClick={() => handleCategoryClick(category)}>
+                            {category.charAt(0).toUpperCase() + category.slice(1)}
+                        </Nav.Link>
+                    ))}
                 </Nav>
             </Navbar>
 
             <div className="activities-container">
                 {error ? (
-                    <Card className="card-section" aria-label="Card">
-                        <Card.Body>
-                            <Card.Text className="paragraph-menu-categories" style={{ color: "white" }}>{error}</Card.Text>
-                        </Card.Body>
-                    </Card>
+                    <div>
+                        {/* Resto del contenido del error */}
+                    </div>
                 ) : (
                     <ul>
                         {activities.map((activity) => (
-                            <Card key={activity.activity_id} className="card-section" aria-label="Card">
-                                <Card.Img variant="top" src={activity.activity_image} alt="Activity Image" />
-                                <Card.Body>
-                                    <div className="activity-details">
-                                        <h3 className="paragraph-menu-categories">{activity.activity_title}</h3>
-                                        <p className="paragraph-menu-categories">{activity.activity_description}</p>
-                                        <p className="paragraph-menu-categories">Fecha: {activity.activity_date}</p>
-                                        <p className="paragraph-menu-categories">Horario: {activity.start_time} - {activity.end_time}</p>
+                            <div className="card-section-container">
+                            <Card className="card-section-categories" key={activity.activity_id}>
+                                <Card.Img className="card-home-image" variant="top" src={activity.activity_image} alt="Activity Image" />
+                                <Card.Body className="card-body">
+                                <div className="date-time-container">
+                                    <Card.Title>{activity.activity_date}</Card.Title>
+                                    <Card.Text>{activity.start_time}</Card.Text>
+                                    <Card.Text>{activity.end_time}</Card.Text>
                                     </div>
+                                <h5>
+                                    <Card.Text>{activity.activity_title}</Card.Text>
+                                </h5>
+                                <Card.Text>{activity.activity_description}</Card.Text>
+                                    <Card.Text>{`${activity.start_time} - ${activity.end_time}`}</Card.Text>
+                                    <button className="read-more-btn">LEER MÁS</button>
                                 </Card.Body>
                             </Card>
+                            </div>
                         ))}
                         {activities.length === 0 && (
-                            <Card className="card-section" aria-label="Card">
-                                <Card.Body>
-                                    <Card.Text className="paragraph-menu-categories">
-                                        No hay actividades disponibles para la categoría seleccionada.
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
+                            <div>
+                                <p className="paragraph-menu-categories">No hay actividades asociadas a esta categoría!</p>
+                            </div>
                         )}
                     </ul>
                 )}
@@ -117,4 +95,3 @@ const MenuCategories = () => {
 };
 
 export default MenuCategories;
-
