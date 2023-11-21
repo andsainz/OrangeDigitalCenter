@@ -18,21 +18,23 @@
 .field-container {
     display: flex;
     background-color: #fff;
-    border-radius: 0.6rem;
     border-top: 5px solid #ff7900;
     text-align: left;
     justify-content: center;
     flex-direction: column;
     margin-top: 1rem;
     padding: 1rem;
+    
 }
 .second-row-field {
     margin-top: 0.5rem;
 }
 .second-row-field label {
-    margin-left: 0.2rem;
+    margin-right: 1rem;
 }
-#no,
+.second-row-field input {
+    margin-right: 0.2rem;
+}
 .availableTime {
     margin-left: 1rem;
 }
@@ -73,16 +75,8 @@ form {
     border-bottom: 1px solid rgba(89, 89, 89, 0.6);
 }
 
-.success-message {
-    text-align: center;
-    color: green;
-    border-color: green;
-}
-
-.error-message {
-    text-align: center;
-    color: red;
-    border-color: red;
+.alert-form{
+    margin-top: 2rem;
 }
 
 @media (min-width: 768px) {

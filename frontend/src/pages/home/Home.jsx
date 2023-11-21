@@ -6,6 +6,7 @@ import MenuCategories from '../../Components/home/menuCategories/menuCategories'
 import SubscriptionBanner from '../../Components/home/banners/subscriptionBanner';
 import './Home.css';
 import CarouselComponent from '../../Components/carousel/Carousel';
+import PopUp from '../../Components/popUpSubs/PopUp';
 
 function Home() {
     const [activities, setActivities] = useState([]);
@@ -37,6 +38,7 @@ function Home() {
     }, []);
     return (
         <div className="home-container">
+            <PopUp/>
             <CarouselComponent/>
             <MenuCategories />
             <div className="container-father">

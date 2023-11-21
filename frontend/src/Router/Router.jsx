@@ -7,7 +7,7 @@ import DiscoverODC from "../pages/Odc/Odc.jsx";
 import RegisterForm from '../pages/registerForm/RegisterForm.jsx'
 import AdminForm from "../pages/adminDashboard/adminForm.jsx";
 import DetailedPage from "../pages/detailedPage/DetailedPage.jsx";
-
+import PopUp from "../Components/popUpSubs/PopUp.jsx"
 import AdminRegister from "../pages/adminDashboard/adminRegister/AdminRegister.jsx";
 const router = createBrowserRouter([
   {
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         element: <NewsletterSubs/>,
       },
       {
-        path: "/odc*",
+        path: "/odc",
         element: <DiscoverODC />,
       },
       {

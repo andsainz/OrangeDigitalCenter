@@ -11,7 +11,6 @@ export interface RegisteredModelAttributes {
     interests: string;
     hasDonePreviousActivity: string;
     isSubscribed: string;
-    subscriptionDesire: string;
     availableTime: string;
 }
 
@@ -25,7 +24,6 @@ class RegisteredModel extends Model<RegisteredModelAttributes> {
     public interests!: string;
     public hasDonePreviousActivity!: string;
     public isSubscribed!: string;
-    public subscriptionDesire!: string;
     public availableTime!: string;
 }
 
@@ -69,10 +67,6 @@ RegisteredModel.init(
             allowNull: false,
         },
         isSubscribed: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        subscriptionDesire: {
             type: DataTypes.STRING,
             allowNull: false,
         },
