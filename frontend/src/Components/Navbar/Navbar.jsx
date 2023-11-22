@@ -1,4 +1,5 @@
 import Logo from '../../assets/images/Logo2.png';
+import ArrowHome from '../../assets/images/arrowHome.png';
 import HomeIcon from '../../assets/images/Home.png';
 import LoginIcon from '../../assets/images/login.png';
 import './Navbar.css';
@@ -12,6 +13,9 @@ const Navbar = () => {
       </div>
       <div className="icon-container" >
         <a href="/">
+          <img src={ArrowHome} alt="Back to Home" loading="lazy" className="logo-img" aria-label="logotype" />
+        </a>
+        <a href="/">
           <img src={HomeIcon} alt="Home" aria-label="home-icon" />
         </a>
         <a href="/admin/login" >
@@ -21,4 +25,5 @@ const Navbar = () => {
     </nav>
   );
 };
+
 export default Navbar;

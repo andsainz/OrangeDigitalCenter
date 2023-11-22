@@ -5,10 +5,11 @@ import AdminModel from "./adminsModel";
 import CategoryModel from "./categoriesModel";
 export interface ActivityModelAttributes {
     activity_id: number;
-    category_id: number;
+    category_name: string;
     activity_image: any;
     activity_title: string;
-    activity_description: string;
+    activity_description_short: string;
+    activity_description_long: string;
     activity_date: string;
     start_time: string;
     end_time: string,
@@ -18,10 +19,11 @@ export interface ActivityModelAttributes {
 
 class ActivityModel extends Model<ActivityModelAttributes>{
     public activity_id!: number;
-    public category_id!: number;
+    public category_name!: string;
     public activity_image!: any;
     public activity_title!: string;
-    public activity_description!: string;
+    public activity_description_short!: string;
+    public activity_description_long!: string;
     public activity_date!: string;
     public start_time!: string;
     public end_time!: string;
@@ -37,8 +39,8 @@ ActivityModel.init(
             allowNull: false,
             autoIncrement: true,
         },
-        category_id: {
-            type: DataTypes.INTEGER,
+        category_name: {
+            type: DataTypes.STRING,
             allowNull: false
         },
         activity_image: {
@@ -49,8 +51,12 @@ ActivityModel.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        activity_description: {
+        activity_description_short: {
             type: DataTypes.STRING,
+            allowNull: false,
+        },
+        activity_description_long: {
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         activity_date: {

@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import { Form, Button } from "react-bootstrap";
-import { useNavigate } from 'react-router-dom';
+import { Form, Button, Alert } from "react-bootstrap";
 import { activitiesService } from '../../services/ActivitiesService';
 import './AdminForm.css'
 
@@ -10,7 +9,8 @@ function AdminForm() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [imageData, setImageData] = useState('');
     const [imagePreview, setImagePreview] = useState(null);
-    const navigate = useNavigate()
+    const [showErrorAlert, setShowErrorAlert] = useState(false);
+    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -28,11 +28,13 @@ function AdminForm() {
 
     const onSubmit = async (data) => {
         try {
+            console.log('Datos del formulario:', data)
             const formData = {
-                category_id: data.category_id,
+                category_name: data.category_name,
                 activity_image: imageData,
                 activity_title: data.activity_title,
-                activity_description: data.activity_description,
+                activity_description_short: data.activity_description_short,
+                activity_description_long: data.activity_description_long,
                 activity_date: data.activity_date,
                 start_time: data.start_time,
                 end_time: data.end_time,
@@ -42,9 +44,13 @@ function AdminForm() {
             console.log('Datos enviados al servidor:', formData);
             await activitiesService.createActivity(formData);
             console.log('Formulario enviado con éxito');
+            setShowSuccessAlert(true);
+            setTimeout(() => {
+                window.location.href = 'http://localhost:5173/';
+            }, 2000);
         } catch (error) {
             console.error('Error al enviar el formulario:', error);
-
+            setShowErrorAlert(true);
             console.log('Server response:', error.response);
             if (error.response && error.response.json) {
                 const jsonResponse = await error.response.json();
@@ -69,19 +75,31 @@ function AdminForm() {
                         {errors.activity_title?.type === 'minLength' && <p>El título debe tener más de 3 caracteres</p>}
                     </Form.Group>
                     <Form.Group className='formGroup'>
-                        <Form.Label htmlFor="activity_category">Categoría</Form.Label>
-                        <Form.Control id="activity_category" className="admin-form-input" type="number" {...register('category_id', {
-                            required: true
-                        })}>
-                        </Form.Control>
-                        {errors.category_id?.type === 'required' && <p>La categoría es obligatoria</p>}
+                        <div className='admin-form-category-container'>
+                            <label className="category-title" htmlFor="activity_category">Categoría</label>
+                            <select className="activity-category-dropdown" {...register('category_name', { required: true })}>
+                                <option value="">Selecciona una categoría</option>
+                                <option value="Emprendimiento">Emprendimiento</option>
+                                <option value="Fabricación digital">Fabricación digital</option>
+                                <option value="Programación">Programación</option>
+                                <option value="Digitalización">Digitalización</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                        </div>
                     </Form.Group>
                     <Form.Group className='formGroup'>
-                        <Form.Label htmlFor="activity_description">Descripción</Form.Label>
-                        <Form.Control id="activity_description" className="admin-form-input" type="text" {...register('activity_description', {
+                        <Form.Label htmlFor="activity_description_short">Descripción breve</Form.Label>
+                        <Form.Control id="activity_description_short" className="admin-form-input" type="text" {...register('activity_description_short', {
                             required: true,
                         })}></Form.Control>
-                        {errors.activity_description?.type === 'required' && <p>La descripción es obligatoria</p>}
+                        {errors.activity_description_short?.type === 'required' && <p>La descripción es obligatoria</p>}
+                    </Form.Group>
+                    <Form.Group className='formGroup'>
+                        <Form.Label htmlFor="activity_description_long">Descripción detallada</Form.Label>
+                        <Form.Control id="activity_description_long" className="admin-form-input" type="text" {...register('activity_description_long', {
+                            required: true,
+                        })}></Form.Control>
+                        {errors.activity_description_long?.type === 'required' && <p>La descripción es obligatoria</p>}
                     </Form.Group>
                     <Form.Group className='formGroup'>
                         <Form.Label htmlFor="activity_content">Contenidos</Form.Label>
@@ -122,19 +140,37 @@ function AdminForm() {
                     <Form.Group className='formGroup'>
                         <Form.Label htmlFor="activity_image">Sube una imagen</Form.Label>
                         <div className='form-group-btn-container'>
-                        <Form.Control id="activity_image" className="admin-form-input"
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageChange}>
-                        </Form.Control>
-                        {imagePreview && (
-                            <img
-                                src={imagePreview}
-                                alt="Preview"
-                                style={{ maxWidth: '300px', maxHeight: '300px' }}
-                            />
-                        )}
-                        <Button type="submit" className='post-activity-btn'>Subir Actividad</Button>
+                            <Form.Control id="activity_image" className="admin-form-input"
+                                type="file"
+                                accept="image/*"
+                                onChange={handleImageChange}>
+                            </Form.Control>
+                            {imagePreview && (
+                                <img
+                                    src={imagePreview}
+                                    alt="Preview"
+                                    style={{ maxWidth: '300px', maxHeight: '300px' }}
+                                />
+                            )}
+                            {showErrorAlert && (
+                                <Alert
+                                    className="alert-form"
+                                    variant="dark"
+                                    onClose={() => setShowErrorAlert(false)}>
+                                    Ha habido un error al crear la actividad.
+                                </Alert>
+                            )}
+                            {showSuccessAlert && (
+                                <Alert
+                                    className="alert-form"
+                                    variant="dark"
+                                    onClose={() => {
+                                        setShowSuccessAlert(false);
+                                    }}>
+                                    Actividad creada con éxito
+                                </Alert>
+                            )}
+                            <Button type="submit" className='post-activity-btn'>Subir Actividad</Button>
                         </div>
                     </Form.Group>
                     <input id="id-input" type="hidden"></input>

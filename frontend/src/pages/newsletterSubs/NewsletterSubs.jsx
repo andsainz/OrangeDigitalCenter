@@ -40,6 +40,7 @@ const NewsletterSubs = () => {
           required
         />
       </label>
+
       <div className="privacy-policy">
         <label htmlFor="privacyPolicy" className="checkbox-label">
           <input type="checkbox" id="privacyPolicy" required />

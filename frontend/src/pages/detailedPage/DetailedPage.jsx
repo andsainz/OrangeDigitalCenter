@@ -32,24 +32,26 @@ function DetailedPage() {
 
     return (
         <div className="detailed-container">
+            <img src={activity.activity_image} alt="Activity image" />
             <div className="detailed-card">
-                <p className="detailed-date-time-container">{activity.activity_date}   {activity.start_time} - {activity.end_time}</p>
+                <div className="detailed-date-time-container">
+                    <p>{activity.activity_date}</p>
+                    <div className="space-between-date-time"></div>
+                    <p>  {activity.start_time} - {activity.end_time}</p>
+                </div>
+
                 <h1 className="detailed-title">{activity.activity_title}</h1>
+                <p className="activity-long-description-txt">{activity.activity_description_long}</p>
 
-                <div className="detailed-card-body-container">
-                    <div className="detailed-img-description-container">
-                        <img src={activity.activity_image} alt="Activity image" />
-                        <p>{activity.activity_description}</p>
-                    </div>
-
-                    <div className="content-places-container">
-                        <h2 className="detailed-content-title">Contenidos</h2>
+                <div className="bottom-detailed-card-container">
+                    <div className="detailed-card-left">
                         <ul>{activityContentList}</ul>
                         <p className="detailed-available-places"><span className="span-available-places">Plazas disponibles:</span> {activity.available_places}</p>
-                        <div className="qr-sign-up-btn-container">
+                    </div>
+
+                    <div className="qr-sign-up-btn-container">
                         <QRCode value={url} />
                         <button className="sign-up-activity-btn" onClick={handleClickBtn}>Inscribirme en esta actividad</button>
-                        </div>
                     </div>
                 </div>
             </div>
