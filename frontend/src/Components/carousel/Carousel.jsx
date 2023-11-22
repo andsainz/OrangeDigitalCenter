@@ -1,10 +1,12 @@
 import Carousel from "react-bootstrap/Carousel";
-import carousel1 from "../../assets/carousel/carousel1.png"
-import carousel2 from "../../assets/carousel/carousel2.png"
-import carousel3 from "../../assets/carousel/carousel3.png"
-import carousel4 from "../../assets/carousel/carousel4.png"
-import carousel5 from "../../assets/carousel/carousel5.png"
-import carousel6 from "../../assets/carousel/carousel6.png"
+import carousel1 from "../../assets/carousel/carousel1.png";
+import carousel2 from "../../assets/carousel/carousel2.png";
+import carousel3 from "../../assets/carousel/carousel3.png";
+import carousel4 from "../../assets/carousel/carousel4.png";
+import carousel5 from "../../assets/carousel/carousel5.png";
+import carousel6 from "../../assets/carousel/carousel6.png";
+import { Link } from "react-router-dom";
+import "./Carousel.css";
 
 const carouselImages = [carousel1, carousel2, carousel3, carousel4, carousel5, carousel6];
 
@@ -19,7 +21,11 @@ function CarouselComponent() {
                         alt="Carousel image"
                         width="100%"
                     />
-                    <Carousel.Caption className="d-flex justify-content-end"></Carousel.Caption>
+                    <Carousel.Caption className="d-flex justify-content-center">
+                        <Link to="/odc" className="btn btn-primary">
+                            Conocenos
+                        </Link>
+                    </Carousel.Caption>
                 </Carousel.Item>
             ))}
         </Carousel>
@@ -27,3 +33,4 @@ function CarouselComponent() {
 }
 
 export default CarouselComponent;
+
