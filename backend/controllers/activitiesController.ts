@@ -57,7 +57,7 @@ export const getActivitiesByCategory = async (req: Request, res: Response): Prom
         });
 
         if (activities.length === 0) {
-            res.status(404).json({ message: "Category not found." });
+            res.status(404).json({ message: "Activities not found in this category."});
         } else {
             res.json(activities);
         }

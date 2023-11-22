@@ -12,6 +12,7 @@
 .read-more-btn{
     border: 3px solid black;
     background-color: white;
-    padding: 0.3rem 1rem;
+    padding: 0.4rem 1.2rem;
     font-size: x-small;
+    font-weight: 700;
 }
