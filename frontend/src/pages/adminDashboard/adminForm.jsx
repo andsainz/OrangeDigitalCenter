@@ -28,6 +28,7 @@ function AdminForm() {
 
     const onSubmit = async (data) => {
         try {
+            console.log('Datos del formulario:', data)
             const formData = {
                 category_name: data.category_name,
                 activity_image: imageData,

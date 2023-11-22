@@ -5,19 +5,30 @@
     flex-direction: column;
     align-items: center;
     font-size: 1.2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .detailed-container img {
-    width: 30vw;
-    height: 30vh;
+    width: 100vw;
+    height: 50vh;
+    object-fit: contain;
 }
 .detailed-card{
-    width: 80vw;
+    width: 70vw;
+    height: 100vh;
     margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
 }
 .detailed-date-time-container, .detailed-available-places{
     color: #F16E00;
     font-weight: bold;
     font-size: 1.2rem;
+    display: flex;
+}
+.space-between-date-time{
+    width: 2vw;
+    height: 3vh;
 }
 .span-available-places{
     color: black;
@@ -26,6 +37,16 @@
     color: #F16E00;
     font-weight: bolder;
     border-bottom: 3px solid #F16E00;
+}
+.activity-long-description-txt{
+    text-align: justify;
+}
+.detailed-card-left{
+    margin-left: 2rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .sign-up-activity-btn{
     background-color: white;
@@ -36,18 +57,10 @@
     font-weight: bolder;
     margin-top: 1rem;
 }
-.content-places-container{
-    width: 50%;
+.bottom-detailed-card-container{
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-.detailed-img-description-container{
-    display: flex;
-    width: 50%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-bottom: 8vh;
 }
 .qr-sign-up-container{
     width: 30%;
@@ -55,10 +68,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-.detailed-card-body-container{
-    display: flex;
-    justify-content: space-around;
 }
 .qr-sign-up-btn-container{
     display: flex;
