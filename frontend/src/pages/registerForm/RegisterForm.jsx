@@ -11,7 +11,7 @@ const RegisterForm = () => {
     const [formError, setFormError] = useState(null);
     const [showErrorAlert, setShowErrorAlert] = useState(false);
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
-    const [showPopUp, setShowPopUp] = useState(false); 
+    const [showPopUp, setShowPopUp] = useState(false);
     const {
         register,
         formState: { errors },
@@ -29,11 +29,11 @@ const RegisterForm = () => {
             setFormSubmitted(true);
             setFormError(null);
             setShowSuccessAlert(true);
-    
+
             setTimeout(() => {
                 window.location.href = 'http://localhost:5173/';
             }, 2000);
-    
+
         } catch (error) {
             setFormSubmitted(false);
             setFormError(
@@ -43,12 +43,12 @@ const RegisterForm = () => {
             setShowErrorAlert(true);
         }
     };
-    
+
     useEffect(() => {
         if (isSubscribed === "no") {
-            setShowPopUp(true); 
+            setShowPopUp(true);
         } else {
-            setShowPopUp(false); 
+            setShowPopUp(false);
         }
     }, [isSubscribed]);
 
@@ -443,7 +443,16 @@ const RegisterForm = () => {
                                 Formulario enviado con éxito
                             </Alert>
                         )}
+                        <div className="privacy-policy-container">
+                            <input type="checkbox" className="privacy-policy-checkbox" required onChange={(e) => setAcceptedPrivacyPolicy(e.target.checked)} />
 
+                            <div className='privacy-policy-readed sign-up-form-privacy-policy'>
+                                <p className='privacy-policy-txt' htmlFor="privacyPolicy">
+                                    He leído y acepto la </p><a className='pop-up-privacy-policy-link' href="enlace a la política de privacidad" target="_blank" rel="noopener noreferrer">política de privacidad.</a><p className='privacy-policy-readed'>Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
+                                </p>
+                            </div>
+
+                        </div>
                         <input
                             type="submit"
                             className="send-btn-form"

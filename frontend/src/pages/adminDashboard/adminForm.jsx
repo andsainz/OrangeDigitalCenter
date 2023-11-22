@@ -44,7 +44,9 @@ function AdminForm() {
             await activitiesService.createActivity(formData);
             console.log('Formulario enviado con éxito');
             setShowSuccessAlert(true);
-
+            setTimeout(() => {
+                window.location.href = 'http://localhost:5173/';
+            }, 2000);
         } catch (error) {
             console.error('Error al enviar el formulario:', error);
             setShowErrorAlert(true);
