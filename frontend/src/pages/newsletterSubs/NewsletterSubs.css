@@ -107,13 +107,12 @@
   width: 1rem;
 }
 
-/* ... (otros estilos) */
+
 
 .privacy-policy {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* Alinea al comienzo */
   margin-bottom: 20px;
 }
 
@@ -123,10 +122,9 @@
 
 .checkbox-label {
   display: flex;
-  /* Cambiamos a flex */
   align-items: center;
   width: 1px;
-  /* Alinea elementos verticalmente */
+
 }
 
 .privacy-policy span {

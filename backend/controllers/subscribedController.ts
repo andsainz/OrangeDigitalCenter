@@ -14,7 +14,6 @@ export const getSubscribed = async (
             (subscribed) => {
                 return {
                     id: subscribed.id,
-                    fullName: subscribed.fullName,
                     email: subscribed.email,
                 };
             }
@@ -49,7 +48,7 @@ export const createSubscribed = async (
     try {
         const subscribedData: SubscribedModelAttributes = req.body;
         console.log('Received data:', subscribedData); 
-        if (!subscribedData.fullName || !subscribedData.email) {
+        if (!subscribedData.email) {
             res.status(400).json({
                 message: "Required data is missing to subscribe to the newsletter.",
             });

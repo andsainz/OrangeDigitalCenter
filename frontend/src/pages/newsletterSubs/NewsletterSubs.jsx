@@ -3,7 +3,6 @@ import './NewsletterSubs.css';
 import { subscribedService } from '../../services/SubscribedService';
 
 const NewsletterSubs = () => {
-  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false);
@@ -12,7 +11,7 @@ const NewsletterSubs = () => {
     e.preventDefault();
 
     try {
-      await subscribedService.postSubscribed({ fullName, email });
+      await subscribedService.postSubscribed({  email });
 
       setShowSuccessAlert(true);
       setTimeout(() => {
@@ -30,15 +29,6 @@ const NewsletterSubs = () => {
   return (
     <form className="register-form" aria-label="newsletter-form" onSubmit={handleRegisterSubmit}>
       <h1>Recibe nuestra<br />newsletter</h1>
-      <label>
-        <input
-          type="text"
-          placeholder="Nombre y apellidos"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
-          required
-        />
-      </label>
 
       <label>
         <input

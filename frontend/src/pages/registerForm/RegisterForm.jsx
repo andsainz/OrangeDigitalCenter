@@ -1,12 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "./RegisterForm.css";
 import { FormService } from "../../services/FormService";
+import { Alert } from "react-bootstrap";
+import PopUp from "../../Components/popUpSubs/PopUp";
 
 const RegisterForm = () => {
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [formError, setFormError] = useState(null);
+    const [showErrorAlert, setShowErrorAlert] = useState(false);
+    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+    const [showPopUp, setShowPopUp] = useState(false); 
     const {
         register,
         formState: { errors },
@@ -16,20 +21,37 @@ const RegisterForm = () => {
         defaultValues: {},
     });
     const hasDonePreviousActivity = watch("hasDonePreviousActivity");
+    const isSubscribed = watch("isSubscribed");
 
     const onSubmit = async (data) => {
         try {
             await FormService.postForm(data);
             setFormSubmitted(true);
             setFormError(null);
+            setShowSuccessAlert(true);
+    
+            setTimeout(() => {
+                window.location.href = 'http://localhost:5173/';
+            }, 2000);
+    
         } catch (error) {
             setFormSubmitted(false);
             setFormError(
                 "Error al enviar el formulario. Por favor, inténtelo de nuevo."
             );
             console.error("Error al enviar el formulario:", error);
+            setShowErrorAlert(true);
         }
     };
+    
+    useEffect(() => {
+        if (isSubscribed === "no") {
+            setShowPopUp(true); 
+        } else {
+            setShowPopUp(false); 
+        }
+    }, [isSubscribed]);
+
 
     return (
         <>
@@ -41,8 +63,9 @@ const RegisterForm = () => {
                             <span className="orange-color">Orange</span> Digital
                             Center 2023-2024
                         </h2>
+                        <p>Rellena los campos y envía el formulario.</p>
                         <p>
-                            Para más información, escríbenos a odc@larueca.info
+                            Para más información, escríbenos a info@orangedigitalcenter.es
                         </p>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -102,10 +125,12 @@ const RegisterForm = () => {
                                 <p>Este campo es obligatorio</p>
                             )}
                         </div>
+                        {showPopUp && <PopUp />}
+
                         <div className="field-container">
                             <label htmlFor="email">Email</label>
                             <input
-                            id="email"
+                                id="email"
                                 className="second-row-field input-styles"
                                 type="text"
                                 {...register("email", {
@@ -144,41 +169,106 @@ const RegisterForm = () => {
                                     )}
                                 </div>
                                 <div className="field-container">
-                                    <label htmlFor="gender">Género</label>
-                                    <select
-                                        id="gender"
+                                    <label>Género</label>
+                                    <div
                                         className="second-row-field"
-                                        {...register("gender")}>
-                                        <option value="woman">Mujer</option>
-                                        <option value="men">Hombre</option>
-                                        <option value="nonBinary">
+                                        id="gender-container">
+                                        <input
+                                            type="radio"
+                                            value="woman"
+                                            {...register("gender", {
+                                                required: true,
+                                            })}
+                                        />
+                                        <label htmlFor="woman">Mujer</label>
+
+                                        <input
+                                            type="radio"
+                                            value="men"
+                                            {...register("gender", {
+                                                required: true,
+                                            })}
+                                        />
+                                        <label htmlFor="men">Hombre</label>
+
+                                        <input
+                                            type="radio"
+                                            value="nonBinary"
+                                            {...register("gender", {
+                                                required: true,
+                                            })}
+                                        />
+                                        <label htmlFor="nonBinary">
                                             No binario
-                                        </option>
-                                        <option value="noResponse">
+                                        </label>
+
+                                        <input
+                                            type="radio"
+                                            value="noResponse"
+                                            {...register("gender", {
+                                                required: true,
+                                            })}
+                                        />
+                                        <label htmlFor="noResponse">
                                             No contesta
-                                        </option>
-                                    </select>
+                                        </label>
+                                    </div>
                                     {errors.gender?.type === "required" && (
                                         <p>Este campo es obligatorio</p>
                                     )}
                                 </div>
+
                                 <div className="field-container">
-                                    <label htmlFor="age">Edad</label>
-                                    <select
-                                        id="age"
+                                    <label>Edad</label>
+                                    <div
                                         className="second-row-field"
-                                        {...register("age")}>
-                                        <option value="0/15y">0-15 años</option>
-                                        <option value="16/24y">
+                                        id="age-container">
+                                        <input
+                                            type="radio"
+                                            id="0-15y"
+                                            value="0/15y"
+                                            {...register("age", {
+                                                required: true,
+                                            })}
+                                        />
+                                        <label htmlFor="0-15y">0-15 años</label>
+
+                                        <input
+                                            type="radio"
+                                            id="16-24y"
+                                            value="16/24y"
+                                            {...register("age", {
+                                                required: true,
+                                            })}
+                                        />
+                                        <label htmlFor="16-24y">
                                             16-24 años
-                                        </option>
-                                        <option value="25/55y">
+                                        </label>
+
+                                        <input
+                                            type="radio"
+                                            id="25-55y"
+                                            value="25/55y"
+                                            {...register("age", {
+                                                required: true,
+                                            })}
+                                        />
+                                        <label htmlFor="25-55y">
                                             25-55 años
-                                        </option>
-                                        <option value="55+y">
+                                        </label>
+
+                                        <input
+                                            type="radio"
+                                            id="55+y"
+                                            value="55+y"
+                                            {...register("age", {
+                                                required: true,
+                                            })}
+                                        />
+                                        <label htmlFor="55+y">
                                             Más de 55 años
-                                        </option>
-                                    </select>
+                                        </label>
+                                    </div>
                                     {errors.age?.type === "required" && (
                                         <p>Este campo es obligatorio</p>
                                     )}
@@ -192,39 +282,6 @@ const RegisterForm = () => {
                                         className=" input-styles"
                                         {...register("residencePlace")}></input>
                                 </div>
-                                <div className="field-container">
-                                    <label>
-                                        Quiero recibir la newsletter e
-                                        información sobre otros cursos y
-                                        actividades del Orange Digital Center
-                                    </label>
-                                    <div className="second-row-field">
-                                        <input
-                                            type="radio"
-                                            id="yes"
-                                            value="yes"
-                                            {...register("subscriptionDesire", {
-                                                required: true,
-                                            })}
-                                        />
-                                        <label htmlFor="yes">Sí</label>
-
-                                        <input
-                                            type="radio"
-                                            id="no"
-                                            value="no"
-                                            {...register("subscriptionDesire", {
-                                                required: true,
-                                            })}
-                                        />
-                                        <label htmlFor="no">No</label>
-                                    </div>
-                                    {errors.subscriptionDesire?.type ===
-                                        "required" && (
-                                        <p>Este campo es obligatorio</p>
-                                    )}
-                                </div>
-
                                 <div className="field-container">
                                     <label>Intereses</label>
                                     <div
@@ -363,24 +420,35 @@ const RegisterForm = () => {
                                     </div>
                                     {errors.availableTime?.type ===
                                         "required" && (
-                                        <p>Este campo es obligatorio</p>
-                                    )}
+                                            <p>Este campo es obligatorio</p>
+                                        )}
                                 </div>
                             </div>
+                        )}
+                        {showErrorAlert && (
+                            <Alert
+                                className="alert-form"
+                                variant="dark"
+                                onClose={() => setShowErrorAlert(false)}>
+                                Ha habido un error con el envío de su formulario
+                            </Alert>
+                        )}
+                        {showSuccessAlert && (
+                            <Alert
+                                className="alert-form"
+                                variant="dark"
+                                onClose={() => {
+                                    setShowSuccessAlert(false);
+                                }}>
+                                Formulario enviado con éxito
+                            </Alert>
                         )}
 
                         <input
                             type="submit"
                             className="send-btn-form"
                             value="Enviar"></input>
-                        {formSubmitted && (
-                            <p className="success-message">
-                                ¡Formulario enviado!
-                            </p>
-                        )}
-                        {formError && (
-                            <p className="error-message">{formError}</p>
-                        )}
+
                     </form>
                 </div>
             </div>

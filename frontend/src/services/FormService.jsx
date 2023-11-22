@@ -1,7 +1,7 @@
 const baseURL = "http://localhost:3000";
 
 export const FormService = {
-    async postForm({ email, fullName, gender, age, residencePlace, interests, hasDonePreviousActivity, isSubscribed, subscriptionDesire, availableTime }) {
+    async postForm({ email, fullName, gender, age, residencePlace, interests, hasDonePreviousActivity, isSubscribed, availableTime }) {
         try {
             const response = await fetch(`${baseURL}/registerform`, {
                 method: "POST",
@@ -17,7 +17,6 @@ export const FormService = {
                     interests,
                     hasDonePreviousActivity,
                     isSubscribed,
-                    subscriptionDesire,
                     availableTime,
                 }),
             });

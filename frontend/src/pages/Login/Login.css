@@ -3,18 +3,18 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 70vh;
   width: 80vw;
   max-width: 400px;
+  
   border-radius: 1.5vw;
   padding: 5vw;
 }
@@ -51,6 +51,18 @@
 .styled-button{
   width: 9rem;
   margin-top: 0.5rem;
+}
+
+.register-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #FF7900;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 .error-alert {
   background-color: #FF9999;

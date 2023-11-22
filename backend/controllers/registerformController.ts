@@ -16,7 +16,6 @@ export const getRegistered = async (req: Request, res: Response): Promise<void> 
                 interests: registered.interests,
                 hasDonePreviousActivity: registered.hasDonePreviousActivity,
                 isSubscribed: registered.isSubscribed,
-                subscriptionDesire: registered.subscriptionDesire,
                 availableTime: registered.availableTime
             };
         });
@@ -46,7 +45,7 @@ export const createRegistered = async (req: Request, res: Response): Promise<voi
         const registeredData: RegisteredModelAttributes = req.body;
         console.log('Received data:', registeredData);
 
-        if (!registeredData.email || !registeredData.fullName || !registeredData.gender || !registeredData.age || !registeredData.residencePlace || !registeredData.interests || !registeredData.hasDonePreviousActivity || !registeredData.isSubscribed || !registeredData.residencePlace || !registeredData.interests || !registeredData.hasDonePreviousActivity || !registeredData.isSubscribed || !registeredData.subscriptionDesire) {
+        if (!registeredData.email || !registeredData.fullName || !registeredData.gender || !registeredData.age || !registeredData.residencePlace || !registeredData.interests || !registeredData.hasDonePreviousActivity || !registeredData.isSubscribed || !registeredData.residencePlace || !registeredData.interests || !registeredData.hasDonePreviousActivity || !registeredData.isSubscribed ) {
             console.log('Missing data to create a register.');
             res.status(400).json({
                 message: 'Required data is missing to create a register.',
