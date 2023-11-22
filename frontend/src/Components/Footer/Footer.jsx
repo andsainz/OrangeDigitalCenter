@@ -4,6 +4,7 @@ import Twitter from '../../assets/images/twittericon.png';
 import Linkedin from '../../assets/images/linkedinicon.png';
 import Instagram from '../../assets/images/instaicon.png';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
       </div>
       <div className="footer-text">
         <p>© Orange 2023</p>
-        <p>Política de privacidad</p>
+        <Link to="/privacypolicy" className="privacy-policy-link"><p>Política de privacidad</p></Link>
         <p>Política de cookies</p>
         <p>Aviso legal</p>
       </div>

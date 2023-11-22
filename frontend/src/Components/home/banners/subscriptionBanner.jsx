@@ -1,10 +1,11 @@
 import './SubscriptionBanner.css';
+import { Link } from 'react-router-dom';
 
 const SubscriptionBanner = () => {
     return (
         <div className="subscription-banner">
             <p>Si quieres saber más, no te pierdas nuestros eventos, talleres y cursos<br></br>
-            <a href="tu-enlace-aqui.html" className="newsletter-link">recibe</a> nuestra newsletter</p>
+            <Link to="/privacypolicy" className="newsletter-link">recibe</Link> nuestra newsletter</p>
             <p>¡Toma nota y conecta con tu futuro!</p>
         </div>
     );
