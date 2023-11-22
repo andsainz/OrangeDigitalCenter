@@ -92,7 +92,7 @@ function AdminRegister() {
           </Alert>
         )}
         <p className='txt-admin-register'>¿Tienes una cuenta?</p>
-        <a className="login-link" href="/admin/register">
+        <a className="login-link" href="/admin/login">
           Iniciar sesión
         </a>
       </div>
