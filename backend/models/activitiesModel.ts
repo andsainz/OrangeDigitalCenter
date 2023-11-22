@@ -8,7 +8,8 @@ export interface ActivityModelAttributes {
     category_id: number;
     activity_image: any;
     activity_title: string;
-    activity_description: string;
+    activity_description_short: string;
+    activity_description_long: string;
     activity_date: string;
     start_time: string;
     end_time: string,
@@ -21,7 +22,8 @@ class ActivityModel extends Model<ActivityModelAttributes>{
     public category_id!: number;
     public activity_image!: any;
     public activity_title!: string;
-    public activity_description!: string;
+    public activity_description_short!: string;
+    public activity_description_long!: string;
     public activity_date!: string;
     public start_time!: string;
     public end_time!: string;
@@ -49,8 +51,12 @@ ActivityModel.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        activity_description: {
+        activity_description_short: {
             type: DataTypes.STRING,
+            allowNull: false,
+        },
+        activity_description_long: {
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         activity_date: {
