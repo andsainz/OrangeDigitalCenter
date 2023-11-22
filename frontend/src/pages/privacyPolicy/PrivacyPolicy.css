@@ -30,21 +30,21 @@
 }
 
 .privacy-policy-wrapper h1 {
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .privacy-policy-wrapper h2 {
-    font-size: 1.4em;
+    font-size: 1.1em;
 }
 
 .privacy-policy-wrapper h3 {
-    font-size: 1.3em;
+    font-size: 1em;
 }
 
 .privacy-policy-wrapper ul li {
     list-style-type: none;
     position: relative;
-    padding-left: 1.2em;
+    padding-left: 0.5em;
 }
 
 .privacy-policy-wrapper ul li::before {
