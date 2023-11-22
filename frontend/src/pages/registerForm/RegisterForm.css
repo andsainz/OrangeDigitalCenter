@@ -93,7 +93,9 @@ form {
 .alert-form {
     margin-top: 2rem;
 }
-
+.sign-up-form-privacy-policy{
+    color: white;
+}
 @media (min-width: 768px) {
     .form-content {
         width: 40vw;

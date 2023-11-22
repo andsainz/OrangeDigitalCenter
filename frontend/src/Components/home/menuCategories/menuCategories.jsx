@@ -1,19 +1,32 @@
-
 import { Navbar, Nav } from 'react-bootstrap';
 import './MenuCategories.css';
+import { activitiesService } from '../../../services/ActivitiesService';
 
-const MenuCategories = () => {
+const MenuCategories = ({ onCategoryClick }) => {
+    const categories = [
+        { id: 1, name: "Emprendimiento" },
+        { id: 2, name: "Fabricación digital" },
+        { id: 3, name: "Programación" },
+        { id: 4, name: "Digitalización" },
+        { id: 5, name: "Otros" },
+    ];
+
+    
     return (
         <Navbar className="menu-categories-navbar" expand="lg">
             <Nav>
-                <Nav.Link href="#talleres" className="menu-categories-nav-link">Talleres</Nav.Link>
-                <Nav.Link href="#cursos" className="menu-categories-nav-link">Cursos</Nav.Link>
-                <Nav.Link href="#eventos" className="menu-categories-nav-link">Eventos</Nav.Link>
-                <Nav.Link href="#actividades" className="menu-categories-nav-link">Actividades</Nav.Link>
+                {categories.map((category) => (
+                    <Nav.Link
+                        key={category.id}
+                        onClick={() => onCategoryClick(category.name)}
+                        className="menu-categories-nav-link"
+                    >
+                        {category.name}
+                    </Nav.Link>
+                ))}
             </Nav>
         </Navbar>
     );
 };
 
 export default MenuCategories;
-

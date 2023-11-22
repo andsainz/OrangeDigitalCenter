@@ -39,11 +39,12 @@ const NewsletterSubs = () => {
           required
         />
       </label>
+
       <div className="privacy-policy">
         <label htmlFor="privacyPolicy" className="checkbox-label">
           <input type="checkbox" id="privacyPolicy" required />
-          <span>He leído y acepto la política de privacidad. Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
-            Puedes consultar los detalles en este <a href="enlace a la política de privacidad" target="_blank" rel="noopener noreferrer">enlace</a>.</span>
+          <p className='privacy-policy-readed privacy-policy-txt'>He leído y acepto la política de privacidad. Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
+            Puedes consultar los detalles en este <a href="enlace a la política de privacidad" target="_blank" rel="noopener noreferrer">enlace</a>.</p>
         </label>
       </div>
 

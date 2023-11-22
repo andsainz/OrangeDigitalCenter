@@ -45,3 +45,7 @@
 .txt-admin-register{
   color:white;
 }
+
+.register-button{
+  border-radius: 0;
+}

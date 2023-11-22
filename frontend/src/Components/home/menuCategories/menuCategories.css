@@ -11,6 +11,19 @@ a.menu-categories-nav-link {
 a.menu-categories-nav-link:hover {
     color: #FF7900;
 }
+.paragraph-menu-categories{
+    color: white;
+}
+
+.card-section-container {
+    height: 100vh;
+}
+
+.card-section-categories{
+    height: 57vh;
+    width: 15vw;
+}
+
 @media (max-width: 988px) {
     a.menu-categories-nav-link{
         align-self: center;
