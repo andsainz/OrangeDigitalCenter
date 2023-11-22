@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Alert } from 'react-bootstrap';
 import './Login.css';
 import { LoginService } from '../../services/Loginservice';
+import Cookies from 'js-cookie';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -21,10 +22,16 @@ const LoginForm = () => {
       const response = await LoginService.postLogin({ email, user_password });
 
       if (response.status === 200) {
-        const data = await response.json();
-        console.log('Estado de inicio de sesión:', data);
+        const responseData = await response.json();
+        console.log('Estado de inicio de sesión:', responseData);
 
-        if (data.message === 'Welcome back!') {
+        if (responseData.message === 'Welcome back!') {
+          const token = Cookies.get("token");
+
+          if (token) {
+            Cookies.set("token", token, { expires: 1, secure: true, httpOnly: true });
+          }
+
           window.location.href = '/';
         } else {
           console.error('El correo electrónico o la contraseña no coinciden');
@@ -93,4 +100,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
