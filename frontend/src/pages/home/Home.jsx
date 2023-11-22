@@ -11,16 +11,6 @@ import PopUp from '../../Components/popUpSubs/PopUp';
 function Home() {
     const [activities, setActivities] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
-    const activitiesLinks = [
-        "http://localhost:5173/activities/1",
-        "http://localhost:5173/activities/2",
-        "http://localhost:5173/activities/3",
-        "http://localhost:5173/activities/10",
-        "http://localhost:5173/activities/11",
-        "http://localhost:5173/activities/12",
-        "http://localhost:5173/activities/13",
-        "http://localhost:5173/activities/14"
-    ];
 
     const getActivities = async () => {
         try {
@@ -68,7 +58,7 @@ function Home() {
     // Home.js
     return (
         <div className="home-container">
-            <PopUp/>
+            <PopUp />
             <CarouselComponent />
             <MenuCategories onCategoryClick={handleCategoryClick} />
             <div className="container-father">
@@ -85,10 +75,11 @@ function Home() {
                                         activity_date={activity.activity_date}
                                         start_time={activity.start_time}
                                         end_time={activity.end_time}
-                                        link={activitiesLinks[index]}
+                                        link={`http://localhost:5173/activities/${activity.activity_id}`}
                                     />
                                 </Col>
                             ))}
+
                         </Row>
                     ) : (
                         <p className='category-not-found-error'>{errorMessage || 'No hay actividades para mostrar.'}</p>
