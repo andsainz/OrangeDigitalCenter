@@ -10,13 +10,13 @@
   align-items: center;
   justify-content: center;
   width: 80%;
-  max-width: 600px;
+  max-width: 40rem; 
   margin: 0 auto;
-  border-radius: 5px;
+  border-radius: 2%;
   padding: 5%;
   margin-top: 10vh;
   margin-bottom: 10vh;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
 }
 
 .register-form h1 {
@@ -32,9 +32,9 @@
   padding: 2%;
   width: 100%;
   margin: 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.5rem; 
+  margin-bottom: 1rem;
 }
 
 .register-form button {
@@ -42,9 +42,9 @@
   background-color: #000;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   transition: background-color 0.3s;
 }
 
@@ -55,42 +55,48 @@
 .success-alert {
   background-color: #66cc66;
   color: #006600;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
 .error-alert {
   background-color: #ff9999;
   color: #cc0000;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
 .register-form h1 {
   margin-bottom: 5%;
   text-align: center;
-  font-family: helvetica neue;
+  font-family: "Helvetica Neue", sans-serif;
 }
 
 .privacy-policy {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: flex-start;
+  margin-bottom: 2rem;
 }
 
 .privacy-policy input {
-  margin-right: 5px;
+  margin-right: 0.5rem;
+  width: 1rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
 }
 
 .privacy-policy span {
-  margin-bottom: 5px;
   display: block;
-  text-align: center;
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .privacy-policy a {
@@ -100,33 +106,4 @@
 
 .privacy-policy p {
   color: #000;
-}
-
-.privacy-policy input {
-  margin-right: 5px;
-  width: 1rem;
-}
-
-
-
-.privacy-policy {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-.privacy-policy input {
-  margin-right: 5px;
-}
-
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  width: 1px;
-
-}
-
-.privacy-policy span {
-  display: block;
 }
