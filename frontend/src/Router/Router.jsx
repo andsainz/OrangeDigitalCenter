@@ -9,6 +9,7 @@ import AdminForm from "../pages/adminDashboard/adminForm.jsx";
 import DetailedPage from "../pages/detailedPage/DetailedPage.jsx";
 import PopUp from "../Components/popUpSubs/PopUp.jsx"
 import AdminRegister from "../pages/adminDashboard/adminRegister/AdminRegister.jsx";
+import PrivacyPolicy from "../pages/privacyPolicy/PrivacyPolicy.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/register",
         element:<AdminRegister />
+      },
+      {
+        path: "/privacypolicy",
+        element:<PrivacyPolicy />
       }
     ],
   },
