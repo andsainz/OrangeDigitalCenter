@@ -48,6 +48,10 @@
   gap: 1rem;
   flex-wrap: nowrap;
 }
+.privacy-policy-link{
+  color: #fff;
+  text-decoration: none;
+}
 @media (max-width: 900px) {
   .footer-text {
     display: flex;

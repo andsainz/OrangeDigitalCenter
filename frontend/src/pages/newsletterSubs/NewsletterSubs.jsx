@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './NewsletterSubs.css';
 import { subscribedService } from '../../services/SubscribedService';
+import { Link } from 'react-router-dom';
 
 const NewsletterSubs = () => {
   const [email, setEmail] = useState('');
@@ -43,8 +44,8 @@ const NewsletterSubs = () => {
       <div className="privacy-policy">
         <label htmlFor="privacyPolicy" className="checkbox-label">
           <input type="checkbox" id="privacyPolicy" required />
-          <p className='privacy-policy-readed privacy-policy-txt'>He leído y acepto la política de privacidad. Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
-            Puedes consultar los detalles en este <a href="enlace a la política de privacidad" target="_blank" rel="noopener noreferrer">enlace</a>.</p>
+          <span>He leído y acepto la política de privacidad. Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
+            Puedes consultar los detalles en este <Link to="/privacypolicy" target="_blank" rel="noopener noreferrer">enlace</Link>.</span>
         </label>
       </div>
 

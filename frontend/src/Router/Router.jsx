@@ -7,7 +7,6 @@ import DiscoverODC from "../pages/Odc/Odc.jsx";
 import RegisterForm from '../pages/registerForm/RegisterForm.jsx'
 import AdminForm from "../pages/adminDashboard/adminForm.jsx";
 import DetailedPage from "../pages/detailedPage/DetailedPage.jsx";
-import PopUp from "../Components/popUpSubs/PopUp.jsx"
 import AdminRegister from "../pages/adminDashboard/adminRegister/AdminRegister.jsx";
 import PrivacyPolicy from "../pages/privacyPolicy/PrivacyPolicy.jsx";
 const router = createBrowserRouter([
