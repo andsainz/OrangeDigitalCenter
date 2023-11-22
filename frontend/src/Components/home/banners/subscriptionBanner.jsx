@@ -4,7 +4,7 @@ const SubscriptionBanner = () => {
     return (
         <div className="subscription-banner">
             <p>Si quieres saber más, no te pierdas nuestros eventos, talleres y cursos<br></br>
-            <a href="tu-enlace-aqui.html" className="newsletter-link">recibe</a> nuestra newsletter</p>
+            <a href="http://localhost:5173/newsletter" className="newsletter-link">recibe</a> nuestra newsletter</p>
             <p>¡Toma nota y conecta con tu futuro!</p>
         </div>
     );
