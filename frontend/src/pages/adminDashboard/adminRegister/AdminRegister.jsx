@@ -11,7 +11,7 @@ function AdminRegister() {
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/admin/register', {
+      const response = await fetch('http://localhost:3000/registration', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
