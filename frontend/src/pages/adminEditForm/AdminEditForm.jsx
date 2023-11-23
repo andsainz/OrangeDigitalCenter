@@ -12,6 +12,7 @@ function AdminEditForm({ activityId }) {
     const [imagePreview, setImagePreview] = useState(null);
     const [showErrorAlert, setShowErrorAlert] = useState(false);
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+
     useEffect(() => {
         const loadActivityData = async () => {
             try {
@@ -60,12 +61,10 @@ function AdminEditForm({ activityId }) {
                 available_places: data.available_places
             }
             console.log('Datos actualizados enviados al servidor:', updateData);
-            await activitiesService.updateActivity(updateData);
+            await activitiesService.updateActivity(activity_id.toString(), updateData);
             console.log('Formulario enviado con éxito');
             setShowSuccessAlert(true);
-            setTimeout(() => {
-                window.location.href = 'http://localhost:5173/admin/home';
-            }, 2000);
+            
         } catch (error) {
             console.error('Error al enviar el formulario:', error);
             setShowErrorAlert(true);
