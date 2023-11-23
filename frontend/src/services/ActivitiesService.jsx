@@ -75,20 +75,10 @@ export const activitiesService = {
             throw error;
         }
     },
-    async deleteActivity(id) {
-        try {
-            await fetch(`${baseURL}/activities/${id}`, {
-                method: "DELETE",
-            });
-        } catch (error) {
-            console.error("Error deleting activity:", error);
-            throw error;
-        }
-    },
     async updateActivity(id, updatedActivity) {
         try {
             await fetch(`${baseURL}/activities/${id}`, {
-                method: "PATCH",
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -99,4 +89,14 @@ export const activitiesService = {
             throw error;
         }
     },
+    async deleteActivity(id) {
+        try {
+            await fetch(`${baseURL}/activities/${id}`, {
+                method: "DELETE",
+            });
+        } catch (error) {
+            console.error("Error deleting activity:", error);
+            throw error;
+        }
+    }
 };

@@ -22,9 +22,7 @@ function CarouselComponent() {
                         width="100%"
                     />
                     <Carousel.Caption className="d-flex justify-content-center">
-                        <Link to="/odc" className="btn btn-primary">
-                            Conócenos
-                        </Link>
+                    <Link to={`/odc`}><button className='discover-btn'>Conócenos</button></Link>
                     </Carousel.Caption>
                 </Carousel.Item>
             ))}

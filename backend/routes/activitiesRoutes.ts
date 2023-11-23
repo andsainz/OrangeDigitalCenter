@@ -9,7 +9,7 @@ router.get('/:id', getActivityById);
 router.get('/categories/:category_name', getActivitiesByCategory);
 
 router.post('/', createActivity);
-router.put('/:id', authenticateAdmin, updateActivity);
-router.delete('/:id', authenticateAdmin, deleteActivity);
+router.put('/:id', updateActivity);
+router.delete('/:id', deleteActivity);
 
 export default router;
