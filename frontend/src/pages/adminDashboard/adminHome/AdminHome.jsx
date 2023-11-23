@@ -11,6 +11,7 @@ import './AdminHome.css';
 
 function AdminHome() {
     const [activities, setActivities] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         fetchActivities();
@@ -34,43 +35,76 @@ function AdminHome() {
             console.error("Error deleting activity:", error);
         }
     };
-
+    const getActivitiesByCategory = async (category_name) => {
+        try {
+            const fetchedActivities = await activitiesService.getActivitiesByCategory(category_name);
+            setActivities(fetchedActivities);
+        } catch (error) {
+            console.error("Error fetching activities", error);
+            setActivities([]);
+        }
+    };
+    async function handleCategoryClick(category) {
+        if (category) {
+            try {
+                const activities = await activitiesService.getActivitiesByCategory(category);
+                if (activities.length === 0) {
+                    setErrorMessage('No se encontraron actividades para esta categoría');
+                    setActivities([]);
+                } else {
+                    setActivities(activities);
+                    setErrorMessage('');
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        } else {
+            activitiesService.getActivities();
+        }
+    }
+    useEffect(() => {
+        activitiesService.getActivities();
+    }, []);
     return (
         <div className="home-admin-container">
             <Link to={`/admin/activitypost`}><button className='activity-post-btn'>Añadir actividad</button></Link>
-            <MenuCategories />
+            <MenuCategories onCategoryClick={handleCategoryClick} />
             <div className="container-admin-father">
                 <div className="cards-admin-container">
-                    <Row xs={1} md={2} lg={3}>
-                        {activities.map(activity => (
-                            <Col key={activity.activity_id} className="mt-4" >
-                                <Cards
-                                    activity_image={activity.activity_image}
-                                    activity_title={activity.activity_title}
-                                    activity_description_short={activity.activity_description_short}
-                                    activity_date={activity.activity_date}
-                                    start_time={activity.start_time}
-                                    end_time={activity.end_time}
-                                    link={`http://localhost:5173/activities/${activity.activity_id}`}
-                                />
-                                <div className="card-icons">
-                                    <img
-                                        src={editIcon}
-                                        alt="Delete Icon"
-                                        className="icon-delete"
-                                        onClick={() => handleDelete(activity.activity_id)}
+                    {activities.length > 0 ? (
+                        <Row xs={1} md={2} lg={3}>
+                            {activities.map(activity => (
+                                <Col key={activity.activity_id} className="mt-4" >
+                                    <Cards
+                                        activity_image={activity.activity_image}
+                                        activity_title={activity.activity_title}
+                                        activity_description_short={activity.activity_description_short}
+                                        activity_date={activity.activity_date}
+                                        start_time={activity.start_time}
+                                        end_time={activity.end_time}
+                                        link={`http://localhost:5173/activities/${activity.activity_id}`}
                                     />
-                                    <Link to={`/admin/editform/${activity.activity_id}`}>
+                                    <div className="card-icons">
                                         <img
-                                            src={deleteIcon}
-                                            alt="Edit Icon"
-                                            className="icon-edit"
+                                            src={editIcon}
+                                            alt="Delete Icon"
+                                            className="icon-delete"
+                                            onClick={() => handleDelete(activity.activity_id)}
                                         />
-                                    </Link>
-                                </div>
-                            </Col>
-                        ))}
-                    </Row>
+                                        <Link to={`/admin/editform/${activity.activity_id}`}>
+                                            <img
+                                                src={deleteIcon}
+                                                alt="Edit Icon"
+                                                className="icon-edit"
+                                            />
+                                        </Link>
+                                    </div>
+                                </Col>
+                            ))}
+                        </Row>) : (
+                        <p className='category-not-found-error'>{errorMessage || 'No hay actividades para mostrar.'}</p>
+                    )}
+
                 </div>
             </div>
             <SubscriptionBanner />
