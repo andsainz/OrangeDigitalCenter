@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 
 import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 import { activitiesService } from '../../services/ActivitiesService';
 import { useParams } from 'react-router-dom';
 
