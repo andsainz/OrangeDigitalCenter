@@ -7,8 +7,9 @@ import DiscoverODC from "../pages/Odc/Odc.jsx";
 import RegisterForm from '../pages/registerForm/RegisterForm.jsx'
 import AdminForm from "../pages/adminDashboard/adminForm.jsx";
 import DetailedPage from "../pages/detailedPage/DetailedPage.jsx";
-import PopUp from "../Components/popUpSubs/PopUp.jsx"
+import AdminHome from "../pages/adminDashboard/adminHome/AdminHome.jsx";
 import AdminRegister from "../pages/adminDashboard/adminRegister/AdminRegister.jsx";
+import AdminEditForm from  "../pages/adminEditForm/AdminEditForm.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +46,15 @@ const router = createBrowserRouter([
       {
         path: "/admin/register",
         element:<AdminRegister />
+      },
+      {
+        path: "/admin/home",
+        element:<AdminHome />
+      }
+      ,
+      {
+        path: "/admin/editform/:activity_id",
+        element:<AdminEditForm />
       }
     ],
   },

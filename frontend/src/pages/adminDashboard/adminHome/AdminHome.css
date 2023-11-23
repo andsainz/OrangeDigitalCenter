@@ -1,0 +1,24 @@
+.home-admin-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-admin-container {
+    justify-content: center;
+    width: 90vw;
+}
+.container-admin-father {
+    display: flex;
+    justify-content: center;
+}
+
+.add-product btn btn-primary{
+    background-color: #FF7900;
+    color: black;
+}

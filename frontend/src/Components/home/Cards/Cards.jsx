@@ -7,7 +7,7 @@ import { activitiesService } from "../../../services/ActivitiesService";
 function Cards({
     activity_image,
     activity_title,
-    activity_description,
+    activity_description_short,
     activity_date,
     start_time,
     end_time,
@@ -42,7 +42,7 @@ function Cards({
                 <h5>
                     <Card.Text>{activity_title}</Card.Text>
                 </h5>
-                <Card.Text>{activity_description}</Card.Text>
+                <Card.Text>{activity_description_short}</Card.Text>
                 <button className="read-more-btn" onClick={handleClickBtn}>
                     LEER MÁS
                 </button>
@@ -53,7 +53,7 @@ function Cards({
 Cards.propTypes = {
     activity_image: PropTypes.any.isRequired,
     activity_title: PropTypes.string.isRequired,
-    activity_description: PropTypes.string.isRequired,
+    activity_description_short: PropTypes.string.isRequired,
     activity_date: PropTypes.string.isRequired,
     start_time: PropTypes.string.isRequired,
     end_time: PropTypes.string.isRequired,

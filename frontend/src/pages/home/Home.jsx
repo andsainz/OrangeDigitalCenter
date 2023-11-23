@@ -71,7 +71,7 @@ function Home() {
                                         key={index}
                                         activity_image={activity.activity_image}
                                         activity_title={activity.activity_title}
-                                        activity_description={activity.activity_description}
+                                        activity_description_short={activity.activity_description_short}
                                         activity_date={activity.activity_date}
                                         start_time={activity.start_time}
                                         end_time={activity.end_time}
