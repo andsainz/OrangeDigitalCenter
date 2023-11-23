@@ -39,7 +39,7 @@ The frontend of this project is built using React and React Bootstrap, along wit
 ### Features
 
 - Dynamic User Interface: Utilizing React for a responsive and interactive user experience.
-- Responsive UX/UI: Incorporati developerng React Bootstrap to ensure the interface is adaptable to different screen sizes.
+- Responsive UX/UI: Incorporating developer React Bootstrap to ensure the interface is adaptable to different screen sizes.
 - Optimized Development: Leveraging Vite for efficient and fast development and build processes.
 
 ### Scripts
