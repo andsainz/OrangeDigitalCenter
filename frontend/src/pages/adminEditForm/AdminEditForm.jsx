@@ -187,7 +187,7 @@ function AdminEditForm({ activityId }) {
                                     Actividad actualizada con éxito
                                 </Alert>
                             )}
-                            <Button type="submit" className='post-activity-btn'>Actualizar</Button>
+                            <button type="submit" className='post-activity-btn'>Actualizar</button>
                         </div>
                     </Form.Group>
                     <input id="id-input" type="hidden"></input>

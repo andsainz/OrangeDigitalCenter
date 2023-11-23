@@ -171,7 +171,7 @@ function AdminForm() {
                                     Actividad creada con éxito
                                 </Alert>
                             )}
-                            <Button type="submit" className='post-activity-btn'>Subir Actividad</Button>
+                            <button type="submit" className='post-activity-btn'>Subir Actividad</button>
                         </div>
                     </Form.Group>
                     <input id="id-input" type="hidden"></input>
