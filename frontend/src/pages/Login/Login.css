@@ -1,4 +1,4 @@
-.general-container {
+.general-container{
   background-color: black;
   width: 100vw;
   height: 100vh;
@@ -6,7 +6,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .login-container {
   display: flex;
   flex-direction: column;
@@ -14,15 +13,14 @@
   height: 70vh;
   width: 80vw;
   max-width: 400px;
-  
-  border-radius: 2%;
-  padding: 5%;
+  border-radius: 1.5vw;
+  padding: 5vw;
 }
 .login-container h1 {
-  margin-bottom: 5%;
+  margin-bottom: 15%;
   text-align: center;
   color: #FF7900;
-  margin-top: 0;
+  margin-top: 0vh;
 }
 .login-container form {
   display: flex;
@@ -34,8 +32,8 @@
   width: 100%;
   margin: 0;
   border: 0.1em solid #FF7900;
-  margin-bottom: 1%;
-  color: white;
+  margin-bottom: 1vw;
+  color:white;
   background-color: black;
 }
 .login-container button {
@@ -45,37 +43,35 @@
   border: none;
   border-radius: 0;
   cursor: pointer;
-  margin-bottom: 1%;
+  margin-bottom: 1vw;
   transition: background-color 0.3s;
 }
-.styled-button {
+.styled-button{
   width: 9rem;
   margin-top: 0.5rem;
 }
-
 .register-button {
   display: inline-block;
-  padding: 0.3rem 1rem;
+  padding: 10px 20px;
   background-color: #FF7900;
   color: white;
   text-decoration: none;
   border: none;
-  border-radius: 0;
-  margin-top: 0.5rem;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 .error-alert {
   background-color: #FF9999;
   color: #CC0000;
-  padding: 1%;
+  padding: 1vw;
   border-radius: 0.5em;
-  margin-bottom: 1%;
+  margin-bottom: 1vw;
   text-align: center;
 }
 .login-container p {
   margin-top: 0.5em;
-  margin-bottom: 1%;
+  margin-bottom: 1vw;
   text-align: center;
   color: #F58026;
 }
