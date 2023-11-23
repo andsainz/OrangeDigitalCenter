@@ -37,7 +37,7 @@ function DetailedPage() {
                 <div className="detailed-date-time-container">
                     <p>{activity.activity_date}</p>
                     <div className="space-between-date-time"></div>
-                    <p>  {activity.start_time} - {activity.end_time}</p>
+                    <p>  {activity.start_time}h - {activity.end_time}h</p>
                 </div>
                 <h1 className="detailed-title">{activity.activity_title}</h1>
                 <img src={activity.activity_image} alt="Activity image" />
