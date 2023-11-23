@@ -64,6 +64,10 @@ function AdminEditForm({ activityId }) {
             await activitiesService.updateActivity(activity_id.toString(), updateData);
             console.log('Formulario enviado con éxito');
             setShowSuccessAlert(true);
+            setTimeout(() => {
+                window.location.href = 'http://localhost:5173/admin/home';
+
+            }, 2000); 
             
         } catch (error) {
             console.error('Error al enviar el formulario:', error);
