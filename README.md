@@ -78,10 +78,6 @@ For installation and usage of this project, follow these steps:
 2. Install dependencies in both folders (`frontend` and `backend`).
 3. Start the development servers for both frontend and backend.
 
-## Acknowledgments
-
-We would like to express our sincere gratitude to Orange Digital Center Madrid and Factoria F5 for the opportunity provided. Their support and guidance have been fundamental in the development of this project.
-
 ## Contribution
 
 This project is the result of the work in the first bootcamp of Orange Digital Center and Factoria F5. To contribute, please follow the contribution guidelines established by the team.
