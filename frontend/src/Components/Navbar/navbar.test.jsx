@@ -19,6 +19,16 @@ describe("Navbar", () => {
         const logotypeLink = screen.getByLabelText("logotype");
         fireEvent.click(logotypeLink);
     });
+    test("renders arrow icon correctly", () => {
+        render(<Navbar />);
+        const headerElement = screen.getByLabelText("arrow-icon");
+        expect(headerElement).toBeInTheDocument();
+    });
+    test("works link in arrow icon", () => {
+        render(<Navbar />);
+        const arrowIconLink = screen.getByLabelText("arrow-icon");
+        fireEvent.click(arrowIconLink);
+    });
     test("renders home icon correctly", () => {
         render(<Navbar />);
         const headerElement = screen.getByLabelText("home-icon");
@@ -28,5 +38,15 @@ describe("Navbar", () => {
         render(<Navbar />);
         const homeIconLink = screen.getByLabelText("home-icon");
         fireEvent.click(homeIconLink);
+    });
+    test("renders login icon correctly", () => {
+        render(<Navbar />);
+        const headerElement = screen.getByLabelText("login-icon");
+        expect(headerElement).toBeInTheDocument();
+    });
+    test("works link in login icon", () => {
+        render(<Navbar />);
+        const loginIconLink = screen.getByLabelText("login-icon");
+        fireEvent.click(loginIconLink);
     });
 });

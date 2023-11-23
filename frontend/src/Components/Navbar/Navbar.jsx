@@ -13,13 +13,13 @@ const Navbar = () => {
       </div>
       <div className="icon-container" >
         <a href="/">
-          <img src={ArrowHome} alt="Back to Home" loading="lazy" className="logo-img" aria-label="logotype" />
+          <img src={ArrowHome} alt="Back to Home" loading="lazy" className="logo-img" aria-label="arrow-icon" />
         </a>
         <a href="/">
           <img src={HomeIcon} alt="Home" aria-label="home-icon" />
         </a>
         <a href="/admin/login" >
-          <img src={LoginIcon} alt="Login" />
+          <img src={LoginIcon} alt="Login" aria-label="login-icon" />
         </a>
       </div>
     </nav>

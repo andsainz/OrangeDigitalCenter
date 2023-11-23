@@ -1,27 +1,40 @@
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { activitiesService } from '../../services/ActivitiesService';
-import Cards from '../../Components/home/Cards/Cards';
-import MenuCategories from '../../Components/home/menuCategories/menuCategories';
-import SubscriptionBanner from '../../Components/home/banners/subscriptionBanner';
-import './Home.css';
-import CarouselComponent from '../../Components/carousel/Carousel';
-import PopUp from '../../Components/popUpSubs/PopUp';
+import { activitiesService } from '../../../services/ActivitiesService.jsx';
+import Cards from '../../../Components/home/Cards/Cards.jsx';
+import MenuCategories from '../../../Components/home/menuCategories/menuCategories.jsx';
+import SubscriptionBanner from '../../../Components/home/banners/subscriptionBanner.jsx';
+import { Link } from 'react-router-dom';
+import deleteIcon from '../../../assets/images/iconedit.png';
+import editIcon from '../../../assets/images/icondelete.png';
+import './AdminHome.css';
 
-function Home() {
+function AdminHome() {
     const [activities, setActivities] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
 
-    const getActivities = async () => {
+    useEffect(() => {
+        fetchActivities();
+    }, []);
+
+    const fetchActivities = async () => {
         try {
             const fetchedActivities = await activitiesService.getActivities();
             setActivities(fetchedActivities);
         } catch (error) {
             console.error("Error fetching activities", error);
-            setActivities([]);
         }
     };
 
+    const handleDelete = async (activityId) => {
+        try {
+            await activitiesService.deleteActivity(activityId);
+            const updatedActivities = activities.filter(activity => activity.activity_id !== activityId);
+            setActivities(updatedActivities);
+        } catch (error) {
+            console.error("Error deleting activity:", error);
+        }
+    };
     const getActivitiesByCategory = async (category_name) => {
         try {
             const fetchedActivities = await activitiesService.getActivitiesByCategory(category_name);
@@ -31,7 +44,6 @@ function Home() {
             setActivities([]);
         }
     };
-
     async function handleCategoryClick(category) {
         if (category) {
             try {
@@ -47,27 +59,23 @@ function Home() {
                 console.error(error);
             }
         } else {
-            getActivities();
+            activitiesService.getActivities();
         }
     }
-
     useEffect(() => {
-        getActivities();
+        activitiesService.getActivities();
     }, []);
-
     return (
-        <div className="home-container">
-            <PopUp />
-            <CarouselComponent />
+        <div className="home-admin-container">
+            <Link to={`/admin/activitypost`}><button className='activity-post-btn'>Añadir actividad</button></Link>
             <MenuCategories onCategoryClick={handleCategoryClick} />
-            <div className="container-father">
-                <div className="cards-container">
+            <div className="container-admin-father">
+                <div className="cards-admin-container">
                     {activities.length > 0 ? (
                         <Row xs={1} md={2} lg={3}>
-                            {activities.map((activity, index) => (
-                                <Col key={index} className="mt-4">
+                            {activities.map(activity => (
+                                <Col key={activity.activity_id} className="mt-4" >
                                     <Cards
-                                        key={index}
                                         activity_image={activity.activity_image}
                                         activity_title={activity.activity_title}
                                         activity_description_short={activity.activity_description_short}
@@ -76,13 +84,27 @@ function Home() {
                                         end_time={activity.end_time}
                                         link={`http://localhost:5173/activities/${activity.activity_id}`}
                                     />
+                                    <div className="card-icons">
+                                        <img
+                                            src={editIcon}
+                                            alt="Delete Icon"
+                                            className="icon-delete"
+                                            onClick={() => handleDelete(activity.activity_id)}
+                                        />
+                                        <Link to={`/admin/editform/${activity.activity_id}`}>
+                                            <img
+                                                src={deleteIcon}
+                                                alt="Edit Icon"
+                                                className="icon-edit"
+                                            />
+                                        </Link>
+                                    </div>
                                 </Col>
                             ))}
-
-                        </Row>
-                    ) : (
+                        </Row>) : (
                         <p className='category-not-found-error'>{errorMessage || 'No hay actividades para mostrar.'}</p>
                     )}
+
                 </div>
             </div>
             <SubscriptionBanner />
@@ -90,4 +112,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default AdminHome;

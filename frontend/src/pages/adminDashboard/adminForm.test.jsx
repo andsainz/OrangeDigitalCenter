@@ -25,7 +25,8 @@ describe("AdminForm", () => {
 
         const titleInput = screen.getByLabelText("Título");
         const categoryInput = screen.getByLabelText("Categoría");
-        const descriptionInput = screen.getByLabelText("Descripción");
+        const shortDescriptionInput = screen.getByLabelText("Descripción breve");
+        const longDescriptionInput = screen.getByLabelText("Descripción detallada");
         const contentInput = screen.getByLabelText("Contenidos");
         const dateInput = screen.getByLabelText("Fecha");
         const startTimeInput = screen.getByLabelText("Hora de inicio");
@@ -38,9 +39,10 @@ describe("AdminForm", () => {
 
         fireEvent.change(titleInput, { target: { value: "Título" } });
         fireEvent.change(categoryInput, { target: { value: "1" } });
-        fireEvent.change(descriptionInput, {
-            target: { value: "Descripción" },
+        fireEvent.change(shortDescriptionInput, {
+            target: { value: "Descripción breve" },
         });
+        fireEvent.change(longDescriptionInput, { target: { value: "Descripción detallada" } });
         fireEvent.change(contentInput, { target: { value: "Contenidos" } });
         fireEvent.change(dateInput, { target: { value: "Fecha" } });
         fireEvent.change(startTimeInput, {

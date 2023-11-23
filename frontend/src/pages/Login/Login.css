@@ -54,12 +54,13 @@
 
 .register-button {
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
   background-color: #FF7900;
   color: white;
   text-decoration: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 0;
+  margin-top: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s;
 }

@@ -10,11 +10,11 @@ const Footer = () => {
   return (
     <footer className="footer" aria-label="Footer">
       <div className="footer-left">
-        <img src={Logo} alt="Logo" />
+      <a href="/"><img src={Logo} alt="Logo" aria-label="logotype" /></a>
       </div>
       <div className="footer-text">
         <p>© Orange 2023</p>
-        <Link to="/privacypolicy" className="privacy-policy-link"><p>Política de privacidad</p></Link>
+        <Link to="/privacypolicy" className="privacy-policy-link" aria-label="privacy-policy"><p>Política de privacidad</p></Link>
         <p>Política de cookies</p>
         <p>Aviso legal</p>
       </div>
