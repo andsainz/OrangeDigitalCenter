@@ -55,7 +55,6 @@ function Home() {
         getActivities();
     }, []);
 
-    // Home.js
     return (
         <div className="home-container">
             <PopUp />
