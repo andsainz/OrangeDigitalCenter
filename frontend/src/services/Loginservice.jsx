@@ -1,3 +1,5 @@
+import Cookies from "js-cookie";
+
 const baseURL = "http://localhost:3000";
 
 export const LoginService = {
@@ -14,18 +16,29 @@ export const LoginService = {
             if (!response.ok) {
                 const errorData = await response.json();
                 console.error(
-                    `Fallo al enviar los datos del formulario. El servidor respondió con ${response.status}`,
+                    `Ha habido un error en el inicio de sesión. El servidor respondió con ${response.status}`,
                     errorData
                 );
                 throw new Error(
-                    `Fallo al enviar los datos del formulario. El servidor respondió con ${response.status}`
+                    `Ha habido un error en el inicio de sesión. El servidor respondió con ${response.status}`
                 );
             }
 
-            console.log("Formulario enviado con éxito");
-            return response; 
+            console.log("Inicio de sesión realizado con éxito.");
+
+            const token = response.headers.get("Authorization");
+
+            if (token) {
+                Cookies.set("token", token, {
+                    expires: 1,
+                    secure: true,
+                    httpOnly: true,
+                });
+            }
+
+            return response;
         } catch (error) {
-            console.error("Error al enviar el formulario:", error);
+            console.error("Error en el inicio de sesión:", error);
             throw error;
         }
     },
