@@ -38,8 +38,8 @@ function Cards({
                 <div className="date-time-container">
                     <Card.Text>{activity_date}</Card.Text>
                     <div className="space-between-date-time"></div>
-                    <Card.Text>{start_time}</Card.Text> -{" "}
-                    <Card.Text>{end_time}</Card.Text>
+                    <Card.Text>{start_time}h</Card.Text> -{" "}
+                    <Card.Text>{end_time}h</Card.Text>
                 </div>
                 <h5>
                     <Card.Text>{activity_title}</Card.Text>
