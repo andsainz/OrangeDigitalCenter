@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 function DeleteModal({ show, onHide, onDelete }) {
     return (
@@ -10,12 +10,12 @@ function DeleteModal({ show, onHide, onDelete }) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Footer>
-                <Button variant="secondary" onClick={onHide}>
+                <button className="custom-btn custom-btn-gray" onClick={onHide}>
                     Cancelar
-                </Button>
-                <Button variant="primary" onClick={onDelete}>
+                </button>
+                <button className="custom-btn custom-btn-orange" onClick={onDelete}>
                     Eliminar actividad
-                </Button>
+                </button>
             </Modal.Footer>
         </Modal>
     );

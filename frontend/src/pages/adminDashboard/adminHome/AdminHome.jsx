@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 import deleteIcon from '../../../assets/images/iconedit.png';
 import editIcon from '../../../assets/images/icondelete.png';
 import './AdminHome.css';
-import DeleteModal from './DeleteModal.jsx'; // Reemplaza 'ruta-al-archivo' con la ruta correcta
+import DeleteModal from './DeleteModal.jsx';
+import "./DeleteModal.css"
 
 function AdminHome() {
     const [activities, setActivities] = useState([]);
