@@ -15,5 +15,6 @@
     border: 0.2rem solid black;
     background-color: white;
     padding: 0.3rem 1rem;
-    font-size: 0.8rem; 
+    font-size: 0.8rem;
+    font-weight: 700;
 }

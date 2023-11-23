@@ -448,7 +448,7 @@ const RegisterForm = () => {
 
                             <div className='privacy-policy-readed sign-up-form-privacy-policy'>
                                 <p className='privacy-policy-txt' htmlFor="privacyPolicy">
-                                    He leído y acepto la </p><a className='pop-up-privacy-policy-link' href="enlace a la política de privacidad" target="_blank" rel="noopener noreferrer">política de privacidad.</a><p className='privacy-policy-readed'>Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
+                                    He leído y acepto la </p><a className='pop-up-privacy-policy-link' href="/privacypolicy" target="_blank" rel="noopener noreferrer">política de privacidad.</a><p className='privacy-policy-readed'>Es necesario aceptar la política de privacidad de datos para poder enviar el formulario.
                                 </p>
                             </div>
 

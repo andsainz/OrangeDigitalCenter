@@ -37,7 +37,6 @@ export const activitiesService = {
     
             if (!response.ok) {
                 if (response.status === 404) {
-                    // Si la categoría no se encuentra, devuelve un array vacío
                     return [];
                 } else {
                     console.error(`Error al obtener actividades por categoría: ${response.statusText}`);
