@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 
 import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 import { activitiesService } from '../../services/ActivitiesService';
 import { useParams } from 'react-router-dom';
 
@@ -12,6 +13,7 @@ function AdminEditForm({ activityId }) {
     const [imagePreview, setImagePreview] = useState(null);
     const [showErrorAlert, setShowErrorAlert] = useState(false);
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+
     useEffect(() => {
         const loadActivityData = async () => {
             try {
@@ -60,12 +62,14 @@ function AdminEditForm({ activityId }) {
                 available_places: data.available_places
             }
             console.log('Datos actualizados enviados al servidor:', updateData);
-            await activitiesService.updateActivity(updateData);
+            await activitiesService.updateActivity(activity_id.toString(), updateData);
             console.log('Formulario enviado con éxito');
             setShowSuccessAlert(true);
             setTimeout(() => {
                 window.location.href = 'http://localhost:5173/admin/home';
-            }, 2000);
+
+            }, 2000); 
+            
         } catch (error) {
             console.error('Error al enviar el formulario:', error);
             setShowErrorAlert(true);
@@ -188,7 +192,7 @@ function AdminEditForm({ activityId }) {
                                     Actividad actualizada con éxito
                                 </Alert>
                             )}
-                            <Button type="submit" className='post-activity-btn'>Actualizar</Button>
+                            <button type="submit" className='post-activity-btn'>Actualizar</button>
                         </div>
                     </Form.Group>
                     <input id="id-input" type="hidden"></input>

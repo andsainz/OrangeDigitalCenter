@@ -45,7 +45,6 @@ function Cards({
                     <Card.Text>{activity_title}</Card.Text>
                 </h5>
                 <Card.Text>{activity_description_short}</Card.Text>
-                <Card.Text>{activity_description_short}</Card.Text>
                 <button className="read-more-btn" onClick={handleClickBtn}>
                     LEER MÁS
                 </button>

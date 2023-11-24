@@ -113,7 +113,7 @@ const PopUp = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShow(false)}>Cerrar</Button>
-          <Button variant="primary" onClick={handleRegisterSubmit}>Recibir newsletter</Button>
+          <button className="receive-newsletter-btn" onClick={handleRegisterSubmit}>Recibir newsletter</button>
         </Modal.Footer>
       </Modal>
     </div>

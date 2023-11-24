@@ -8,10 +8,14 @@ import { Link } from 'react-router-dom';
 import deleteIcon from '../../../assets/images/iconedit.png';
 import editIcon from '../../../assets/images/icondelete.png';
 import './AdminHome.css';
+import DeleteModal from './DeleteModal.jsx';
+import "./DeleteModal.css"
 
 function AdminHome() {
     const [activities, setActivities] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [selectedActivityId, setSelectedActivityId] = useState(null);
 
     useEffect(() => {
         fetchActivities();
@@ -35,6 +39,7 @@ function AdminHome() {
             console.error("Error deleting activity:", error);
         }
     };
+
     const getActivitiesByCategory = async (category_name) => {
         try {
             const fetchedActivities = await activitiesService.getActivitiesByCategory(category_name);
@@ -44,7 +49,8 @@ function AdminHome() {
             setActivities([]);
         }
     };
-    async function handleCategoryClick(category) {
+
+    const handleCategoryClick = async (category) => {
         if (category) {
             try {
                 const activities = await activitiesService.getActivitiesByCategory(category);
@@ -61,10 +67,12 @@ function AdminHome() {
         } else {
             activitiesService.getActivities();
         }
-    }
+    };
+
     useEffect(() => {
         activitiesService.getActivities();
     }, []);
+
     return (
         <div className="home-admin-container">
             <Link to={`/admin/activitypost`}><button className='activity-post-btn'>Añadir actividad</button></Link>
@@ -74,7 +82,7 @@ function AdminHome() {
                     {activities.length > 0 ? (
                         <Row xs={1} md={2} lg={3}>
                             {activities.map(activity => (
-                                <Col key={activity.activity_id} className="mt-4" >
+                                <Col key={activity.activity_id} className="mt-4">
                                     <Cards
                                         activity_image={activity.activity_image}
                                         activity_title={activity.activity_title}
@@ -89,7 +97,10 @@ function AdminHome() {
                                             src={editIcon}
                                             alt="Delete Icon"
                                             className="icon-delete"
-                                            onClick={() => handleDelete(activity.activity_id)}
+                                            onClick={() => {
+                                                setSelectedActivityId(activity.activity_id);
+                                                setShowDeleteModal(true);
+                                            }}
                                         />
                                         <Link to={`/admin/editform/${activity.activity_id}`}>
                                             <img
@@ -101,13 +112,22 @@ function AdminHome() {
                                     </div>
                                 </Col>
                             ))}
-                        </Row>) : (
+                        </Row>
+                    ) : (
                         <p className='category-not-found-error'>{errorMessage || 'No hay actividades para mostrar.'}</p>
                     )}
-
                 </div>
             </div>
             <SubscriptionBanner />
+
+            <DeleteModal
+                show={showDeleteModal}
+                onHide={() => setShowDeleteModal(false)}
+                onDelete={() => {
+                    handleDelete(selectedActivityId);
+                    setShowDeleteModal(false);
+                }}
+            />
         </div>
     );
 }
