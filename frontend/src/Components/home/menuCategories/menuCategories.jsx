@@ -14,7 +14,6 @@ const MenuCategories = ({ onCategoryClick }) => {
     
     return (
         <div className="menu-categories-navbar">
-            <div>
                 {categories.map((category) => (
                     <div
                         key={category.id}
@@ -24,7 +23,6 @@ const MenuCategories = ({ onCategoryClick }) => {
                         {category.name}
                     </div>
                 ))}
-            </div>
         </div>
     );
 };
