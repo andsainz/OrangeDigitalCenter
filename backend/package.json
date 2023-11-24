@@ -20,13 +20,14 @@
   },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only ./app.ts",
-    "test": "jest --watch"
+    "test": "jest --watch --detectOpenHandles"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@jest-mock/express": "^2.0.2",
     "@jridgewell/trace-mapping": "^0.3.20",
     "@types/jsonwebtoken": "^9.0.5",
     "bcrypt": "^5.1.1",
