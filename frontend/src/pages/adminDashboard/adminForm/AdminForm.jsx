@@ -46,7 +46,7 @@ function AdminForm() {
             console.log('Formulario enviado con éxito');
             setShowSuccessAlert(true);
             setTimeout(() => {
-                window.location.href = 'http://localhost:5173/';
+                window.location.href = 'http://localhost:5173/admin/home';
             }, 2000);
         } catch (error) {
             console.error('Error al enviar el formulario:', error);

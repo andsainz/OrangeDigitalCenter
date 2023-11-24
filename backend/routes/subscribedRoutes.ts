@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getSubscribed, getSubscribedById, createSubscribed, updateSubscribed, deleteSubscribed, } from "../controllers/subscribedController";
-import { authenticateAdmin } from "../middlewares/authMiddleware";
+import { authenticateAdmin } from "../middlewares/authenticateAdmin";
 
 const router = Router()
 

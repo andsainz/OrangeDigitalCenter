@@ -3,6 +3,7 @@ import * as jwt from "jsonwebtoken";
 import AdminModel from "../models/adminsModel";
 import dotenv from 'dotenv'
 dotenv.config()
+
 interface AuthenticatedRequest extends Request {
     admin?: AdminModel;
 }
@@ -24,7 +25,7 @@ export const authenticateAdmin = async (req: AuthenticatedRequest, res: Response
 
         const decodedToken: any = jwt.verify(token, jwtSecret);
 
-        if (decodedToken && decodedToken.role === "admin") {
+        if (decodedToken && decodedToken.isAdmin) {
             next();
         } else {
             res.status(403).json({ message: "Permission denied. User is not an admin" });
