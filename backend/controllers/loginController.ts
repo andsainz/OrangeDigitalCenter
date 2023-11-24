@@ -31,7 +31,7 @@ export const postLogin = async (req: Request, res: Response): Promise<void> => {
             process.env.JWT_SECRET as string
         );
 
-        res.cookie('token', jwtToken, { httpOnly: true, expires: new Date(Date.now() + 3600000) });
+        res.cookie('token', jwtToken, { httpOnly: false, expires: new Date(Date.now() + 3600000) });
         console.log("Cookies enviadas:", res.getHeader("Set-Cookie"));
 
         res.json({ message: "Welcome back!", token: jwtToken });

@@ -2,15 +2,16 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Alert } from 'react-bootstrap';
 import './Login.css';
-import { LoginService } from '../../services/Loginservice';
+import { LoginService } from '../../services/LoginService';
 import Cookies from 'js-cookie';
+import React, { useEffect } from 'react';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [user_password, setPassword] = useState('');
   const [showErrorAlert, setShowErrorAlert] = useState(false);
   const [showPasswordError, setShowPasswordError] = useState(false);
-
+  
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     if (email.trim() === '' || user_password.trim() === '') {
@@ -29,7 +30,7 @@ const LoginForm = () => {
           const token = Cookies.get("token");
 
           if (token) {
-            Cookies.set("token", token, { expires: 1, secure: true, httpOnly: true });
+            Cookies.set("token", token, { expires: 1, secure: true });
           }
 
           window.location.href = '/admin/home';
@@ -52,6 +53,19 @@ const LoginForm = () => {
       console.error('Error en la solicitud:', error);
     }
   };
+
+  useEffect(() => {
+    const token = Cookies.get('token');
+
+    if (token) {
+        // Aquí es donde debes incluir el token en las cabeceras de tus solicitudes
+        fetch('http://localhost:3000/login', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+    }
+}, []);
 
   return (
     <div className="general-container" aria-label="Login">

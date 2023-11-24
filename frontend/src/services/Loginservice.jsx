@@ -32,7 +32,7 @@ export const LoginService = {
                 Cookies.set("token", token, {
                     expires: 1,
                     secure: true,
-                    httpOnly: true,
+                    httpOnly: false,
                 });
             }
 

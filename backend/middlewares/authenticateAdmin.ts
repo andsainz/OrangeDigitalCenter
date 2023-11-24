@@ -25,7 +25,7 @@ export const authenticateAdmin = async (req: AuthenticatedRequest, res: Response
 
         const decodedToken: any = jwt.verify(token, jwtSecret);
 
-        if (decodedToken && decodedToken.isAdmin) {
+        if (decodedToken && decodedToken.role === "admin") {
             next();
         } else {
             res.status(403).json({ message: "Permission denied. User is not an admin" });
