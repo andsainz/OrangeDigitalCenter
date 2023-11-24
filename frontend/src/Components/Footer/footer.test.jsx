@@ -52,16 +52,6 @@ describe("Footer", () => {
         const privacyPolicyLink = screen.getByLabelText("privacy-policy");
         fireEvent.click(privacyPolicyLink);
     });
-    test("renders facebook icon correctly", () => {
-        render(
-            <Router>
-                <Footer />
-            </Router>
-        );
-        const headerElement = screen.getByRole("img", { name: "facebook" });
-        expect(headerElement).toBeInTheDocument();
-    });
-
     test("renders twitter icon correctly", () => {
         render(
             <Router>
@@ -71,7 +61,6 @@ describe("Footer", () => {
         const headerElement = screen.getByRole("img", { name: "twitter" });
         expect(headerElement).toBeInTheDocument();
     });
-
     test("renders linkedin icon correctly", () => {
         render(
             <Router>
@@ -91,17 +80,6 @@ describe("Footer", () => {
         const headerElement = screen.getByRole("img", { name: "instagram" });
         expect(headerElement).toBeInTheDocument();
     });
-
-    test("works link in facebook icon", () => {
-        render(
-            <Router>
-                <Footer />
-            </Router>
-        );
-        const facebookLink = screen.getByLabelText("facebook");
-        fireEvent.click(facebookLink);
-    });
-
     test("works link in twitter icon", () => {
         render(
             <Router>

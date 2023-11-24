@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import "./RegisterForm.css";
 import { FormService } from "../../services/FormService";
 import { Alert } from "react-bootstrap";
-import PopUp from "../../Components/popUpSubs/PopUp";
+import PopUpRegisterForm from "../../components/popUpSubs/PopUpRegisterForm"
 
 const RegisterForm = () => {
     const [formSubmitted, setFormSubmitted] = useState(false);
@@ -71,8 +71,7 @@ const RegisterForm = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="field-container">
                             <label>
-                                ¿Has hecho una actividad anteriormente en el
-                                ODC?
+                                ¿Has hecho una actividad anteriormente en el Orange Digital Center?
                             </label>
                             <div className="second-row-field">
                                 <input
@@ -125,7 +124,7 @@ const RegisterForm = () => {
                                 <p>Este campo es obligatorio</p>
                             )}
                         </div>
-                        {showPopUp && <PopUp />}
+                        {showPopUp && <PopUpRegisterForm />}
 
                         <div className="field-container">
                             <label htmlFor="email">Email</label>
@@ -275,12 +274,12 @@ const RegisterForm = () => {
                                 </div>
                                 <div className="field-container">
                                     <label>
-                                        Código postal o lugar de residencia
+                                        Código postal
                                     </label>
                                     <input
                                         type="text"
                                         className=" input-styles"
-                                        {...register("residencePlace")}></input>
+                                        {...register("postalCode")}></input>
                                 </div>
                                 <div className="field-container">
                                     <label>Intereses</label>
