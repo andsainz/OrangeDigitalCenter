@@ -34,7 +34,7 @@ const NewsletterSubs = () => {
       <label>
         <input
           type="email"
-          placeholder="Ej. odc@gmail.com"
+          placeholder="Ej. orangedigitalcenter@gmail.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required

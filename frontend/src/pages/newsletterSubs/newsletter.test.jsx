@@ -21,7 +21,7 @@ describe("Newsletter", () => {
                 <NewsletterSubs />
             </Router>
         );
-        const emailInput = screen.getByPlaceholderText("Ej. odc@gmail.com");
+        const emailInput = screen.getByPlaceholderText("Ej. orangedigitalcenter@gmail.com");
         expect(emailInput).toBeInTheDocument();
     });  
 

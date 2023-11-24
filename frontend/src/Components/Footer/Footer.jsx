@@ -1,5 +1,4 @@
 import Logo from '../../assets/images/Logo2.png';
-import Facebook from '../../assets//images/facebookicon.png';
 import Twitter from '../../assets/images/twittericon.png';
 import Linkedin from '../../assets/images/linkedinicon.png';
 import Instagram from '../../assets/images/instaicon.png';
@@ -19,16 +18,13 @@ const Footer = () => {
         <p>Aviso legal</p>
       </div>
       <div className="footer-icons">
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-        <img src={Facebook} alt="Icon1" aria-label="facebook" />
-      </a>
-      <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+      <a href="https://twitter.com/fundacionorange" target="_blank" rel="noopener noreferrer">
         <img src={Twitter} alt="Icon2" aria-label="twitter" />
       </a>
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/company/fundacionorange" target="_blank" rel="noopener noreferrer">
         <img src={Linkedin} alt="Icon3" aria-label="linkedin" />
       </a>
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/fundacionorange/?hl=es" target="_blank" rel="noopener noreferrer">
         <img src={Instagram} alt="Icon4" aria-label="instagram" />
       </a>
       </div>

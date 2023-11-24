@@ -54,7 +54,7 @@ const PopUp = () => {
         <Modal.Header closeButton>
         </Modal.Header>
         <Modal.Body>
-          <Modal.Title>¿Quieres saber sobre este curso y otros del ODC apuntándote a la newsletter?</Modal.Title>
+          <Modal.Title>¿Quieres suscribirte a nuestra newsletter?</Modal.Title>
           <p className='pop-up-email-p'>Introduce tu email</p>
           <input
             className='pop-up-email-input' type="email" placeholder="tuemail@ejemplo.com"
