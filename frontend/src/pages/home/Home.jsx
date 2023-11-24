@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { activitiesService } from '../../services/ActivitiesService';
-import Cards from '../../Components/home/cards/Cards';
-import MenuCategories from '../../Components/home/menuCategories/menuCategories';
-import SubscriptionBanner from '../../Components/home/banners/subscriptionBanner';
+import Cards from '../../components/home/cards/Cards';
+import MenuCategories from '../../components/home/menuCategories/MenuCategories';
+import SubscriptionBanner from '../../components/home/banners/SubscriptionBanner';
 import './Home.css';
-import CarouselComponent from '../../Components/carousel/Carousel';
-import PopUp from '../../Components/popUpSubs/PopUp';
+import CarouselComponent from '../../components/carousel/Carousel';
+import PopUp from '../../components/popUpSubs/PopUp';
 
 function Home() {
     const [activities, setActivities] = useState([]);

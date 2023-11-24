@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { activitiesService } from '../../../services/ActivitiesService.jsx';
-import Cards from '../../../Components/home/cards/Cards.jsx';
-import MenuCategories from '../../../Components/home/menuCategories/menuCategories.jsx';
-import SubscriptionBanner from '../../../Components/home/banners/subscriptionBanner.jsx';
+import Cards from '../../../components/home/cards/Cards.jsx';
+import MenuCategories from '../../../components/home/menuCategories/menuCategories.jsx';
+import SubscriptionBanner from '../../../components/home/banners/SubscriptionBanner.jsx';
 import { Link } from 'react-router-dom';
 import deleteIcon from '../../../assets/images/iconedit.png';
 import editIcon from '../../../assets/images/icondelete.png';
