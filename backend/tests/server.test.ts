@@ -13,7 +13,7 @@ describe('POST /login', () => {
             .post('/login')
             .send({
                 email: 'admin@gmail.com',
-                user_password: '1234',
+                user_password: 'admin',
             });
 
         expect(res.status).toBe(200);
