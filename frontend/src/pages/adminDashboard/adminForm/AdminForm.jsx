@@ -2,7 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { Form, Alert } from "react-bootstrap";
-import { activitiesService } from '../../services/ActivitiesService';
+import { activitiesService } from '../../../services/ActivitiesService';
 import './AdminForm.css'
 
 function AdminForm() {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { activitiesService } from '../../../services/ActivitiesService.jsx';
-import Cards from '../../../Components/home/Cards/Cards.jsx';
+import Cards from '../../../Components/home/cards/Cards.jsx';
 import MenuCategories from '../../../Components/home/menuCategories/menuCategories.jsx';
 import SubscriptionBanner from '../../../Components/home/banners/subscriptionBanner.jsx';
 import { Link } from 'react-router-dom';

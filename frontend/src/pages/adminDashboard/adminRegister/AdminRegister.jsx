@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './adminRegister.css';
 import { Alert } from 'react-bootstrap';
+import { registrationService } from '../../../services/RegisterService'
+
 function AdminRegister() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -11,31 +13,33 @@ function AdminRegister() {
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/registration', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ fullName, email, user_password: userPassword }),
+      const response = await registrationService.postRegistration({
+        fullName,
+        email,
+        user_password: userPassword,
       });
-      if (response.ok) {
+  
+      if (response && response.ok) {
         const data = await response.json();
         console.log('Registration status:', data);
         setShowSuccessAlert(true);
         setTimeout(() => {
           setShowSuccessAlert(false);
-        }, 10000);
+        }, 3000);
+        setTimeout(() => {
+          window.location.href = 'http://localhost:5173/login';
+      }, 2000);
       } else {
         console.error('Registration error');
         setShowErrorAlert(true);
         setTimeout(() => {
           setShowErrorAlert(false);
-        }, 10000);
+        }, 3000);
       }
     } catch (error) {
       console.error('Failed request:', error);
     }
-  };
+  };  
 
   return (
     <form onSubmit={handleRegisterSubmit} className="register">
@@ -92,7 +96,7 @@ function AdminRegister() {
           </Alert>
         )}
         <p className='txt-admin-register'>¿Tienes una cuenta?</p>
-        <a className="login-link" href="/admin/login">
+        <a className="login-link" href="/login">
           Iniciar sesión
         </a>
       </div>

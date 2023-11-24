@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { activitiesService } from '../../services/ActivitiesService';
-import Cards from '../../Components/home/Cards/Cards';
+import Cards from '../../Components/home/cards/Cards';
 import MenuCategories from '../../Components/home/menuCategories/menuCategories';
 import SubscriptionBanner from '../../Components/home/banners/subscriptionBanner';
 import './Home.css';

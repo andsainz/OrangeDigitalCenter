@@ -13,19 +13,19 @@ const MenuCategories = ({ onCategoryClick }) => {
 
     
     return (
-        <Navbar className="menu-categories-navbar" expand="lg">
-            <Nav>
+        <div className="menu-categories-navbar">
+            <div>
                 {categories.map((category) => (
-                    <Nav.Link
+                    <div
                         key={category.id}
                         onClick={() => onCategoryClick(category.name)}
                         className="menu-categories-nav-link"
                     >
                         {category.name}
-                    </Nav.Link>
+                    </div>
                 ))}
-            </Nav>
-        </Navbar>
+            </div>
+        </div>
     );
 };
 

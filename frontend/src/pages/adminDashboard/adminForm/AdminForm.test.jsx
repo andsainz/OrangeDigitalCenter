@@ -2,7 +2,7 @@
 import { expect, test } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import AdminForm from "./adminForm";
+import AdminForm from "./AdminForm";
 import "@testing-library/jest-dom";
 
 describe("AdminForm", () => {

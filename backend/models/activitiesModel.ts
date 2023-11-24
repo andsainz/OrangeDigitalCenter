@@ -52,7 +52,7 @@ ActivityModel.init(
             allowNull: false,
         },
         activity_description_short: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         activity_description_long: {

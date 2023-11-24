@@ -32,7 +32,7 @@ const LoginForm = () => {
             Cookies.set("token", token, { expires: 1, secure: true, httpOnly: true });
           }
 
-          window.location.href = '/';
+          window.location.href = '/admin/home';
         } else {
           console.error('El correo electrónico o la contraseña no coinciden');
           setShowErrorAlert(true);
@@ -91,7 +91,7 @@ const LoginForm = () => {
           </Alert>
         )}
         <p>¿Aún no tienes cuenta?</p>
-        <Link to="/admin/register" className="register-button">
+        <Link to="/register" className="register-button">
           Regístrate
         </Link>
       </div>
