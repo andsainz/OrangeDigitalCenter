@@ -14,7 +14,7 @@ const db: Sequelize = new Sequelize(
 
 const database: Sequelize = db;
 
-async function checkDatabaseConnection() {
+export async function checkDatabaseConnection() {
   try {
     await database.authenticate();
     console.log("Connection to the database established correctly.");
@@ -33,5 +33,3 @@ database.sync({ force: false })
   });
 
 export default database;
-
-
