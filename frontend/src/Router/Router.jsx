@@ -3,7 +3,7 @@ import Root from './Root.jsx';
 import Home from '../pages/home/Home.jsx';
 import LoginForm from "../pages/Login/Login.jsx";
 import NewsletterSubs from "../pages/newsletterSubs/NewsletterSubs.jsx";
-import DiscoverODC from "../pages/Odc/Odc.jsx";
+import DiscoverODC from "../pages/odc/Odc.jsx";
 import RegisterForm from '../pages/registerForm/RegisterForm.jsx';
 import AdminForm from "../pages/adminDashboard/adminForm/AdminForm.jsx";
 import DetailedPage from "../pages/detailedPage/DetailedPage.jsx";
