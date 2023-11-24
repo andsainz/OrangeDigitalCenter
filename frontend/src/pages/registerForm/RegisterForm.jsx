@@ -273,13 +273,18 @@ const RegisterForm = () => {
                                     )}
                                 </div>
                                 <div className="field-container">
-                                    <label>
-                                        Código postal
-                                    </label>
+                                    <label>Código postal</label>
                                     <input
                                         type="text"
-                                        className=" input-styles"
-                                        {...register("postalCode")}></input>
+                                        className="input-styles"
+                                        {...register("postalCode", {
+                                            pattern: {
+                                                value: /^[0-9]{5}$/,
+                                                message: "Código postal inválido, debe tener 5 dígitos numéricos.",
+                                            },
+                                        })}
+                                    />
+                                    {errors.postalCode && <p>{errors.postalCode.message}</p>}
                                 </div>
                                 <div className="field-container">
                                     <label>Intereses</label>
