@@ -1,0 +1,16 @@
+/* Estilos en un archivo CSS o en línea */
+.custom-btn {
+    padding: 0.5rem;
+    cursor: pointer;
+    border: none;
+}
+
+.custom-btn-gray {
+    background-color: #888; 
+    color: #fff;
+}
+
+.custom-btn-orange {
+    background-color: #ff7900; 
+    color: #fff;
+}

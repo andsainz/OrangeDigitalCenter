@@ -1,0 +1,51 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  padding: 5vw;
+  background-color: black;
+}
+
+.register h5 {
+  margin-bottom: 15px;
+  text-align: center;
+  color: white;
+  margin-top: 0;
+}
+
+.input-field {
+  padding: 2%;
+  width: 100%;
+  margin: 0;
+  border: 0.1em solid #FF7900;
+  margin-bottom: 1vw;
+  color: white;
+  background-color: black;
+}
+
+.Button1 {
+  padding: 0.5rem 1rem;
+  background-color: #FF7900;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1vw;
+  transition: background-color 0.3s;
+}
+
+.login-link {
+  margin-top: 0.5em;
+  text-align: center;
+  color: #F58026;
+}
+
+.txt-admin-register{
+  color:white;
+}
+
+.register-button{
+  border-radius: 0;
+}

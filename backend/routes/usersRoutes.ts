@@ -1,13 +1,13 @@
 import { Router } from "express";
 import { getUsers, getUserById, createUser, updateUser, deleteUser, } from "../controllers/usersController";
-import { authenticateUser, authenticateAdmin } from "../middlewares/authMiddleware";
+import { authenticateAdmin } from "../middlewares/authenticateAdmin";
 
 const router = Router()
 
-router.get('/', authenticateUser, authenticateAdmin, getUsers)
-router.get('/:id', authenticateUser, authenticateAdmin, getUserById)
-router.post('/', authenticateUser, authenticateAdmin, createUser)
-router.put('/:id', authenticateUser, authenticateAdmin, updateUser)
-router.delete('/:id', authenticateUser, authenticateAdmin, deleteUser)
+router.get('/', authenticateAdmin, getUsers)
+router.get('/:id', authenticateAdmin, getUserById)
+router.post('/', authenticateAdmin, createUser)
+router.put('/:id', authenticateAdmin, updateUser)
+router.delete('/:id', authenticateAdmin, deleteUser)
 
 export default router

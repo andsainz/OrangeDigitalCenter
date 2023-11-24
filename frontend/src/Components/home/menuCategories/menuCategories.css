@@ -1,0 +1,27 @@
+.menu-categories-navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+}
+.menu-categories-nav-link{
+    margin-right: 1rem;
+}
+.menu-categories-nav-link:hover {
+    color: #FF7900;
+}
+.menu-categories-nav-link:active{
+    color: white;
+}
+
+@media (max-width: 988px) {
+    .menu-categories-navbar {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .menu-categories-nav-link{
+        font-size: 0.8rem;
+    }
+}

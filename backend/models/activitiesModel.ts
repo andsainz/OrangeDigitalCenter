@@ -3,24 +3,31 @@ import db from "../database/db";
 import UserModel from "./usersModel";
 import AdminModel from "./adminsModel";
 import CategoryModel from "./categoriesModel";
-
 export interface ActivityModelAttributes {
     activity_id: number;
-    category_id: number;
-    activity_image: string;
-    title: string;
-    subtitle: string;
+    category_name: string;
+    activity_image: any;
+    activity_title: string;
+    activity_description_short: string;
+    activity_description_long: string;
     activity_date: string;
+    start_time: string;
+    end_time: string,
+    activity_content: string,
     available_places: number;
 }
 
 class ActivityModel extends Model<ActivityModelAttributes>{
     public activity_id!: number;
-    public category_id!: number;
-    public activity_image!: string;
-    public title!: string;
-    public subtitle!: string;
+    public category_name!: string;
+    public activity_image!: any;
+    public activity_title!: string;
+    public activity_description_short!: string;
+    public activity_description_long!: string;
     public activity_date!: string;
+    public start_time!: string;
+    public end_time!: string;
+    public activity_content!: string;
     public available_places!: number;
 }
 
@@ -32,29 +39,45 @@ ActivityModel.init(
             allowNull: false,
             autoIncrement: true,
         },
-        category_id: {
-            type: DataTypes.INTEGER,
+        category_name: {
+            type: DataTypes.STRING,
             allowNull: false
         },
         activity_image: {
+            type: DataTypes.JSON,
+            allowNull: false,
+        },
+        activity_title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        title: {
-            type: DataTypes.STRING,
+        activity_description_short: {
+            type: DataTypes.TEXT,
             allowNull: false,
         },
-        subtitle: {
-            type: DataTypes.STRING,
+        activity_description_long: {
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         activity_date: {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        start_time: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        end_time: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        activity_content: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         available_places: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: false
         }
     },
     {
