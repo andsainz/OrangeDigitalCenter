@@ -443,7 +443,7 @@ const RegisterForm = () => {
                             </Alert>
                         )}
                         <div className="privacy-policy-container">
-                            <input type="checkbox" className="privacy-policy-checkbox" required onChange={(e) => setAcceptedPrivacyPolicy(e.target.checked)} />
+                            <input type="checkbox" className="privacy-policy-checkbox" required />
 
                             <div className='privacy-policy-readed sign-up-form-privacy-policy'>
                                 <p className='privacy-policy-txt' htmlFor="privacyPolicy">

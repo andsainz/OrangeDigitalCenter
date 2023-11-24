@@ -48,6 +48,9 @@
   gap: 1rem;
   flex-wrap: nowrap;
 }
+.footer-text p:hover{
+  color: #F16E00;
+}
 .privacy-policy-link{
   color: #fff;
   text-decoration: none;

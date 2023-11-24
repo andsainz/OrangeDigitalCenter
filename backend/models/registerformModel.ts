@@ -7,7 +7,7 @@ export interface RegisteredModelAttributes {
     fullName: string;
     gender: string;
     age: string;
-    postalCode: number;
+    postalCode: string;
     interests: string;
     hasDonePreviousActivity: string;
     isSubscribed: string;
@@ -20,7 +20,7 @@ class RegisteredModel extends Model<RegisteredModelAttributes> {
     public fullName!: string;
     public gender!: string;
     public age!: string;
-    public postalCode!: number;
+    public postalCode!: string;
     public interests!: string;
     public hasDonePreviousActivity!: string;
     public isSubscribed!: string;
@@ -55,7 +55,7 @@ RegisteredModel.init(
             allowNull: false,
         },
         postalCode: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         interests: {
