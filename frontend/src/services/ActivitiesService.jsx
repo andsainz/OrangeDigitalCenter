@@ -1,5 +1,9 @@
 const baseURL = "http://localhost:3000";
 
+const getToken = () => {
+    return localStorage.getItem("token");
+};
+
 export const activitiesService = {
     async getActivities() {
         try {
@@ -51,14 +55,13 @@ export const activitiesService = {
             throw error;
         }
     },
-    
-
     async createActivity(newActivity) {
         try {
             const response = await fetch(`${baseURL}/activities`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": `Bearer ${getToken()}`,
                 },
                 body: JSON.stringify(newActivity),
             });

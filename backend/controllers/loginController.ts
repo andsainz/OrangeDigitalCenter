@@ -13,7 +13,7 @@ export const postLogin = async (req: Request, res: Response): Promise<void> => {
         );
 
         if (!admin) {
-            res.json({ message: "Email or password does not match!" });
+            res.status(401).json({ message: "Email or password does not match!" });
             return;
         }
 
@@ -32,10 +32,8 @@ export const postLogin = async (req: Request, res: Response): Promise<void> => {
         );
 
         res.cookie('token', jwtToken, { httpOnly: false, expires: new Date(Date.now() + 3600000) });
-        console.log("Cookies enviadas:", res.getHeader("Set-Cookie"));
 
-        res.json({ message: "Welcome back!", token: jwtToken });
-
+        res.status(200).json({ message: 'Login successful', token: jwtToken });
     } catch (error: any) {
         console.log("Error: ", error);
         res.status(500).json({ error: "Internal Server Error" });
