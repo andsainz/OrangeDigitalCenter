@@ -11,6 +11,7 @@ import AdminHome from '../pages/adminDashboard/adminHome/AdminHome.jsx';
 import AdminRegister from '../pages/adminDashboard/adminRegister/AdminRegister.jsx';
 import AdminEditForm from '../pages/adminDashboard/adminEditForm/AdminEditForm.jsx';
 import PrivacyPolicy from '../pages/privacyPolicy/PrivacyPolicy.jsx';
+import { WithAdminAuth } from './WithAdminAuth.jsx';
 
 const router = createBrowserRouter([
   {
@@ -50,17 +51,17 @@ const router = createBrowserRouter([
         element: <PrivacyPolicy />,
       },
       {
-        path: 'admin/home',
-        element: <AdminHome />,
+        path: '/admin/home',
+        element: <WithAdminAuth><AdminHome /></WithAdminAuth>,
       },
       {
-        path: 'admin/activitypost',
-        element: <AdminForm />,
+        path: '/admin/activitypost',
+        element: <WithAdminAuth><AdminForm /></WithAdminAuth>,
       },
       {
-        path: 'admin/editform/:activity_id',
-        element: <AdminEditForm />,
-      }, 
+        path: '/admin/editform/:activity_id',
+        element: <WithAdminAuth><AdminEditForm /></WithAdminAuth>,
+      },
     ],
   },
 ]);
