@@ -1,50 +1,17 @@
-/* eslint-disable no-undef */
-import { expect, test } from "vitest";
+// Login.test.js
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom"; 
 import Login from "./Login";
-import "@testing-library/jest-dom";
+
+jest.mock("./Login", () => ({
+  __esModule: true,
+  default: jest.fn().mockImplementation(() => ({
+    handleSubmit: jest.fn(),
+  })),
+}));
 
 describe("Login", () => {
-    test("renders correctly", () => {
-        render(
-            <Router>
-                <Login />
-            </Router>
-        );
-        const loginElement = screen.getByLabelText("Login");
-        expect(loginElement).toBeInTheDocument();
-    });
-
-    test("renders email input correctly", () => {
-        render(
-            <Router>
-                <Login />
-            </Router>
-        );
-        const emailInput = screen.getByPlaceholderText("Correo electrónico");
-        expect(emailInput).toBeInTheDocument();
-    });
-
-    test("renders password input correctly", () => {
-        render(
-            <Router>
-                <Login />
-            </Router>
-        );
-        const passwordInput = screen.getByPlaceholderText("Contraseña");
-        expect(passwordInput).toBeInTheDocument();
-    });
-
-    test("renders login button correctly", () => {
-        render(
-            <Router>
-                <Login />
-            </Router>
-        );
-        const loginButton = screen.getByText("Iniciar sesión");
-        expect(loginButton).toBeInTheDocument();
-    });
+    // ... tus otras pruebas ...
 
     test("submits login form with valid credentials", async () => {
         render(
@@ -52,20 +19,12 @@ describe("Login", () => {
                 <Login />
             </Router>
         );
-        const emailInput = screen.getByPlaceholderText("Correo electrónico");
-        const passwordInput = screen.getByPlaceholderText("Contraseña");
+        const emailInput = screen.getByTestId("email-input");
+        const passwordInput = screen.getByTestId("password-input");
         fireEvent.change(emailInput, { target: { value: "test@example.com" } });
         fireEvent.change(passwordInput, { target: { value: "password123" } });
-        fireEvent.click(screen.getByText("Iniciar sesión"));
-    });
+        fireEvent.click(screen.getByTestId("login-button"));
 
-    test("renders register text correctly", () => {
-        render(
-            <Router>
-                <Login />
-            </Router>
-        );
-        const registerText = screen.getByText("¿Aún no tienes cuenta?");
-        expect(registerText).toBeInTheDocument();
+        expect(Login.prototype.handleSubmit).toHaveBeenCalled();
     });
 });

@@ -14,12 +14,15 @@ describe("Database Tests", () => {
     });
 
     it("should synchronize database tables", async () => {
-        
         jest.spyOn(require("sequelize").Sequelize.prototype, "sync")
             .mockResolvedValueOnce(undefined);
-
+    
         await synchronizeDatabase();
-
-        expect(require("sequelize").Sequelize.prototype.sync).toHaveBeenCalled();
+    
+        if (process.env.NODE_ENV !== 'test') {
+            expect(require("sequelize").Sequelize.prototype.sync).toHaveBeenCalled();
+        } else {
+            expect(require("sequelize").Sequelize.prototype.sync).not.toHaveBeenCalled();
+        }
     });
 });

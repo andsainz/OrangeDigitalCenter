@@ -2,7 +2,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Root from './Root.jsx';
 import Home from '../pages/home/Home.jsx';
-import LoginForm from '../pages/Login/Login.jsx';
+import LoginForm from '../pages/login/Login.jsx';
 import NewsletterSubs from '../pages/newsletterSubs/NewsletterSubs.jsx';
 import DiscoverODC from '../pages/odc/Odc.jsx';
 import RegisterForm from '../pages/registerForm/RegisterForm.jsx';
@@ -12,7 +12,6 @@ import AdminHome from '../pages/adminDashboard/adminHome/AdminHome.jsx';
 import AdminRegister from '../pages/adminDashboard/adminRegister/AdminRegister.jsx';
 import AdminEditForm from '../pages/adminDashboard/adminEditForm/AdminEditForm.jsx';
 import PrivacyPolicy from '../pages/privacyPolicy/PrivacyPolicy.jsx';
-import ProtectedAdminRoute from './ProtectedAdminRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,25 +43,25 @@ const router = createBrowserRouter([
         element: <LoginForm />,
       },
       {
-        path: '/admin/home',
-        element: <ProtectedAdminRoute component={AdminHome} />,
-      },
-      {
-        path: '/admin/activitypost',
-        element: <ProtectedAdminRoute component={AdminForm} />,
-      },
-      {
         path: '/register',
         element: <AdminRegister />,
-      },
-      {
-        path: '/admin/editform/:activity_id',
-        element: <ProtectedAdminRoute component={AdminEditForm} />,
       },
       {
         path: '/privacypolicy',
         element: <PrivacyPolicy />,
       },
+      {
+        path: 'admin/home',
+        element: <AdminHome />,
+      },
+      {
+        path: 'admin/activitypost',
+        element: <AdminForm />,
+      },
+      {
+        path: 'admin/editform/:activity_id',
+        element: <AdminEditForm />,
+      }, 
     ],
   },
 ]);

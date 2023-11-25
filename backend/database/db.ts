@@ -14,7 +14,7 @@ const db: Sequelize = new Sequelize(
 
 const database: Sequelize = db;
 
-async function checkDatabaseConnection() {
+export async function checkDatabaseConnection() {
   try {
     await database.authenticate();
     console.log("Connection to the database established correctly.");
@@ -22,14 +22,19 @@ async function checkDatabaseConnection() {
     console.error("Could not connect to the database:", error);
   }
 }
-checkDatabaseConnection();
 
-database.sync({ force: false })
-  .then(() => {
-    console.log("Tables synchronized with the database!");
-  })
-  .catch((error) => {
+export async function synchronizeDatabase() {
+  try {
+    if (process.env.NODE_ENV !== 'test') {
+      await database.sync({ force: false });
+      console.log("Tables synchronized with the database!");
+    }
+  } catch (error) {
     console.error("Error synchronizing tables with the database:", error);
-  });
+  }
+}
+
+checkDatabaseConnection();
+synchronizeDatabase();
 
 export default database;
