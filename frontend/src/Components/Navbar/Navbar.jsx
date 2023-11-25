@@ -16,7 +16,7 @@ const Navbar = () => {
     window.location.href = 'http://localhost:5173/';
   };
 
-  const loginLink = isLoggedIn ? '/home' : '/login';
+  const loginLink = isLoggedIn ? '/' : '/login';
   return (
     <nav className="navbar-container" aria-label="Navbar">
       <div className='navbar-home'>
