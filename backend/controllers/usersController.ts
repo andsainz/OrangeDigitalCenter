@@ -44,7 +44,7 @@ export const createUser = async (
     try {
         const userData: UserModelAttributes = req.body;
         if (!userData.fullName || !userData.email || !userData.user_password) {
-            res.status(400).json({
+            res.status(500).json({
                 message: "Required data is missing to create a user.",
             });
             return;
