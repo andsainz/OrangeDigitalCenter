@@ -84,6 +84,7 @@ export const activitiesService = {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": `Bearer ${getToken()}`,
                 },
                 body: JSON.stringify(updatedActivity),
             });
@@ -96,6 +97,10 @@ export const activitiesService = {
         try {
             await fetch(`${baseURL}/activities/${id}`, {
                 method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${getToken()}`,
+                },
             });
         } catch (error) {
             console.error("Error deleting activity:", error);
