@@ -1,7 +1,6 @@
 const baseURL = "http://localhost:3000";
 
 export const LoginService = {
-    // ... tu código existente
 
     async postLogin({ email, admin_password }) {
         try {
@@ -25,8 +24,3 @@ export const LoginService = {
         }
     }
     };
-
-// LoginForm.jsx
-const getToken = () => {
-    return localStorage.getItem("token");
-};

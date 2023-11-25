@@ -1,4 +1,3 @@
-// Login.test.js
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom"; 
 import Login from "./Login";
@@ -11,7 +10,6 @@ jest.mock("./Login", () => ({
 }));
 
 describe("Login", () => {
-    // ... tus otras pruebas ...
 
     test("submits login form with valid credentials", async () => {
         render(

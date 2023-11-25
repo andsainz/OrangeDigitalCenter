@@ -3,27 +3,27 @@ import db from "../database/db";
 export interface RegisteredModelAttributes {
     id: string;
     email: string;
-    fullName: string | null;
-    gender: string | null;
-    age: string | null;
-    postalCode: string | null;
-    interests: string | null;
+    fullName: string | undefined;
+    gender: string | undefined;
+    age: string | undefined;
+    postalCode: string | undefined;
+    interests: string | undefined;
     hasDonePreviousActivity: string;
     isSubscribed: string;
-    availableTime: string | null;
+    availableTime: string | undefined;
 }
 
 class RegisteredModel extends Model<RegisteredModelAttributes> {
     public id!: string;
     public email!: string;
-    public fullName?: string | null;
-    public gender?: string | null;
-    public age?: string | null;
-    public postalCode?: string | null;
-    public interests?: string | null;
+    public fullName?: string | undefined;
+    public gender?: string | undefined;
+    public age?: string | undefined;
+    public postalCode?: string | undefined;
+    public interests?: string | undefined;
     public hasDonePreviousActivity!: string;
     public isSubscribed!: string;
-    public availableTime?: string | null;
+    public availableTime?: string | undefined;
 }
 
 RegisteredModel.init(
