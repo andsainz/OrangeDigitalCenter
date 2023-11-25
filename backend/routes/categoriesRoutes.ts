@@ -4,9 +4,8 @@ import { authenticateAdmin } from "../middlewares/authenticateAdmin";
 
 const router = Router()
 
-router.get('/', getCategories)
-router.get('/:id', getCategoryById)
-
+router.get('/', authenticateAdmin, getCategories)
+router.get('/:id', authenticateAdmin, getCategoryById)
 router.post('/', authenticateAdmin, createCategory)
 router.put('/:id', authenticateAdmin, updateCategory)
 router.delete('/:id', authenticateAdmin, deleteCategory)

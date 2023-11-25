@@ -6,7 +6,6 @@ const router = Router();
 router.get('/', getActivities);
 router.get('/:id', getActivityById);
 router.get('/categories/:category_name', getActivitiesByCategory);
-
 router.post('/', authenticateAdmin, createActivity);
 router.put('/:id', authenticateAdmin, updateActivity);
 router.delete('/:id', authenticateAdmin, deleteActivity);

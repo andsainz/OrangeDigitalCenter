@@ -1,30 +1,29 @@
 import { DataTypes, Model } from "sequelize";
 import db from "../database/db";
-
 export interface RegisteredModelAttributes {
     id: string;
     email: string;
-    fullName: string;
-    gender: string;
-    age: string;
-    postalCode: string;
-    interests: string;
+    fullName: string | null;
+    gender: string | null;
+    age: string | null;
+    postalCode: string | null;
+    interests: string | null;
     hasDonePreviousActivity: string;
     isSubscribed: string;
-    availableTime: string;
+    availableTime: string | null;
 }
 
 class RegisteredModel extends Model<RegisteredModelAttributes> {
     public id!: string;
     public email!: string;
-    public fullName!: string;
-    public gender!: string;
-    public age!: string;
-    public postalCode!: string;
-    public interests!: string;
+    public fullName?: string | null;
+    public gender?: string | null;
+    public age?: string | null;
+    public postalCode?: string | null;
+    public interests?: string | null;
     public hasDonePreviousActivity!: string;
     public isSubscribed!: string;
-    public availableTime!: string;
+    public availableTime?: string | null;
 }
 
 RegisteredModel.init(
@@ -44,27 +43,21 @@ RegisteredModel.init(
         },
         fullName: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         gender: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         age: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         postalCode: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         interests: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         hasDonePreviousActivity: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         isSubscribed: {
             type: DataTypes.STRING,
@@ -72,7 +65,6 @@ RegisteredModel.init(
         },
         availableTime: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
     },
     {
@@ -82,4 +74,16 @@ RegisteredModel.init(
     }
 )
 
+RegisteredModel.addHook('beforeValidate', (registeredModel, options) => {
+    const model = registeredModel as any;
+    if (model.hasDonePreviousActivity === 'true') {
+        Object.keys(model.dataValues).forEach((key) => {
+            if (key !== 'email' && key !== 'isSubscribed') {
+                model[key] = null;
+            }
+        });
+    }
+});
+
 export default RegisteredModel;
+

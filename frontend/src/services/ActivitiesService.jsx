@@ -95,16 +95,30 @@ export const activitiesService = {
     },
     async deleteActivity(id) {
         try {
-            await fetch(`${baseURL}/activities/${id}`, {
+            const token = getToken();
+    
+            if (!token) {
+                throw new Error("Token not available. Cannot delete activity without authentication.");
+            }
+    
+            const response = await fetch(`${baseURL}/activities/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${getToken()}`,
+                    "Authorization": `Bearer ${token}`,
                 },
             });
+    
+            if (!response.ok) {
+                const responseData = await response.json();
+                console.error('Server response:', responseData);
+                throw new Error("Error deleting activity");
+            }
+    
+            console.log('Activity deleted successfully');
         } catch (error) {
             console.error("Error deleting activity:", error);
             throw error;
         }
     }
-};
+}    
