@@ -27,12 +27,7 @@ const LoginForm = () => {
         console.log('Estado de inicio de sesión:', responseData);
 
         if (responseData.message === 'Welcome back!') {
-          const token = Cookies.get("token");
-
-          if (token) {
-            Cookies.set("token", token, { expires: 1, secure: true });
-          }
-
+          
           window.location.href = '/admin/home';
         } else {
           console.error('El correo electrónico o la contraseña no coinciden');
