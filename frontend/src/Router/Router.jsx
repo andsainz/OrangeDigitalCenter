@@ -10,6 +10,7 @@ import DetailedPage from '../pages/detailedPage/DetailedPage.jsx';
 import AdminHome from '../pages/adminDashboard/adminHome/AdminHome.jsx';
 import AdminRegister from '../pages/adminDashboard/adminRegister/AdminRegister.jsx';
 import AdminEditForm from '../pages/adminDashboard/adminEditForm/AdminEditForm.jsx';
+import AdminList from '../pages/adminDashboard/adminList/AdminList.jsx';
 import PrivacyPolicy from '../pages/privacyPolicy/PrivacyPolicy.jsx';
 import { WithAdminAuth } from './WithAdminAuth.jsx';
 
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: '/admin/editform/:activity_id',
         element: <WithAdminAuth><AdminEditForm /></WithAdminAuth>,
+      },
+      {
+        path: '/admin/adminlist',
+        element: <WithAdminAuth><AdminList /></WithAdminAuth>,
       },
     ],
   },

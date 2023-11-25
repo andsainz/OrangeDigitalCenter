@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { activitiesService } from '../../../services/ActivitiesService.jsx';
 import Cards from '../../../components/home/cards/Cards.jsx';
-import MenuCategories from '../../../components/home/menuCategories/menuCategories.jsx';
+import MenuCategories from '../../../components/home/menuCategories/MenuCategories.jsx';
 import SubscriptionBanner from '../../../components/home/banners/SubscriptionBanner.jsx';
 import { Link } from 'react-router-dom';
 import deleteIcon from '../../../assets/images/iconedit.png';
