@@ -5,15 +5,14 @@ export interface AdminModelAttributes {
     id: string;
     fullName: string;
     email: string;
-    user_password: string;
+    admin_password: string;
     isAdmin: boolean;
 }
-
 class AdminModel extends Model<AdminModelAttributes> {
     public id!: string;
     public fullName!: string;
     public email!: string;
-    public user_password!: string;
+    public admin_password!: string;
     public isAdmin!: boolean;
 }
 
@@ -36,7 +35,7 @@ AdminModel.init(
                 isEmail: true,
             },
         },
-        user_password: {
+        admin_password: {
             type: DataTypes.STRING,
             allowNull: false,
         },

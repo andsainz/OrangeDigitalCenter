@@ -30,7 +30,7 @@ describe("Admin Controller - Admin Routes", () => {
                 id: "mocked-uuid",
                 fullName: "Admin 1",
                 email: "admin1@example.com",
-                user_password: "hashed-password",
+                admin_password: "hashed-password",
                 isAdmin: true,
             },
         ];
@@ -55,7 +55,7 @@ describe("Admin Controller - Admin Routes", () => {
             id: adminId,
             fullName: "Admin 1",
             email: "admin1@example.com",
-            user_password: "hashed-password",
+            admin_password: "hashed-password",
             isAdmin: true,
         };
         (AdminModel.findByPk as jest.Mock).mockResolvedValue(adminDetails);
@@ -78,7 +78,7 @@ describe("Admin Controller - Admin Routes", () => {
         const newAdmin = {
             fullName: "New Admin",
             email: "newadmin@example.com",
-            user_password: "new-hashed-password",
+            admin_password: "new-hashed-password",
             isAdmin: true,
         };
         (AdminModel.create as jest.Mock).mockResolvedValue(newAdmin);
@@ -91,7 +91,7 @@ describe("Admin Controller - Admin Routes", () => {
         const newAdmin = {
             fullName: "New Admin",
             email: "newadmin@example.com",
-            user_password: "new-hashed-password",
+            admin_password: "new-hashed-password",
             isAdmin: true,
         };
         (AdminModel.create as jest.Mock).mockRejectedValue(
@@ -106,7 +106,7 @@ describe("Admin Controller - Admin Routes", () => {
         const updatedAdmin = {
             fullName: "Updated Admin",
             email: "updatedadmin@example.com",
-            user_password: "updated-hashed-password",
+            admin_password: "updated-hashed-password",
             isAdmin: false,
         };
 
@@ -143,7 +143,7 @@ describe("Admin Controller - Admin Routes", () => {
             id: "mocked-uuid",
             fullName: "Admin 1",
             email: "admin1@example.com",
-            user_password: "hashed-password",
+            admin_password: "hashed-password",
             isAdmin: true,
             destroy: jest.fn(),
         });

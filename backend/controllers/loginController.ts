@@ -1,33 +1,33 @@
 import { Request, Response } from "express";
-import UserModel from "../models/usersModel";
+import AdminModel from "../models/adminsModel";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export const postLogin = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { email, user_password } = req.body;
-        const user = await UserModel.findOne({ where: { email } }).catch(
+        const { email, admin_password } = req.body;
+        const admin = await AdminModel.findOne({ where: { email } }).catch(
             (err: Error) => {
                 console.log("Error: ", err);
             }
         );
 
-        if (!user) {
+        if (!admin) {
             res.json({ message: "Email or password does not match!" });
             return;
         }
 
-        const match = await bcrypt.compare(user_password, user.user_password);
+        const match = await bcrypt.compare(admin_password, admin.admin_password);
 
         if (!match) {
             res.status(401).json({ message: "Email or password does not match!" });
             return;
         }
 
-        const role = user.isAdmin ? "admin" : "user";
+        const role = admin.isAdmin ? "admin" : "user";
 
         const jwtToken = jwt.sign(
-            { id: user.id, email: user.email, role },
+            { id: admin.id, email: admin.email, role },
             process.env.JWT_SECRET as string
         );
 

@@ -3,14 +3,14 @@ import Cookies from "js-cookie";
 const baseURL = "http://localhost:3000";
 
 export const LoginService = {
-    async postLogin({ email, user_password }) {
+    async postLogin({ email, admin_password }) {
         try {
             const response = await fetch(`${baseURL}/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email, user_password }),
+                body: JSON.stringify({ email, admin_password }),
             });
 
             if (!response.ok) {

@@ -1,7 +1,6 @@
 import express, { Application } from 'express'
 import cors from 'cors'
 import adminRoutes from '../routes/adminsRoutes'
-import userRoutes from '../routes/usersRoutes'
 import subscribedRoutes from '../routes/subscribedRoutes'
 import registeredRoutes from '../routes/registerformRoutes'
 import activityRoutes from '../routes/activitiesRoutes'
@@ -15,7 +14,6 @@ class Server {
     private port: string | number;
     private apiPaths = {
         admins: '/admins',
-        users: '/users',
         subscribed: '/newsletter',
         registered: '/registerform',
         activities: '/activities',
@@ -24,7 +22,6 @@ class Server {
         login: '/login'
     }
     private adminRoutes=adminRoutes;
-    private userRoutes=userRoutes;
     private subscribedRoutes=subscribedRoutes;
     private registeredRoutes=registeredRoutes;
     private activityRoutes=activityRoutes;
@@ -47,7 +44,6 @@ class Server {
 
     routes() {
         this.app.use(this.apiPaths.admins, this.adminRoutes)
-        this.app.use(this.apiPaths.users, this.userRoutes)
         this.app.use(this.apiPaths.subscribed, this.subscribedRoutes)
         this.app.use(this.apiPaths.registered, this.registeredRoutes)
         this.app.use(this.apiPaths.activities, this.activityRoutes)

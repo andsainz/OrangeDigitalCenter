@@ -6,7 +6,7 @@ import { registrationService } from '../../../services/RegisterService'
 function AdminRegister() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  const [userPassword, setPassword] = useState('');
+  const [adminPassword, setPassword] = useState('');
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false);
 
@@ -16,7 +16,7 @@ function AdminRegister() {
       const response = await registrationService.postRegistration({
         fullName,
         email,
-        user_password: userPassword,
+        admin_password: adminPassword,
       });
   
       if (response && response.ok) {
@@ -75,7 +75,7 @@ function AdminRegister() {
             className="input-field"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
-            value={userPassword}
+            value={adminPassword}
           />
         </div>
       </div>

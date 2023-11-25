@@ -8,19 +8,19 @@ import React, { useEffect } from 'react';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
-  const [user_password, setPassword] = useState('');
+  const [admin_password, setPassword] = useState('');
   const [showErrorAlert, setShowErrorAlert] = useState(false);
   const [showPasswordError, setShowPasswordError] = useState(false);
   
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    if (email.trim() === '' || user_password.trim() === '') {
+    if (email.trim() === '' || admin_password.trim() === '') {
       console.error('Por favor, completa todos los campos.');
       return;
     }
 
     try {
-      const response = await LoginService.postLogin({ email, user_password });
+      const response = await LoginService.postLogin({ email, admin_password });
 
       if (response.status === 200) {
         const responseData = await response.json();
@@ -86,7 +86,7 @@ const LoginForm = () => {
               type="password"
               id="password"
               placeholder="Contraseña"
-              value={user_password}
+              value={admin_password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>

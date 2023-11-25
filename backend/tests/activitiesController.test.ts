@@ -1,61 +1,94 @@
 import request from "supertest";
-import express from "express";
+import express, { Application } from "express";
 import { Sequelize } from "sequelize";
-import { getCategories, getCategoryById, createCategory, updateCategory, deleteCategory } from "../controllers/categoriesController";
-import CategoryModel from "../models/categoriesModel";
+import { v4 as uuidv4 } from "uuid";
+import { getActivities, getActivityById, getActivitiesByCategory, createActivity, updateActivity, deleteActivity } from "../controllers/activitiesController";
+import ActivityModel from "../models/activitiesModel";
 
-// Mocking Sequelize
 jest.mock("sequelize");
 const mockedSequelize = new Sequelize("sqlite::memory:");
 
-// Mocking UUID
 jest.mock("uuid");
+(uuidv4 as jest.Mock).mockReturnValue("mocked-uuid");
 
-const testApp = express();
-testApp.get("/categories", getCategories);
-testApp.get("/categories/:id", getCategoryById);
-testApp.post("/categories", createCategory);
-testApp.put("/categories/:id", updateCategory);
-testApp.delete("/categories/:id", deleteCategory);
+const testApp: Application = express();
+testApp.use(express.json());
+testApp.get("/activities", getActivities);
+testApp.get("/activities/:id", getActivityById);
+testApp.get("/activities/category/:category_name", getActivitiesByCategory);
+testApp.post("/activities", createActivity);
+testApp.put("/activities/:id", updateActivity);
+testApp.delete("/activities/:id", deleteActivity);
 
-describe("Categories Controller", () => {
+describe("Activity Controller - Activity Routes", () => {
     beforeEach(() => {
-
         jest.clearAllMocks();
     });
 
-    it("should respond with a list of categories", async () => {
-    
-        const categories = [
+    it("should respond with a list of activities", async () => {
+        const activities = [
             {
-                category_id: 1,
+                activity_id: "mocked-uuid",
                 category_name: "Category 1",
             },
-            {
-                category_id: 2,
-                category_name: "Category 2",
-            },
         ];
-
-
-        (CategoryModel.findAll as jest.Mock).mockResolvedValue(categories);
-
-        const response = await request(testApp).get("/categories");
-
-        
+        (ActivityModel.findAll as jest.Mock).mockResolvedValue(activities);
+        const response = await request(testApp).get("/activities");
         expect(response.status).toBe(200);
-        expect(response.body).toEqual(categories);
+        expect(response.body).toEqual(activities);
     });
 
-    it("should handle errors and respond with a 500 status code", async () => {
-    
-        (CategoryModel.findAll as jest.Mock).mockRejectedValue(
+    it("should respond with activity details by ID", async () => {
+        const activityId = "mocked-uuid";
+        const activityDetails = {
+            activity_id: activityId,
+            category_name: "Category 1",
+        };
+        (ActivityModel.findByPk as jest.Mock).mockResolvedValue(
+            activityDetails
+        );
+        const response = await request(testApp).get(
+            `/activities/${activityId}`
+        );
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual(activityDetails);
+    });
+
+    it("should handle errors for getting activity by ID and respond with a 500 status code", async () => {
+        const activityId = "mocked-uuid";
+        (ActivityModel.findByPk as jest.Mock).mockRejectedValue(
             new Error("Database error")
         );
+        const response = await request(testApp).get(
+            `/activities/${activityId}`
+        );
+        expect(response.status).toBe(500);
+        expect(response.body).toEqual({ message: "Database error" });
+    });
 
-        const response = await request(testApp).get("/categories");
+    it("should respond with a list of activities in a specific category", async () => {
+        const categoryName = "Category 1";
+        const activities = [
+            {
+                activity_id: "mocked-uuid",
+                category_name: categoryName,
+            },
+        ];
+        (ActivityModel.findAll as jest.Mock).mockResolvedValue(activities);
+        const response = await request(testApp).get(
+            `/activities/category/${categoryName}`
+        );
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual(activities);
+    });
 
-
+    it("should handle errors in deleteActivity and respond with a 500 status code", async () => {
+        (ActivityModel.findByPk as jest.Mock).mockRejectedValue(
+            new Error("Database error")
+        );
+        const response = await request(testApp).delete(
+            "/activities/mocked-uuid"
+        );
         expect(response.status).toBe(500);
         expect(response.body).toEqual({ message: "Database error" });
     });

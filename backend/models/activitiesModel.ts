@@ -1,6 +1,5 @@
 import { DataTypes, Model } from "sequelize";
 import db from "../database/db";
-import UserModel from "./usersModel";
 import AdminModel from "./adminsModel";
 import CategoryModel from "./categoriesModel";
 export interface ActivityModelAttributes {
@@ -87,7 +86,6 @@ ActivityModel.init(
     }
 )
 
-ActivityModel.belongsTo(UserModel, { foreignKey: 'id' });
 ActivityModel.belongsTo(AdminModel, { foreignKey: 'id' });
 ActivityModel.belongsTo(CategoryModel, { foreignKey: 'category_id' });
 

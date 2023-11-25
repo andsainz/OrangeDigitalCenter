@@ -9,7 +9,7 @@ testApp.use((req, res, next) => {
     authenticateAdmin(req, res, next);
 });
 
-testApp.get('/users', (req, res) => {
+testApp.get('/admins', (req, res) => {
     res.status(200).json({ message: 'Admin route accessed successfully' });
 });
 

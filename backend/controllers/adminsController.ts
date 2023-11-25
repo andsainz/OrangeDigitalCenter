@@ -10,7 +10,7 @@ export const getAdmins = async (req: Request, res: Response): Promise<void> => {
                 id: admin.id,
                 fullName: admin.fullName,
                 email: admin.email,
-                user_password: admin.user_password,
+                admin_password: admin.admin_password,
                 isAdmin: admin.isAdmin,
             };
         });
@@ -37,7 +37,7 @@ export const getAdminById = async (req: Request, res: Response): Promise<void>  
 export const createAdmin = async(req: Request, res: Response): Promise<void> => {
     try {
         const adminData: AdminModelAttributes = req.body;
-        if (!adminData.fullName || !adminData.email || !adminData.user_password) {
+        if (!adminData.fullName || !adminData.email || !adminData.admin_password) {
             res.status(400).json({
                 message: "Required data is missing to create an admin.",
             });
@@ -56,9 +56,9 @@ export const createAdmin = async(req: Request, res: Response): Promise<void> => 
         }
 
         const saltRounds = 10;
-        const hashedPassword = await bcrypt.hash(adminData.user_password, saltRounds);
+        const hashedPassword = await bcrypt.hash(adminData.admin_password, saltRounds);
 
-        adminData.user_password = hashedPassword;
+        adminData.admin_password = hashedPassword;
 
         const newAdmin = await AdminModel.create(adminData);
 
