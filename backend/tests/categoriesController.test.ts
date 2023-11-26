@@ -27,11 +27,11 @@ describe("Categories Controller", () => {
         const categories = [
             {
                 category_id: 1,
-                category_name: "Category 1",
+                category_name: "Emprendimiento",
             },
             {
                 category_id: 2,
-                category_name: "Category 2",
+                category_name: "Fabricación digital",
             },
         ];
 
@@ -47,7 +47,7 @@ describe("Categories Controller", () => {
 
         const category = {
             category_id: 1,
-            category_name: "Category 1",
+            category_name: "Emprendimiento",
         };
 
         (CategoryModel.findByPk as jest.Mock).mockResolvedValue(category);

@@ -26,7 +26,7 @@ export const getRegistered = async (req: Request, res: Response): Promise<void> 
 }
 
 
-export const getregisteredById = async (req: Request, res: Response): Promise<void>  => {
+export const getRegisteredById = async (req: Request, res: Response): Promise<void>  => {
     try {
         const { id } = req.params;
         const registered = await RegisteredModel.findByPk(id);

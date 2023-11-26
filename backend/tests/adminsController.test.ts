@@ -31,7 +31,7 @@ describe("Admin Controller - Admin Routes", () => {
                 fullName: "Admin 1",
                 email: "admin1@example.com",
                 admin_password: "hashed-password",
-                isAdmin: true,
+                isAdmin: true
             },
         ];
         (AdminModel.findAll as jest.Mock).mockResolvedValue(admins);
@@ -56,7 +56,7 @@ describe("Admin Controller - Admin Routes", () => {
             fullName: "Admin 1",
             email: "admin1@example.com",
             admin_password: "hashed-password",
-            isAdmin: true,
+            isAdmin: true
         };
         (AdminModel.findByPk as jest.Mock).mockResolvedValue(adminDetails);
         const response = await request(testApp).get(`/admins/${adminId}`);
@@ -79,7 +79,7 @@ describe("Admin Controller - Admin Routes", () => {
             fullName: "New Admin",
             email: "newadmin@example.com",
             admin_password: "new-hashed-password",
-            isAdmin: true,
+            isAdmin: true
         };
         (AdminModel.create as jest.Mock).mockResolvedValue(newAdmin);
         const response = await request(testApp).post("/admins").send(newAdmin);
@@ -92,7 +92,7 @@ describe("Admin Controller - Admin Routes", () => {
             fullName: "New Admin",
             email: "newadmin@example.com",
             admin_password: "new-hashed-password",
-            isAdmin: true,
+            isAdmin: true
         };
         (AdminModel.create as jest.Mock).mockRejectedValue(
             new Error("Database error")
@@ -107,7 +107,7 @@ describe("Admin Controller - Admin Routes", () => {
             fullName: "Updated Admin",
             email: "updatedadmin@example.com",
             admin_password: "updated-hashed-password",
-            isAdmin: false,
+            isAdmin: true
         };
 
         (AdminModel.findByPk as jest.Mock).mockResolvedValue({

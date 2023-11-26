@@ -10,7 +10,7 @@ testApp.use((req, res, next) => {
 });
 
 testApp.get('/admins', (req, res) => {
-    res.status(200).json({ message: 'Admin route accessed successfully' });
+    res.status(200)
 });
 
 describe('authenticateAdmin middleware', () => {

@@ -29,7 +29,7 @@ describe("Activity Controller - Activity Routes", () => {
         const activities = [
             {
                 activity_id: "mocked-uuid",
-                category_name: "Category 1",
+                category_name: "Emprendimiento",
             },
         ];
         (ActivityModel.findAll as jest.Mock).mockResolvedValue(activities);
@@ -42,7 +42,7 @@ describe("Activity Controller - Activity Routes", () => {
         const activityId = "mocked-uuid";
         const activityDetails = {
             activity_id: activityId,
-            category_name: "Category 1",
+            category_name: "Emprendimiento",
         };
         (ActivityModel.findByPk as jest.Mock).mockResolvedValue(
             activityDetails
@@ -67,7 +67,7 @@ describe("Activity Controller - Activity Routes", () => {
     });
 
     it("should respond with a list of activities in a specific category", async () => {
-        const categoryName = "Category 1";
+        const categoryName = "Emprendimiento";
         const activities = [
             {
                 activity_id: "mocked-uuid",
