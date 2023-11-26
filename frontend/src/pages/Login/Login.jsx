@@ -54,6 +54,7 @@ const LoginForm = () => {
                         <input
                             type="text"
                             id="email"
+                            data-testid="email-input"
                             placeholder="Correo electrónico"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -63,12 +64,13 @@ const LoginForm = () => {
                         <input
                             type="password"
                             id="password"
+                            data-testid="password-input"
                             placeholder="Contraseña"
                             value={admin_password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <button className="btn-start" type="submit">
+                    <button data-testid="login-button" className="btn-start" type="submit">
                         Iniciar sesión
                     </button>
                 </form>
