@@ -96,6 +96,13 @@ function AdminHome() {
                                         link={`http://localhost:5173/activities/${activity.activity_id}`}
                                     />
                                     <div className="card-icons">
+                                    <Link to={`/admin/editform/${activity.activity_id}`}>
+                                            <img
+                                                src={deleteIcon}
+                                                alt="Edit Icon"
+                                                className="icon-edit"
+                                            />
+                                        </Link>
                                         <img
                                             src={editIcon}
                                             alt="Delete Icon"
@@ -105,13 +112,7 @@ function AdminHome() {
                                                 setShowDeleteModal(true);
                                             }}
                                         />
-                                        <Link to={`/admin/editform/${activity.activity_id}`}>
-                                            <img
-                                                src={deleteIcon}
-                                                alt="Edit Icon"
-                                                className="icon-edit"
-                                            />
-                                        </Link>
+                                        
                                     </div>
                                 </Col>
                             ))}
