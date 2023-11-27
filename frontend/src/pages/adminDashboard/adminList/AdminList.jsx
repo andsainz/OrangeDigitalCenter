@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { adminsService } from '../../../services/AdminService';
+import { adminsService, getToken } from '../../../services/AdminService';
 import deleteIcon from '../../../assets/icons/icondelete.png';
 import editIcon from '../../../assets/icons/iconedit.png';
 import saveIcon from '../../../assets/icons/icon_save_check.png';
-import DeleteAdminModal from './DeleteAdminModal'
-import './AdminList.css'
+import Button from 'react-bootstrap/Button';
+import AddAdminModal from './AddAdminModal'; // Importar el nuevo componente
+import DeleteAdminModal from './DeleteAdminModal';
+import './AdminList.css';
 
 function AdminList() {
   const [admins, setAdmins] = useState([]);
@@ -12,6 +14,7 @@ function AdminList() {
   const [editedAdmin, setEditedAdmin] = useState({ fullName: '', email: '', isAdmin: false });
   const [showAdminDeleteModal, setShowAdminDeleteModal] = useState(false);
   const [selectedAdminId, setSelectedAdminId] = useState(null);
+  const [showAddAdminModal, setShowAddAdminModal] = useState(false);
 
   useEffect(() => {
     const fetchAdmins = async () => {
@@ -55,11 +58,46 @@ function AdminList() {
     }
   };
 
+  const handleAddAdmin = () => {
+    setShowAddAdminModal(true);
+  };
+
+  const handleAddAdminSubmit = async (newAdmin) => {
+    try {
+      // Obtener el token antes de realizar la solicitud
+      const token = getToken();
+  
+      if (!token) {
+        throw new Error("Token not available. Cannot create admin without authentication.");
+      }
+  
+      // Asegurarse de que el objeto newAdmin tenga todos los campos requeridos
+      const { fullName, email, admin_password, isAdmin } = newAdmin;
+      if (!fullName || !email || !admin_password || isAdmin === undefined) {
+        throw new Error("Missing required data to create an admin.");
+      }
+  
+      console.log("Before createAdmin call", JSON.stringify(newAdmin));
+  
+      // Agrega más mensajes de consola aquí para depurar
+      const addedAdmin = await adminsService.createAdmin(newAdmin, token);
+      console.log("After createAdmin call", addedAdmin);
+  
+      setAdmins((prevAdmins) => [...prevAdmins, addedAdmin]);
+    } catch (error) {
+      console.error('Error adding admin:', error.message);
+    } finally {
+      setShowAddAdminModal(false);
+    }
+  };
+
   return (
     <div className='admin-list-wrap-container'>
       <div className='admin-list-container'>
         <h1>Lista de administradores</h1>
-        <button className='add-admin-btn' onClick={() => handleAddAdmin}>Añadir administrador</button>
+        <button className='add-admin-btn' onClick={handleAddAdmin}>
+          Añadir administrador
+        </button>
         <ul className='admin-map-ul'>
           {admins.map((admin) => (
             <li key={admin.id} className='admin-data-li'>
@@ -70,6 +108,8 @@ function AdminList() {
                     <input className="admin-data-input" type="text" value={admin.fullName} onChange={(e) => handleEditChange(admin.id, 'fullName', e.target.value)} />
                     <span className='admin-data-text-fixed'>Email:</span>
                     <input className="admin-data-input" type="text" value={admin.email} onChange={(e) => handleEditChange(admin.id, 'email', e.target.value)} />
+                    <span className='admin-data-text-fixed'>Contraseña:</span>
+                    <input className="admin-data-input" type="password" value={admin.admin_password} onChange={(e) => handleEditChange(admin.id, 'admin_password', e.target.value)} />
                     <span className='admin-data-text-fixed'>¿Es administrador?</span>
                     <select className='admin-data-input' value={admin.isAdmin} onChange={(e) => handleEditChange(admin.id, 'isAdmin', e.target.value === 'true')}>
                       <option value="true">Sí</option>
@@ -99,6 +139,11 @@ function AdminList() {
             </li>
           ))}
         </ul>
+        <AddAdminModal
+          show={showAddAdminModal}
+          onHide={() => setShowAddAdminModal(false)}
+          onAdd={handleAddAdminSubmit}
+        />
         <DeleteAdminModal
           show={showAdminDeleteModal}
           onHide={() => setShowAdminDeleteModal(false)}
