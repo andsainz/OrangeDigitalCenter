@@ -61,14 +61,6 @@
   cursor: pointer;
   transition: background-color 0.3s;
 }
-.error-alert {
-  background-color: #FF9999;
-  color: #CC0000;
-  padding: 1vw;
-  border-radius: 0.5em;
-  margin-bottom: 1vw;
-  text-align: center;
-}
 .login-container p {
   margin-top: 0.5em;
   margin-bottom: 1vw;
