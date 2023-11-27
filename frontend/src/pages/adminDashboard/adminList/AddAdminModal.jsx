@@ -8,7 +8,7 @@ const AddAdminModal = ({ show, onHide, onAdd }) => {
         fullName: "",
         email: "",
         admin_password: "",
-        confirm_password: "", // Nueva confirmación de contraseña
+        confirm_password: "",
         isAdmin: false,
     });
 

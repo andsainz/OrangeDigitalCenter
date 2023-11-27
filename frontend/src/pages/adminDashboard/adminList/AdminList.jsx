@@ -3,8 +3,7 @@ import { adminsService, getToken } from '../../../services/AdminService';
 import deleteIcon from '../../../assets/icons/icondelete.png';
 import editIcon from '../../../assets/icons/iconedit.png';
 import saveIcon from '../../../assets/icons/icon_save_check.png';
-import Button from 'react-bootstrap/Button';
-import AddAdminModal from './AddAdminModal'; // Importar el nuevo componente
+import AddAdminModal from './AddAdminModal';
 import DeleteAdminModal from './DeleteAdminModal';
 import './AdminList.css';
 
@@ -64,14 +63,12 @@ function AdminList() {
 
   const handleAddAdminSubmit = async (newAdmin) => {
     try {
-      // Obtener el token antes de realizar la solicitud
       const token = getToken();
   
       if (!token) {
         throw new Error("Token not available. Cannot create admin without authentication.");
       }
   
-      // Asegurarse de que el objeto newAdmin tenga todos los campos requeridos
       const { fullName, email, admin_password, isAdmin } = newAdmin;
       if (!fullName || !email || !admin_password || isAdmin === undefined) {
         throw new Error("Missing required data to create an admin.");
@@ -79,7 +76,6 @@ function AdminList() {
   
       console.log("Before createAdmin call", JSON.stringify(newAdmin));
   
-      // Agrega más mensajes de consola aquí para depurar
       const addedAdmin = await adminsService.createAdmin(newAdmin, token);
       console.log("After createAdmin call", addedAdmin);
   
