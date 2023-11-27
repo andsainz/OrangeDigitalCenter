@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 80%;
-  max-width: 40rem; 
+  max-width: 40rem;
   margin: 0 auto;
   border-radius: 0;
   padding: 5%;
@@ -29,7 +29,7 @@
   width: 100%;
   margin: 0;
   border: 0.1rem solid #ccc;
-  border-radius: 0; 
+  border-radius: 0;
   margin-bottom: 1rem;
 }
 
@@ -60,13 +60,16 @@
   align-items: flex-start;
   margin-bottom: 1.5rem;
 }
+
 .checkbox-label {
   display: flex;
 }
+
 .privacy-policy a {
   color: #f58026;
   text-decoration: none;
 }
+
 .privacy-policy p {
   color: #000;
   font-size: smaller;
@@ -74,7 +77,7 @@
 }
 
 .privacy-policy input {
- align-self: flex-start;
+  align-self: flex-start;
   width: 1rem;
   margin-right: 0.2rem;
   margin-top: 0.2rem;

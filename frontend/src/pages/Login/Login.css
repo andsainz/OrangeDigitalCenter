@@ -12,7 +12,7 @@
   align-items: center;
   height: 100vh;
   width: 80vw;
-  max-width: 400px;
+  max-width: 25rem;
   border-radius: 1.5vw;
   padding: 5vw;
 }
@@ -52,12 +52,12 @@
 }
 .register-button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   background-color: #FF7900;
   color: white;
   text-decoration: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   cursor: pointer;
   transition: background-color 0.3s;
 }
