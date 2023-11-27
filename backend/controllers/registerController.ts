@@ -12,7 +12,7 @@ export const postRegistration = async (req: Request, res: Response): Promise<voi
                 .json({ message: "Admin with this email already exists." });
             return;
         }
-        if (isAdmin) {
+        if (!isAdmin) {
             res
                 .status(400)
                 .json({ message: "Cannot set isAdmin to true" });

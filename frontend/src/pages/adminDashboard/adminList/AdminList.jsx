@@ -59,6 +59,7 @@ function AdminList() {
     <div className='admin-list-wrap-container'>
       <div className='admin-list-container'>
         <h1>Lista de administradores</h1>
+        <button className='add-admin-btn' onClick={() => handleAddAdmin}>Añadir administrador</button>
         <ul className='admin-map-ul'>
           {admins.map((admin) => (
             <li key={admin.id} className='admin-data-li'>
