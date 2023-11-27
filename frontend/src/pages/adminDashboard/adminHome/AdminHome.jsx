@@ -5,8 +5,8 @@ import Cards from '../../../components/home/cards/Cards.jsx';
 import MenuCategories from '../../../components/home/menuCategories/MenuCategories.jsx';
 import SubscriptionBanner from '../../../components/home/banners/SubscriptionBanner.jsx';
 import { Link } from 'react-router-dom';
-import deleteIcon from '../../../assets/images/iconedit.png';
-import editIcon from '../../../assets/images/icondelete.png';
+import deleteIcon from '../../../assets/icons/iconedit.png';
+import editIcon from '../../../assets/icons/icondelete.png';
 import './AdminHome.css';
 import DeleteModal from './DeleteModal.jsx';
 import "./DeleteModal.css"
@@ -75,7 +75,10 @@ function AdminHome() {
 
     return (
         <div className="home-admin-container">
+            <div className='home-admin-btn-container'>
             <Link to={`/admin/activitypost`}><button className='activity-post-btn'>Añadir actividad</button></Link>
+            <Link to={`/admin/adminlist`}><button className='activity-post-btn'>Ver administradores</button></Link>
+            </div>
             <MenuCategories onCategoryClick={handleCategoryClick} />
             <div className="container-admin-father">
                 <div className="cards-admin-container">
@@ -118,7 +121,6 @@ function AdminHome() {
                     )}
                 </div>
             </div>
-            <SubscriptionBanner />
 
             <DeleteModal
                 show={showDeleteModal}

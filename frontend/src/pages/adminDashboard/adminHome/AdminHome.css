@@ -14,7 +14,11 @@
     display: flex;
     justify-content: center;
 }
-
+.home-admin-btn-container{
+    width: 30vw;
+    display: flex;
+    justify-content: space-between;
+}
 .activity-post-btn {
     background-color: #FF7900;
     color: white;

@@ -1,8 +1,8 @@
-import Logo from '../../assets/images/Logo2.png';
-import ArrowHome from '../../assets/images/arrowHome.png';
-import HomeIcon from '../../assets/images/Home.png';
-import LoginIcon from '../../assets/images/login.png';
-import LogoutIcon from '../../assets/images/iconlogout.png';
+import Logo from '../../assets/logo/Logo2.png';
+import ArrowHome from '../../assets/icons/user_home_icon.svg';
+import HomeIcon from '../../assets/icons/home_icon.svg';
+import LoginIcon from '../../assets/icons/login_icon.svg';
+import LogoutIcon from '../../assets/icons/logout_icon.svg';
 import './Navbar.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
@@ -17,23 +17,24 @@ const Navbar = () => {
   };
 
   const loginLink = isLoggedIn ? '/' : '/login';
+  const homeLink = isLoggedIn ? '/admin/home' : '/';
   return (
     <nav className="navbar-container" aria-label="Navbar">
       <div className='navbar-home'>
-        <a href="/">
-          <img src={Logo} alt="Back to Home" loading="lazy" className="logo-img" aria-label="logotype" />
-        </a>
+        <Link to={homeLink}>
+          <img src={Logo} alt="Left logotype" loading="lazy" className="logo-img" aria-label="logotype" />
+        </Link>
       </div>
       <div className="icon-container" >
-        <a href="/">
-          <img src={ArrowHome} alt="Back to Home" loading="lazy" className="logo-img" aria-label="arrow-icon" />
-        </a>
-        <a href="/">
-          <img src={HomeIcon} alt="Home" aria-label="home-icon" />
-        </a>
+        <Link to='/'>
+          <img src={ArrowHome} alt="Back to Home" loading="lazy" className="icon-img" aria-label="arrow-icon" />
+        </Link>
+        <Link to={homeLink}>
+          <img src={HomeIcon} alt="Home" aria-label="home-icon" className="icon-img"/>
+        </Link>
         <Link to={loginLink}>
           {isLoggedIn ? (
-            <img src={LogoutIcon} alt="Logout" aria-label="logout-icon" onClick={handleLogout} />
+            <img src={LogoutIcon} alt="Logout" aria-label="logout-icon"  className="icon-img" onClick={handleLogout} />
           ) : (
             <img src={LoginIcon} alt="Login" aria-label="login-icon" />
           )}

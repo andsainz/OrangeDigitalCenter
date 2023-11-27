@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { adminsService } from '../../../services/AdminService';
-import deleteIcon from '../../../assets/images/icondelete.png';
-import editIcon from '../../../assets/images/iconedit.png';
-import saveIcon from '../../../assets/images/icon_save_check.png';
+import deleteIcon from '../../../assets/icons/icondelete.png';
+import editIcon from '../../../assets/icons/iconedit.png';
+import saveIcon from '../../../assets/icons/icon_save_check.png';
 import DeleteAdminModal from './DeleteAdminModal'
 import './AdminList.css'
 

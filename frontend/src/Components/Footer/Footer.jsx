@@ -1,7 +1,7 @@
-import Logo from '../../assets/images/Logo2.png';
-import Twitter from '../../assets/images/twittericon.png';
-import Linkedin from '../../assets/images/linkedinicon.png';
-import Instagram from '../../assets/images/instaicon.png';
+import Logo from '../../assets/logo/Logo2.png';
+import Twitter from '../../assets/icons/twittericon.png';
+import Linkedin from '../../assets/icons/linkedinicon.png';
+import Instagram from '../../assets/icons/instaicon.png';
 import './Footer.css';
 import { Link } from 'react-router-dom';
 
