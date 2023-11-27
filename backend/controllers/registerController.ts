@@ -12,13 +12,19 @@ export const postRegistration = async (req: Request, res: Response): Promise<voi
                 .json({ message: "Admin with this email already exists." });
             return;
         }
+        if (isAdmin) {
+            res
+                .status(400)
+                .json({ message: "Cannot set isAdmin to true" });
+            return;
+        }
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(admin_password, saltRounds);
         const newAdmin = await AdminModel.create({
             fullName,
             email,
             admin_password: hashedPassword,
-            isAdmin
+            isAdmin: false
         } as AdminModelAttributes); 
         if (!newAdmin) {
             console.log("Error: Unable to create admin");
