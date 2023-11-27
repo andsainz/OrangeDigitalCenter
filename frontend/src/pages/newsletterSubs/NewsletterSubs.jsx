@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './NewsletterSubs.css';
 import { subscribedService } from '../../services/SubscribedService';
 import { Link } from 'react-router-dom';
@@ -12,12 +12,13 @@ const NewsletterSubs = () => {
     e.preventDefault();
 
     try {
-      await subscribedService.postSubscribed({  email });
+      await subscribedService.postSubscribed({ email });
 
       setShowSuccessAlert(true);
       setTimeout(() => {
         setShowSuccessAlert(false);
-      }, 10000);
+        window.location.href = '/';
+      }, 2000);
     } catch (error) {
       console.error('Error en el registro:', error);
       setShowErrorAlert(true);
