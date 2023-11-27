@@ -17,6 +17,15 @@
     font-weight: 700;
     color: white;
 }
+.add-admin-btn{
+    background-color: #FF7900;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
 .admin-map-ul {
     list-style: none;
 }

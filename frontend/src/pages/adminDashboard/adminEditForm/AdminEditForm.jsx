@@ -151,10 +151,9 @@ function AdminEditForm({ activityId }) {
                     <Form.Group className='formGroup'>
                         <Form.Label htmlFor="activity_places">Plazas disponibles</Form.Label>
                         <Form.Control id="activity_places" className="admin-form-input" type="text" {...register('available_places', {
-                            min: 3,
+                            min: 0,
                             max: 30,
                         })}></Form.Control>
-                        {errors.available_places?.type === 'min' && <p>Mínimo 3 plazas disponibles</p>}
                         {errors.available_places?.type === 'max' && <p>Máximo 30 plazas disponibles</p>}
                     </Form.Group>
                     <Form.Group className='formGroup'>
