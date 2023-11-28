@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { Form, Alert } from "react-bootstrap";
@@ -170,7 +168,7 @@ function AdminEditForm({ activityId }) {
                                 <img
                                     src={imagePreview}
                                     alt="Preview"
-                                    style={{ maxWidth: '300px', maxHeight: '300px' }}
+                                    style={{ maxWidth: '18.75rem', maxHeight: '18.75rem' }}
                                 />
                             )}
                             {showErrorAlert && (

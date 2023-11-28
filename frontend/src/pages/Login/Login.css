@@ -12,8 +12,7 @@
   align-items: center;
   height: 100vh;
   width: 80vw;
-  max-width: 400px;
-  border-radius: 1.5vw;
+  max-width: 25rem;
   padding: 5vw;
 }
 .login-container h1 {
@@ -52,12 +51,12 @@
 }
 .register-button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   background-color: #FF7900;
   color: white;
   text-decoration: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 0;
   cursor: pointer;
   transition: background-color 0.3s;
 }
