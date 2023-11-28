@@ -148,7 +148,7 @@ function AdminForm() {
                                 <img
                                     src={imagePreview}
                                     alt="Preview"
-                                    style={{ maxWidth: '300px', maxHeight: '300px' }}
+                                    style={{ maxWidth: '18.75rem', maxHeight: '18.75rem' }}
                                 />
                             )}
                             {showErrorAlert && (
