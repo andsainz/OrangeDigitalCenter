@@ -43,6 +43,10 @@ export const adminsService = {
             throw error;
         }
     },
+    async checkAdminExists(email) {
+        const allAdmins = await this.getAdmins();
+        return allAdmins.some(admin => admin.email === email);
+    },
     async createAdmin(newAdmin) {
         try {
             const token = getToken();

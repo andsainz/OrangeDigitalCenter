@@ -37,7 +37,7 @@ const Navbar = () => {
           {isLoggedIn ? (
             <img src={LogoutIcon} alt="Logout" aria-label="logout-icon"  className="icon-img" onClick={handleLogout} />
           ) : (
-            <img src={LoginIcon} alt="Login" aria-label="login-icon" />
+            <img src={LoginIcon} alt="Login" aria-label="login-icon" className="icon-img" />
           )}
         </Link>
         <GoogleTranslate />

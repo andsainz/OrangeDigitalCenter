@@ -9,6 +9,9 @@
 }
 .admin-list-container {
     width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .admin-list-container h1 {
     text-align: center;
@@ -28,12 +31,14 @@
 }
 .admin-map-ul {
     list-style: none;
+    width: 100%;
 }
 .admin-data-li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    width: auto;
 }
 .admin-list-icon-container {
     justify-content: end;

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
+import { adminsService } from '../../../services/AdminService'
 import "./AddAdminList.css";
 
 const AddAdminModal = ({ show, onHide, onAdd }) => {
@@ -13,20 +15,26 @@ const AddAdminModal = ({ show, onHide, onAdd }) => {
     });
 
     const [passwordsMatch, setPasswordsMatch] = useState(true);
-
+    const [showEmailAlert, setShowEmailAlert] = useState(false);
     const handleInputChange = (field, value) => {
         setNewAdmin((prevAdmin) => ({ ...prevAdmin, [field]: value }));
     };
 
-    const handleAddAdmin = () => {
+    const handleAddAdmin = async () => {
         if (newAdmin.admin_password !== newAdmin.confirm_password) {
             setPasswordsMatch(false);
             return;
         }
-
+    
+        if (await adminsService.checkAdminExists(newAdmin.email)) {
+            setShowEmailAlert(true);
+            return;
+        }
+    
         onAdd(newAdmin);
         onHide();
-    };
+    };    
+
 
     return (
         <Modal show={show} onHide={onHide}>
@@ -101,6 +109,11 @@ const AddAdminModal = ({ show, onHide, onAdd }) => {
                         <option value="false">No</option>
                     </select>
                 </div>
+                {showEmailAlert && (
+                <Alert variant="dark" onClose={() => setShowEmailAlert(false)} dismissible>
+                    Ha habido un error al añadir un administrador.
+                </Alert>
+            )}
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={onHide}>
@@ -115,6 +128,5 @@ const AddAdminModal = ({ show, onHide, onAdd }) => {
             </Modal.Footer>
         </Modal>
     );
-};
-
+}
 export default AddAdminModal;
