@@ -1,6 +1,6 @@
 import { Navbar, Nav } from 'react-bootstrap';
 import './MenuCategories.css';
-import { activitiesService } from '../../../services/ActivitiesService';
+import { activitiesService } from '../../services/ActivitiesService';
 
 const MenuCategories = ({ onCategoryClick }) => {
     const categories = [

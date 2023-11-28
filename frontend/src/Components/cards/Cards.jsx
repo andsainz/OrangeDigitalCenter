@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
 import "./Cards.css";
-import { activitiesService } from "../../../services/ActivitiesService";
+import { activitiesService } from "../../services/ActivitiesService";
 function Cards({
     activity_image,
     activity_title,

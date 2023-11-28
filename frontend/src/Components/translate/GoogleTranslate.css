@@ -5,11 +5,20 @@ img.goog-te-gadget-icon{
 .VIpgJd-ZVi9od-xl07Ob-lTBxed img {
     display: none;
 }
-div#google_translate_element.google{
-    color: white;
-    background-color: black;
-}
 .VIpgJd-ZVi9od-xl07Ob-lTBxed span, .VIpgJd-ZVi9od-xl07Ob-lTBxed a{
     text-decoration: none;
     color: black
+}
+div.goog-te-gadget-simple{
+    border: 3px solid white;
+    background-color: black;
+}
+div.goog-te-gadget-simple span {
+    color: white;
+}
+.VIpgJd-ZVi9od-xl07Ob-lTBxed span {
+    color: white;
+}
+a.VIpgJd-ZVi9od-xl07Ob-lTBxed span {
+    padding: 0.2rem;
 }
