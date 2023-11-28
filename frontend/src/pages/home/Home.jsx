@@ -7,6 +7,7 @@ import SubscriptionBanner from '../../components/banners/SubscriptionBanner';
 import './Home.css';
 import CarouselComponent from '../../components/carousel/Carousel';
 import PopUp from '../../components/popUpSubs/PopUp';
+import DeerAnimation from '../../components/xmasAnimation/DeerAnimation';
 
 function Home() {
     const [activities, setActivities] = useState([]);
@@ -57,6 +58,7 @@ function Home() {
 
     return (
         <div className="home-container">
+            <DeerAnimation/>
             <PopUp />
             <CarouselComponent />
             <MenuCategories onCategoryClick={handleCategoryClick} />
