@@ -13,7 +13,6 @@
   height: 100vh;
   width: 80vw;
   max-width: 25rem;
-  border-radius: 1.5vw;
   padding: 5vw;
 }
 .login-container h1 {
@@ -57,7 +56,7 @@
   color: white;
   text-decoration: none;
   border: none;
-  border-radius: 0.313rem;
+  border-radius: 0;
   cursor: pointer;
   transition: background-color 0.3s;
 }
