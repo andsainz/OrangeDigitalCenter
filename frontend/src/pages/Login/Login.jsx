@@ -84,10 +84,6 @@ const LoginForm = () => {
                         Ha habido un error de inicio de sesión.
                     </Alert>
                 )}
-                <p>¿Aún no tienes cuenta?</p>
-                <Link to="/register" className="register-button">
-                    Regístrate
-                </Link>
             </div>
         </div>
     );

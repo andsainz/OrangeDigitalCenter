@@ -5,7 +5,6 @@ import subscribedRoutes from '../routes/subscribedRoutes'
 import registeredRoutes from '../routes/registerformRoutes'
 import activityRoutes from '../routes/activitiesRoutes'
 import categoryRoutes from '../routes/categoriesRoutes'
-import registerRoutes from '../routes/registerRoutes'
 import loginRoutes from '../routes/loginRoutes'
 import cookieParser from 'cookie-parser'
 
@@ -18,7 +17,6 @@ class Server {
         registered: '/registerform',
         activities: '/activities',
         categories: '/categories',
-        register: '/registration',
         login: '/login'
     }
     private adminRoutes=adminRoutes;
@@ -26,7 +24,6 @@ class Server {
     private registeredRoutes=registeredRoutes;
     private activityRoutes=activityRoutes;
     private categoryRoutes=categoryRoutes;
-    private registerRoutes=registerRoutes;
     private loginRoutes=loginRoutes;
 
     constructor () {
@@ -48,7 +45,6 @@ class Server {
         this.app.use(this.apiPaths.registered, this.registeredRoutes)
         this.app.use(this.apiPaths.activities, this.activityRoutes)
         this.app.use(this.apiPaths.categories, this.categoryRoutes)
-        this.app.use(this.apiPaths.register, this.registerRoutes)
         this.app.use(this.apiPaths.login, this.loginRoutes)
     }
 

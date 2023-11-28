@@ -8,7 +8,6 @@ import RegisterForm from '../pages/registerForm/RegisterForm.jsx';
 import AdminForm from '../pages/adminDashboard/adminForm/AdminForm.jsx';
 import DetailedPage from '../pages/detailedPage/DetailedPage.jsx';
 import AdminHome from '../pages/adminDashboard/adminHome/AdminHome.jsx';
-import AdminRegister from '../pages/adminDashboard/adminRegister/AdminRegister.jsx';
 import AdminEditForm from '../pages/adminDashboard/adminEditForm/AdminEditForm.jsx';
 import AdminList from '../pages/adminDashboard/adminList/AdminList.jsx';
 import PrivacyPolicy from '../pages/privacyPolicy/PrivacyPolicy.jsx';
@@ -42,10 +41,6 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginForm />,
-      },
-      {
-        path: '/register',
-        element: <AdminRegister />,
       },
       {
         path: '/privacypolicy',

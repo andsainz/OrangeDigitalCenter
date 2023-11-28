@@ -24,6 +24,10 @@ describe("Admin Controller - Admin Routes", () => {
         jest.clearAllMocks();
     });
 
+    afterAll(async () => {
+        await mockedSequelize.close();
+    });
+
     it("should respond with a list of admins", async () => {
         const admins = [
             {
