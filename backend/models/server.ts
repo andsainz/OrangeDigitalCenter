@@ -1,14 +1,30 @@
 import express, { Application } from 'express'
-import userRoutes from '../routes/usersRoutes'
 import cors from 'cors'
+import adminRoutes from '../routes/adminsRoutes'
+import subscribedRoutes from '../routes/subscribedRoutes'
+import registeredRoutes from '../routes/registerformRoutes'
+import activityRoutes from '../routes/activitiesRoutes'
+import categoryRoutes from '../routes/categoriesRoutes'
+import loginRoutes from '../routes/loginRoutes'
+import cookieParser from 'cookie-parser'
 
 class Server {
-    private app: Application;
+    public app: Application;
     private port: string | number;
     private apiPaths = {
-        users: '/api/users'
+        admins: '/admins',
+        subscribed: '/newsletter',
+        registered: '/registerform',
+        activities: '/activities',
+        categories: '/categories',
+        login: '/login'
     }
-    private userRoutes = userRoutes; 
+    private adminRoutes=adminRoutes;
+    private subscribedRoutes=subscribedRoutes;
+    private registeredRoutes=registeredRoutes;
+    private activityRoutes=activityRoutes;
+    private categoryRoutes=categoryRoutes;
+    private loginRoutes=loginRoutes;
 
     constructor () {
         this.app = express()
@@ -18,12 +34,18 @@ class Server {
     }
 
     middlewares() {
-        this.app.use(cors())
+        this.app.use(cors());
+        this.app.use(cookieParser())
         this.app.use(express.json())
     }
 
     routes() {
-        this.app.use(this.apiPaths.users, this.userRoutes)
+        this.app.use(this.apiPaths.admins, this.adminRoutes)
+        this.app.use(this.apiPaths.subscribed, this.subscribedRoutes)
+        this.app.use(this.apiPaths.registered, this.registeredRoutes)
+        this.app.use(this.apiPaths.activities, this.activityRoutes)
+        this.app.use(this.apiPaths.categories, this.categoryRoutes)
+        this.app.use(this.apiPaths.login, this.loginRoutes)
     }
 
     listen() {

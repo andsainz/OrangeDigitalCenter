@@ -1,0 +1,19 @@
+.add-admin-list-body{
+    margin-top: 0.5rem;
+}
+
+.add-admin-input{
+    margin-left: 0.5rem;
+}
+
+.alert-message{
+    color: #ff7900;
+}
+
+.add-newadmin-btn{
+    padding: 0.35rem;
+    cursor: pointer;
+    border: none;
+    background-color: #ff7900; 
+    color: #fff;
+}

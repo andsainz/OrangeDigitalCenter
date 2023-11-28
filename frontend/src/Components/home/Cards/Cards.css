@@ -1,0 +1,20 @@
+.card-section.card {
+    border-radius: 0;
+    border: 0.2rem solid white;
+}
+
+.date-time-container {
+    display: flex;
+    flex-wrap: wrap;
+    color: #F16E00;
+    font-weight: bold;
+    font-size: 1rem; 
+}
+
+.read-more-btn {
+    border: 0.2rem solid black;
+    background-color: white;
+    padding: 0.3rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
