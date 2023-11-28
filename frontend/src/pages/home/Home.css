@@ -1,0 +1,20 @@
+.home-container{
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+.cards-container {
+    justify-content: center;
+    width: 90vw;
+  }
+  .container-father {
+    display: flex;
+    justify-content: center;
+  }
+.category-not-found-error{
+  color: white;
+  font-size: 1.2rem;
+}
+  

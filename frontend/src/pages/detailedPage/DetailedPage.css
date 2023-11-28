@@ -1,0 +1,90 @@
+.detailed-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 3rem;
+}
+.detailed-category-container{
+    width: 100vw;
+    padding: 2rem 0;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-align: center;
+    
+}
+.detailed-container img {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: auto;
+    height: 50vh;
+    object-fit: contain;
+}
+.detailed-card{
+    width: 70vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.detailed-date-time-container, .detailed-available-places {
+    color: #F16E00;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+}
+.space-between-date-time{
+    width: 2vw;
+    height: 3vh;
+}
+
+.span-available-places {
+    color: black;
+}
+
+.detailed-title {
+    color: #F16E00;
+    font-weight: bolder;
+    border-bottom: 0.2rem solid #F16E00;
+}
+.activity-long-description-txt{
+    text-align: justify;
+}
+.detailed-card-left{
+    margin-left: 2rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sign-up-activity-btn{
+    background-color: white;
+    border: 0.2rem solid black;
+    text-transform: uppercase;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: bolder;
+    margin-top: 1rem;
+}
+.bottom-detailed-card-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8vh;
+}
+
+.qr-sign-up-container {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.qr-sign-up-btn-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

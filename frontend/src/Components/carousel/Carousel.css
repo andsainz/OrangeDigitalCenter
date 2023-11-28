@@ -1,0 +1,20 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.discover-btn {
+  background-color: #FF7900;
+  color: white;
+  text-decoration: none;
+  padding: 0.2rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border:0.1em solid white;
+}
+
+@media (max-width: 768px) {
+  .discover-btn {
+    padding: 0.3em 1em;
+    font-size: 0.5rem;
+  }
+}

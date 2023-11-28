@@ -1,0 +1,94 @@
+.admin-list-wrap-container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+}
+.admin-list-container {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin-list-container h1 {
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+    color: white;
+}
+.add-admin-btn{
+    background-color: #FF7900;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+.admin-map-ul {
+    list-style: none;
+    width: 100%;
+}
+.admin-data-li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: auto;
+}
+.admin-list-icon-container {
+    justify-content: end;
+}
+.admin-data-text {
+    display: flex;
+    width: 80%;
+}
+.admin-data-text-space {
+    width: 3%;
+}
+.admin-data-text-row{
+    margin: 0 0.5rem;
+}
+.icon-edit {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+}
+.icon-delete {
+    width: 2rem;
+    height: 2rem;
+}
+.save-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.admin-data-text-fixed {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ff7900;
+    margin-right: 0.5rem;
+}
+.admin-data-input {
+    margin-right: 0.5rem;
+    height: 2rem;
+    color: rgb(57, 57, 57);
+}
+
+@media (max-width: 990px) {
+    .admin-data-li{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+    .admin-data-text{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
