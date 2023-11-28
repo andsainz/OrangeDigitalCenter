@@ -3,6 +3,7 @@ import ArrowHome from '../../assets/icons/user_home_icon.svg';
 import HomeIcon from '../../assets/icons/home_icon.svg';
 import LoginIcon from '../../assets/icons/login_icon.svg';
 import LogoutIcon from '../../assets/icons/logout_icon.svg';
+import GoogleTranslate from '../translate/GoogleTranslate'
 import './Navbar.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
@@ -39,6 +40,7 @@ const Navbar = () => {
             <img src={LoginIcon} alt="Login" aria-label="login-icon" />
           )}
         </Link>
+        <GoogleTranslate />
       </div>
     </nav>
   );
