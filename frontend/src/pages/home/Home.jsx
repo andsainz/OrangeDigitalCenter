@@ -8,6 +8,7 @@ import './Home.css';
 import CarouselComponent from '../../components/carousel/Carousel';
 import PopUp from '../../components/popUpSubs/PopUp';
 import DeerAnimation from '../../components/xmasAnimation/DeerAnimation';
+import SnowmanAnimation from "../../components/xmasAnimation/SnowmanAnimation"
 
 function Home() {
     const [activities, setActivities] = useState([]);
@@ -59,6 +60,7 @@ function Home() {
     return (
         <div className="home-container">
             <DeerAnimation/>
+            <SnowmanAnimation/>
             <PopUp />
             <CarouselComponent />
             <MenuCategories onCategoryClick={handleCategoryClick} />

@@ -1,8 +1,8 @@
-import Deer from '../../assets/christmasAnimations/deer.png'
-import './DeerAnimation.css';
+import snowman from "../../assets/christmasAnimations/snowman.png"
+import './SnowmanAnimation.css';
 import React, { useState, useEffect } from 'react';
 
-function DeerAnimation() {
+function SnowmanAnimation() {
     const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
@@ -17,8 +17,10 @@ function DeerAnimation() {
         return null;
     }
     return (
-        <img src={Deer} alt="Animación reno" className='deer-img' />
+        <div className='snowman-animation-container'>
+            <img src={snowman} alt="Animación muñeco de nieve" className='snowman-img' />
+        </div>
     );
 }
 
-export default DeerAnimation;
+export default SnowmanAnimation;
