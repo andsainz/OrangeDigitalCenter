@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { activitiesService } from "../../services/ActivitiesService";
 import './DetailedPage.css'
 import QRCode from 'qrcode.react';
+import GingerAnimation from "../../components/xmasAnimation/GingerAnimation";
+import SockAnimation from "../../components/xmasAnimation/SockAnimation";
 
 function DetailedPage() {
     const [activity, setActivity] = useState(null);
@@ -32,6 +34,8 @@ function DetailedPage() {
 
     return (
         <div className="detailed-container">
+            <GingerAnimation/>
+            <SockAnimation/>
             <div className="detailed-category-container">{activity.category_name}</div>
             <div className="detailed-card">
                 <div className="detailed-date-time-container">

@@ -4,6 +4,7 @@ import "./RegisterForm.css";
 import { FormService } from "../../services/FormService";
 import { Alert } from "react-bootstrap";
 import PopUpRegisterForm from "../../components/popUpSubs/PopUpRegisterForm"
+import SantaClausAnimation from "../../components/xmasAnimation/SantaClausAnimation";
 
 const RegisterForm = () => {
     const [formSubmitted, setFormSubmitted] = useState(false);
@@ -55,6 +56,7 @@ const RegisterForm = () => {
     return (
         <>
             <div className="form-container" aria-label="register-form">
+                <SantaClausAnimation/>
                 <div className="form-content">
                     <div className="field-container">
                         <h2>

@@ -1,0 +1,30 @@
+@keyframes slideDownRightFade {
+    0% {
+        transform: translateY(-100%) translateX(100%);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%) translateX(-100%);
+        opacity: 0;
+    }
+}
+
+.happyholidays-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: visible;
+}
+
+.happyholidays-img {
+    animation: slideDownRightFade 10s forwards;
+}

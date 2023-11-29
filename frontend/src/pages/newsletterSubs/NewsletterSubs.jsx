@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './NewsletterSubs.css';
 import { subscribedService } from '../../services/SubscribedService';
 import { Link } from 'react-router-dom';
+import HappyHolidaysAnimation from "../../components/xmasAnimation/HappyHolidaysAnimation"
 
 const NewsletterSubs = () => {
   const [email, setEmail] = useState('');
@@ -29,6 +30,8 @@ const NewsletterSubs = () => {
   };
 
   return (
+    <div>
+      <HappyHolidaysAnimation/>
     <form className="register-form" aria-label="newsletter-form" onSubmit={handleRegisterSubmit}>
       <h1>Recibe nuestra<br />newsletter</h1>
 
@@ -65,6 +68,7 @@ const NewsletterSubs = () => {
         )}
       </div>
     </form>
+    </div>
   );
 };
 
