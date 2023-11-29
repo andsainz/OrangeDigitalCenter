@@ -29,3 +29,8 @@
     animation: slideDownFade 6s forwards;
 }
 
+@media (max-width: 900px) {
+    img.xmasginger-img{
+        width: 20vw;
+    }
+  }

@@ -17,7 +17,6 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 20%;
     height: auto;
     display: flex;
     align-items: flex-end;
@@ -28,3 +27,8 @@
 .santaclaus-img {
     animation: slideUpFade 6s forwards;
 }
+@media (max-width: 900px) {
+    img.santaclaus-img{
+        width: 30vw;
+    }
+  }

@@ -15,5 +15,10 @@
 
 .deer-img {
     animation: slideDownFade 6s forwards;
-    z-index: 1;
 }
+@media (max-width: 900px) {
+    .deer-img{
+        width: 30%;
+    }
+  }
+  

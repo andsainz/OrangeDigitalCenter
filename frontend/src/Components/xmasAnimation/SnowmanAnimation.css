@@ -7,7 +7,5 @@
 
 .snowman-img {
     animation: slideDownFade 6s forwards;
-    position: absolute;
     right: 0;
-    z-index: 1;
 }

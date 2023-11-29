@@ -16,9 +16,8 @@
 .xmassock-wrapper {
     position: fixed;
     top: 0;
-    right: 0; /* Cambiado de bottom: 0 a right: 0 */
-    width: auto; /* Cambiado de width: 20%; a width: auto; */
-    height: 100%;
+    right: 0;
+    width: auto;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -28,3 +27,8 @@
 .xmassock-img {
     animation: slideRightFade 6s forwards;
 }
+@media (max-width: 900px) {
+    img.xmassock-img{
+        width: 15vw;
+    }
+  }
