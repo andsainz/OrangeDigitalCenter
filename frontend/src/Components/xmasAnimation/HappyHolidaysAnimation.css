@@ -12,16 +12,18 @@
         opacity: 0;
     }
 }
-
 div.happyholidays-wrapper {
     position: fixed;
     display: flex;
+    bottom: 10vh;
+    left: 0;
+    height: auto;
     align-items: flex-end;
     overflow: visible;
 }
 
 .happyholidays-img {
-    animation: slideUpFade 5s forwards;
+    animation: slideUpFade 6s forwards;
 }
 
 @media (max-width: 900px) {
