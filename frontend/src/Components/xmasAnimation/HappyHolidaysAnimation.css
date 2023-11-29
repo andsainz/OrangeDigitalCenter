@@ -16,7 +16,7 @@ div.happyholidays-wrapper {
     position: fixed;
     display: flex;
     bottom: 10vh;
-    left: 0;
+    right: 0;
     height: auto;
     align-items: flex-end;
     overflow: visible;
