@@ -1,4 +1,8 @@
-# Final Project Bootcamp Factoria F5 - Orange Digital Center
+# Final Project - Orange Digital Center
+![Imagen proyecto](https://pbs.twimg.com/media/GAHz_MkXYAAC5tb?format=jpg&name=large)
+![Imagen proyecto](https://pbs.twimg.com/media/GAHzVxFWEAAMnEo?format=jpg&name=large)
+
+
 
 ## Overview
 
@@ -10,9 +14,9 @@ The interface is designed so that users can view all activities and sign up for 
 
 ## Development Team
 
-- **Andrea Sainz - Scrum Master & Fullstack Developer**
+- **Cynthia Álvarez - Product Owner, Fullstack Developer, QA Tester**
 
-- **Cynthia Álvarez - Product Owner, Backend Developer & QA Tester**
+- **Andrea Sainz - Scrum Master, Fullstack Developer**
 
 - **Jaime Martínez - Frontend Developer**
 
@@ -154,18 +158,9 @@ npm run test
 
 ## License
 
-The Orange Digital Center project is distributed under the following license:
+The Orange Digital Center project is distributed under the ISC License.
 
-### ISC License (Internet Systems Consortium)
+#### This project has been done by F5 coders and Orange Digital Center as a customer.
+![Imagen proyecto](https://pbs.twimg.com/media/GAHzVxEXcAAlLN2?format=jpg&name=large)
 
-The project is licensed under the ISC License, a very permissive and open source free software license comparable to the MIT license. The ISC License permits the use, copying, modification, and distribution of the software, both in source code and compiled forms, with or without modifications, free of charge or commercially.
-
-### License Summary
-
-- **Permission to Use, Copy, Modify, and Distribute**: Commercial and private use, modification, distribution, and sublicensing of the software is permitted.
-- **No Warranty**: The software is provided "as is" without warranty of any kind.
-- **Keep Copyright Notice**: You must include the original copyright notice and this permission on any copy of the software.
-
-This project has been done by F5 coders and Orange Digital Center as a customer.
-
-### Thank you all
+Thank you all.
