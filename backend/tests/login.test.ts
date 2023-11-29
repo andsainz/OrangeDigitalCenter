@@ -18,7 +18,7 @@ describe('POST /login', () => {
             const admin = await AdminModel.create({
                 id: "mocked-uuid",
                 fullName: 'Admin Name',
-                email: 'admin@gmail.com',
+                email: 'test@gmail.com',
                 admin_password: 'hashedPassword',
                 isAdmin: true
             });
