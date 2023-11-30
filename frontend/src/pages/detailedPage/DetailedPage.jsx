@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom';
 import { activitiesService } from "../../services/ActivitiesService";
 import './DetailedPage.css'
 import QRCode from 'qrcode.react';
-import GingerAnimation from "../../components/xmasAnimation/GingerAnimation";
-import SockAnimation from "../../components/xmasAnimation/SockAnimation";
+
 function DetailedPage() {
     const [activity, setActivity] = useState(null);
     const { activity_id } = useParams();
