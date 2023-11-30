@@ -33,13 +33,4 @@ describe("Newsletter", () => {
         const receiveNewsletterButton = screen.getByText("Recibir newsletter");
         expect(receiveNewsletterButton).toBeInTheDocument();
     });
-    test("renders receive newsletter button correctly", () => {
-        render(
-            <Router>
-                <NewsletterSubs />
-            </Router>
-        );
-        const receiveNewsletterButton = screen.getByText("Recibir newsletter");
-        expect(receiveNewsletterButton).toBeInTheDocument();
-    });
 });
