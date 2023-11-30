@@ -25,7 +25,7 @@ function DetailedPage() {
         fetchActivity();
     }, [activity_id]);
     if (!activity) {
-        return <div>Loading...</div>;
+        return <div className="loading-text">Loading...</div>;
     }
 
     const activityContentList = activity.activity_content.split('.').map((item, index) => (

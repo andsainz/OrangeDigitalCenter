@@ -2,7 +2,16 @@
     border-radius: 0;
     border: 0.2rem solid white;
 }
-
+div.card-body{
+    height: 17rem;
+}
+.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .date-time-container {
     display: flex;
     flex-wrap: wrap;
