@@ -30,8 +30,6 @@ function DetailedPage() {
     ));
     return (
         <div className="detailed-container">
-            <GingerAnimation/>
-            <SockAnimation/>
             <div className="detailed-category-container">{activity.category_name}</div>
             <div className="detailed-card">
                 <div className="detailed-date-time-container">
